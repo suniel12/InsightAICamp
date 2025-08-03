@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { 
   Zap, 
   Target, 
@@ -171,6 +172,8 @@ const CareerQuiz = () => {
 const LandingPage = () => {
   const [email, setEmail] = useState('');
   const [seatsRemaining, setSeatsRemaining] = useState(47);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
 
   // Simulate live activity
   useEffect(() => {
@@ -204,10 +207,10 @@ const LandingPage = () => {
           {/* Main Content */}
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Launch Your $100K+ Career in AI Infrastructure
+              Launch Your Six-Figure Career in Hyperscale Infrastructure
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Join 500 Elite Specialists Powering the AI Revolution. 90% Job Placement Guarantee.
+              Join an elite cohort of specialists powering the global AI and Cloud revolution. 90% Placement Rate into mission-critical roles.
             </p>
 
             {/* Value Props Grid */}
@@ -247,12 +250,12 @@ const LandingPage = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 h-14 text-lg"
                 />
-                <Button className="btn-hero h-14 px-8">
-                  Claim My Spot - Only {seatsRemaining} Left
+                <Button className="btn-hero h-14 px-8" onClick={() => setShowQuiz(true)}>
+                  Claim Your Spot & Start Assessment
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground">
-                No payment required. Get instant access to our career assessment.
+                No payment required. Next cohort begins September 15th.
               </p>
             </div>
 
@@ -263,9 +266,22 @@ const LandingPage = () => {
                 <span>Maria from Austin just enrolled 3 minutes ago</span>
               </div>
               <div className="flex items-center gap-4">
-                <span>AWS Partner</span>
+                <span>Our Graduates Build the Backbone of AI at Companies Like:</span>
+              </div>
+              <div className="flex items-center gap-4 text-xs">
+                <span>AWS</span>
                 <span>•</span>
-                <span>NVIDIA Certified</span>
+                <span>Google</span>
+                <span>•</span>
+                <span>Microsoft</span>
+                <span>•</span>
+                <span>Meta</span>
+                <span>•</span>
+                <span>Oracle</span>
+                <span>•</span>
+                <span>OpenAI</span>
+                <span>•</span>
+                <span>Anthropic</span>
               </div>
             </div>
           </div>
@@ -289,35 +305,32 @@ const LandingPage = () => {
       <section className="py-20 bg-gradient-to-r from-primary/10 to-accent/10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            The $1 Trillion Skills Gap You're Perfectly Positioned to Fill
+            The Multi-Trillion Dollar Skills Gap You're Positioned to Fill
           </h2>
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-12">
+            While traditional IT roles face automation, a new class of infrastructure specialist is in critical demand.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="stat-card">
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                $<AnimatedCounter end={1000} suffix="B" />
+                $<AnimatedCounter end={2100} suffix="B" />
               </div>
-              <p className="text-muted-foreground">Global Data Center Market by 2034</p>
+              <p className="text-muted-foreground">Global Data Center Market by 2030</p>
             </div>
             <div className="stat-card">
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">
                 <AnimatedCounter end={73} suffix="%" />
               </div>
-              <p className="text-muted-foreground">Of Companies Report Skilled Labor Shortage</p>
+              <p className="text-muted-foreground">Of Operators Report a Critical Skills Shortage</p>
             </div>
             <div className="stat-card">
               <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
-                <AnimatedCounter end={347} suffix="%" />
+                <AnimatedCounter end={300} suffix="%" />
               </div>
-              <p className="text-muted-foreground">Salary Premium for Specialized Skills</p>
+              <p className="text-muted-foreground">Salary Premium for Mission-Critical Skills</p>
             </div>
           </div>
-
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            While traditional IT workers compete for stagnant roles, a new category of infrastructure 
-            specialists command premium salaries. The explosion of AI has created unprecedented demand 
-            for professionals who understand both power systems and computing architecture.
-          </p>
         </div>
       </section>
 
@@ -326,8 +339,11 @@ const LandingPage = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Master Three Pillars. Command Any Data Center.
+              Master Three Pillars. Command Any Hyperscale Facility.
             </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-12">
+              Our curriculum is reverse-engineered from the job descriptions of top tech companies.
+            </p>
           </div>
 
           <Tabs defaultValue="power" className="max-w-6xl mx-auto">
@@ -354,8 +370,8 @@ const LandingPage = () => {
                       <Zap className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">High-Voltage Power Systems</CardTitle>
-                      <p className="text-muted-foreground">Master the electrical backbone of AI infrastructure</p>
+                      <CardTitle className="text-2xl">1. Mission-Critical Power</CardTitle>
+                      <p className="text-muted-foreground">Master the high-voltage electrical backbone of gigawatt-scale data centers.</p>
                     </div>
                   </div>
                 </CardHeader>
@@ -363,23 +379,19 @@ const LandingPage = () => {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Substation Operations & Maintenance</span>
+                      <span>High-Voltage Substation Operations</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>480V 3-Phase Power Distribution</span>
+                      <span>UPS Systems & N+1/2N Redundancy</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>UPS Systems & Redundancy (N+1, 2N)</span>
+                      <span>BMS & EPMS Control Systems</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Generator Integration & Transfer Switching</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Arc Flash Safety & NFPA 70E Certification</span>
+                      <span>Arc Flash Safety & NFPA 70E</span>
                     </li>
                   </ul>
                   <Badge className="mt-4 bg-accent text-accent-foreground">
@@ -397,8 +409,8 @@ const LandingPage = () => {
                       <Thermometer className="w-8 h-8 text-accent-foreground" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">Advanced Liquid Cooling</CardTitle>
-                      <p className="text-muted-foreground">Next-generation thermal management for AI workloads</p>
+                      <CardTitle className="text-2xl">2. Advanced Cooling</CardTitle>
+                      <p className="text-muted-foreground">Become an expert in the liquid cooling technologies required for high-density AI clusters.</p>
                     </div>
                   </div>
                 </CardHeader>
@@ -406,23 +418,19 @@ const LandingPage = () => {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Direct-to-Chip Cooling Fundamentals</span>
+                      <span>Direct-to-Chip & Immersion Cooling</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Immersion Cooling Technologies</span>
+                      <span>Coolant Distribution Unit (CDU) Management</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Coolant Chemistry & Fluid Dynamics</span>
+                      <span>PLC Programming for HVAC Controls</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>CDU Operations & Maintenance</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Thermal Design & Heat Rejection</span>
+                      <span>ASHRAE Standards & Water Management</span>
                     </li>
                   </ul>
                   <Badge className="mt-4 bg-accent text-accent-foreground">
@@ -440,8 +448,8 @@ const LandingPage = () => {
                       <Server className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">AI Compute Infrastructure</CardTitle>
-                      <p className="text-muted-foreground">Manage the world's most powerful computing systems</p>
+                      <CardTitle className="text-2xl">3. Production Operations</CardTitle>
+                      <p className="text-muted-foreground">Manage the server fleets that run the world's largest AI and cloud platforms.</p>
                     </div>
                   </div>
                 </CardHeader>
@@ -449,23 +457,19 @@ const LandingPage = () => {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>NVIDIA DGX Architecture & Administration</span>
+                      <span>Linux System Administration at Scale</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>InfiniBand Networking Fundamentals</span>
+                      <span>Python & Shell Scripting for Automation</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>GPU Cluster Configuration</span>
+                      <span>Server Hardware & GPU Diagnostics</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Performance Monitoring & Optimization</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent" />
-                      <span>Troubleshooting AI Workloads</span>
+                      <span>Network Infrastructure & Deployment</span>
                     </li>
                   </ul>
                   <Badge className="mt-4 bg-accent text-accent-foreground">
@@ -483,8 +487,9 @@ const LandingPage = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              From Where You Are to Where You Want to Be
+              From Where You Are to a Mission-Critical Career
             </h2>
+            <p className="text-lg text-muted-foreground">Our alumni have successfully transitioned from diverse backgrounds.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -499,7 +504,7 @@ const LandingPage = () => {
                   />
                   <div>
                     <h3 className="font-semibold">Marcus Chen</h3>
-                    <p className="text-sm text-muted-foreground">Network Admin → Meta Lead</p>
+                    <p className="text-sm text-muted-foreground">Network Admin → Lead Infrastructure Engineer</p>
                   </div>
                 </div>
                 <div className="mb-4">
@@ -512,8 +517,8 @@ const LandingPage = () => {
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
-                  "My networking knowledge gave me an edge, but the power and cooling training 
-                  made me indispensable."
+                  "My networking knowledge gave me an edge, but the power and automation training 
+                  made me indispensable at a top cloud provider."
                 </p>
               </CardContent>
             </Card>
@@ -529,7 +534,7 @@ const LandingPage = () => {
                   />
                   <div>
                     <h3 className="font-semibold">Sarah Rodriguez</h3>
-                    <p className="text-sm text-muted-foreground">Air Force → AWS Engineer</p>
+                    <p className="text-sm text-muted-foreground">Air Force Veteran → Critical Facility Engineer</p>
                   </div>
                 </div>
                 <div className="mb-4">
@@ -542,7 +547,7 @@ const LandingPage = () => {
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
-                  "The military taught me mission-critical thinking. Gigawatt taught me how to 
+                  "The military taught me mission-critical thinking. Gigawatt Academy taught me how to 
                   apply it to billion-dollar infrastructure."
                 </p>
               </CardContent>
@@ -559,7 +564,7 @@ const LandingPage = () => {
                   />
                   <div>
                     <h3 className="font-semibold">James Thompson</h3>
-                    <p className="text-sm text-muted-foreground">Retail → Google Tech</p>
+                    <p className="text-sm text-muted-foreground">Electrician → Data Center Engineering Ops</p>
                   </div>
                 </div>
                 <div className="mb-4">
@@ -572,8 +577,8 @@ const LandingPage = () => {
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
-                  "I thought tech was out of reach. The ISA meant I could take the leap 
-                  without the risk."
+                  "I thought my career had a ceiling. The ISA meant I could upskill 
+                  without financial risk and double my income."
                 </p>
               </CardContent>
             </Card>
@@ -646,7 +651,8 @@ const LandingPage = () => {
         <div className="container mx-auto px-6">
           <Card className="card-glow max-w-4xl mx-auto text-center">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold mb-6">September 2025 Cohort Status</h2>
+              <h2 className="text-3xl font-bold mb-6">Your Future in Hyperscale Infrastructure Starts Now.</h2>
+              <p className="text-lg text-muted-foreground mb-6">The September 2025 cohort is filling quickly. Secure your spot to lock in Early Bird pricing.</p>
               
               <div className="mb-6">
                 <div className="flex justify-center mb-4">
@@ -666,19 +672,19 @@ const LandingPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Early Bird Pricing</h3>
-                  <p className="text-3xl font-bold text-accent">Save $2,000</p>
-                  <p className="text-sm text-muted-foreground">Expires in 72 hours</p>
+                  <h3 className="text-lg font-semibold mb-2">Early Bird Pricing Ends September 1st</h3>
+                  <p className="text-3xl font-bold text-accent">Save $5,000</p>
+                  <p className="text-sm text-muted-foreground">+ Get a Free NVIDIA Certification</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Bonus Included</h3>
+                  <h3 className="text-lg font-semibold mb-2">Bonus Value</h3>
                   <p className="text-3xl font-bold text-secondary">$300 Value</p>
-                  <p className="text-sm text-muted-foreground">Free NVIDIA Certification</p>
+                  <p className="text-sm text-muted-foreground">NVIDIA Certification Included</p>
                 </div>
               </div>
 
               <Button className="btn-hero text-lg px-12 py-4">
-                Secure Your Spot Now
+                Start Your Application
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </CardContent>
@@ -775,6 +781,109 @@ const LandingPage = () => {
           </p>
         </div>
       </section>
+
+      {/* Career Quiz Modal */}
+      <Dialog open={showQuiz} onOpenChange={setShowQuiz}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
+          <DialogHeader>
+            <DialogTitle>Career Discovery Assessment</DialogTitle>
+          </DialogHeader>
+          <CareerQuiz />
+        </DialogContent>
+      </Dialog>
+
+      {/* How It Works Modal */}
+      <Dialog open={showHowItWorks} onOpenChange={setShowHowItWorks}>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-auto">
+          <DialogHeader>
+            <DialogTitle className="text-3xl mb-6">How It Works: Our 3-Phase Placement Program</DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-8">
+            <p className="text-lg text-muted-foreground">
+              Our 90-94% placement rate is the result of a systematic program co-developed with our hiring partners. We invest in you at every step.
+            </p>
+
+            {/* Phase 1 */}
+            <Card className="card-glow">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary-foreground">1</span>
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">Phase 1: AI-Powered Adaptive Learning</CardTitle>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  We use adaptive learning technology to create a personalized educational path for you. The AI assesses your performance in real-time, adjusting content and pace to ensure you master the foundational skills, regardless of your starting point.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Phase 2 */}
+            <Card className="card-glow">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-secondary rounded-lg flex items-center justify-center">
+                    <span className="text-2xl font-bold text-accent-foreground">2</span>
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">Phase 2: Industry Co-Developed Curriculum</CardTitle>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The curriculum is co-designed and continuously updated with our partners at leading tech companies. You learn the exact technical skills and knowledge that employers are actively seeking, from high-voltage power systems to liquid cooling and Python automation.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Phase 3 */}
+            <Card className="card-glow">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary-foreground">3</span>
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">Phase 3: Onsite Training with Partner Companies</CardTitle>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The final phase is immersive, hands-on training at a partner company's facility. This serves as an extended interview, allowing you to apply your skills in a real-world environment and build connections. Many participants receive job offers directly from their host company.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Comprehensive Career Support */}
+            <Card className="card-glow">
+              <CardHeader>
+                <CardTitle className="text-2xl">Comprehensive Career Support</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h4 className="font-semibold mb-2">Dedicated Career Coaching:</h4>
+                  <p className="text-muted-foreground">Get 1-on-1 coaching to prepare for interviews, build confidence, and navigate your job search.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Professional Development:</h4>
+                  <p className="text-muted-foreground">Access workshops on LinkedIn optimization, resume development, and professional networking, including mock interviews with industry managers.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2">Direct Employer Connections:</h4>
+                  <p className="text-muted-foreground">Skip the job boards. We provide direct introductions to our hiring partner network through exclusive panels and matchmaking events.</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
