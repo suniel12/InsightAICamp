@@ -14,7 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          answers: Json | null
+          created_at: string
+          education_history: Json | null
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          resume_url: string | null
+          updated_at: string
+          work_history: Json | null
+        }
+        Insert: {
+          answers?: Json | null
+          created_at?: string
+          education_history?: Json | null
+          email: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          resume_url?: string | null
+          updated_at?: string
+          work_history?: Json | null
+        }
+        Update: {
+          answers?: Json | null
+          created_at?: string
+          education_history?: Json | null
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          resume_url?: string | null
+          updated_at?: string
+          work_history?: Json | null
+        }
+        Relationships: []
+      }
+      waitlist: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          status?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
