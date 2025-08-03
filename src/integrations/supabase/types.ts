@@ -16,60 +16,101 @@ export type Database = {
     Tables: {
       applications: {
         Row: {
-          answers: Json | null
+          application_status: string
           created_at: string
+          current_location: string | null
           education_history: Json | null
-          email: string
-          full_name: string
+          essay_answers: Json | null
+          full_name: string | null
+          github_profile_url: string | null
           id: string
-          phone: string | null
+          linkedin_profile_url: string | null
+          personal_website_url: string | null
+          phone_number: string | null
           resume_url: string | null
+          selected_persona: string | null
+          submitted_at: string | null
+          technical_skills: string | null
           updated_at: string
+          user_id: string
+          waitlist_id: string | null
+          work_authorization_status: string | null
           work_history: Json | null
         }
         Insert: {
-          answers?: Json | null
+          application_status?: string
           created_at?: string
+          current_location?: string | null
           education_history?: Json | null
-          email: string
-          full_name: string
+          essay_answers?: Json | null
+          full_name?: string | null
+          github_profile_url?: string | null
           id?: string
-          phone?: string | null
+          linkedin_profile_url?: string | null
+          personal_website_url?: string | null
+          phone_number?: string | null
           resume_url?: string | null
+          selected_persona?: string | null
+          submitted_at?: string | null
+          technical_skills?: string | null
           updated_at?: string
+          user_id: string
+          waitlist_id?: string | null
+          work_authorization_status?: string | null
           work_history?: Json | null
         }
         Update: {
-          answers?: Json | null
+          application_status?: string
           created_at?: string
+          current_location?: string | null
           education_history?: Json | null
-          email?: string
-          full_name?: string
+          essay_answers?: Json | null
+          full_name?: string | null
+          github_profile_url?: string | null
           id?: string
-          phone?: string | null
+          linkedin_profile_url?: string | null
+          personal_website_url?: string | null
+          phone_number?: string | null
           resume_url?: string | null
+          selected_persona?: string | null
+          submitted_at?: string | null
+          technical_skills?: string | null
           updated_at?: string
+          user_id?: string
+          waitlist_id?: string | null
+          work_authorization_status?: string | null
           work_history?: Json | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "applications_waitlist_id_fkey"
+            columns: ["waitlist_id"]
+            isOneToOne: true
+            referencedRelation: "waitlist"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       waitlist: {
         Row: {
           created_at: string
           email: string
           id: string
+          source: string | null
           status: string | null
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
+          source?: string | null
           status?: string | null
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
+          source?: string | null
           status?: string | null
         }
         Relationships: []
@@ -79,7 +120,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_my_claim: {
+        Args: { claim_name: string }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
