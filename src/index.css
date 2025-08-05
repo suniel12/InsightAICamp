@@ -193,7 +193,7 @@ All colors MUST be HSL for proper theming.
   }
   
   .stat-card {
-    @apply text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/30;
+    @apply text-center p-8 rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 shadow-card;
   }
 }
 
