@@ -34,14 +34,14 @@ const ApplicationPage = () => {
                   />
                 </div>
                 <span className="font-semibold text-lg" style={{ color: '#1F5F5F' }}>
-                  InsightPath Gigafactory Academy
+                  InsightPath GigaWatt Academy
                 </span>
               </div>
             </div>
 
-            {/* Help/Contact */}
-            <div className="text-sm text-muted-foreground">
-              Need help? <a href="mailto:admissions@insightpath.com" className="text-primary hover:underline">Contact us</a>
+            {/* Academy Name */}
+            <div className="text-lg font-semibold" style={{ color: '#1F5F5F' }}>
+              GigaWatt Academy
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const ApplicationPage = () => {
       <main className="container mx-auto px-6 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Apply to Gigawatt Academy
+            Apply to GigaWatt Academy
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Take the first step towards your six-figure career in AI infrastructure. 
@@ -68,7 +68,7 @@ const ApplicationPage = () => {
       <footer className="border-t border-border/30 bg-card/30 mt-24">
         <div className="container mx-auto px-6 py-8">
           <div className="text-center text-sm text-muted-foreground">
-            <p className="mb-2">© 2024 InsightPath Gigafactory Academy. All rights reserved.</p>
+            <p className="mb-2">© 2024 InsightPath GigaWatt Academy. All rights reserved.</p>
             <p>
               Questions about the application process? 
               <a href="mailto:admissions@insightpath.com" className="text-primary hover:underline ml-1">

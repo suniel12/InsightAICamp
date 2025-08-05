@@ -44,7 +44,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartQuiz, onShowHow
             className="font-semibold text-xl hover:opacity-80 transition-opacity cursor-pointer" 
             style={{ color: '#1F5F5F' }}
           >
-            Gigafactory Academy
+            GigaWatt Academy
           </button>
         </div>
       </header>
