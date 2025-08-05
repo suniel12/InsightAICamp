@@ -14,85 +14,434 @@ export type Database = {
   }
   public: {
     Tables: {
-      applications: {
+      admin_users: {
         Row: {
-          application_status: string
           created_at: string
-          current_location: string | null
-          education_history: Json | null
-          email: string | null
-          essay_answers: Json | null
-          full_name: string | null
-          github_profile_url: string | null
           id: string
-          linkedin_profile_url: string | null
-          personal_website_url: string | null
-          phone_number: string | null
-          resume_url: string | null
-          selected_persona: string | null
-          submitted_at: string | null
-          technical_skills: string | null
+          is_active: boolean
+          permissions: Json | null
+          role: string
           updated_at: string
-          user_id: string | null
-          waitlist_id: string | null
-          work_authorization_status: string | null
-          work_history: Json | null
+          user_id: string
         }
         Insert: {
-          application_status?: string
           created_at?: string
-          current_location?: string | null
-          education_history?: Json | null
-          email?: string | null
-          essay_answers?: Json | null
-          full_name?: string | null
-          github_profile_url?: string | null
           id?: string
-          linkedin_profile_url?: string | null
-          personal_website_url?: string | null
-          phone_number?: string | null
-          resume_url?: string | null
-          selected_persona?: string | null
-          submitted_at?: string | null
-          technical_skills?: string | null
+          is_active?: boolean
+          permissions?: Json | null
+          role?: string
           updated_at?: string
-          user_id?: string | null
-          waitlist_id?: string | null
-          work_authorization_status?: string | null
-          work_history?: Json | null
+          user_id: string
         }
         Update: {
-          application_status?: string
           created_at?: string
-          current_location?: string | null
-          education_history?: Json | null
-          email?: string | null
-          essay_answers?: Json | null
-          full_name?: string | null
-          github_profile_url?: string | null
           id?: string
-          linkedin_profile_url?: string | null
-          personal_website_url?: string | null
-          phone_number?: string | null
-          resume_url?: string | null
-          selected_persona?: string | null
-          submitted_at?: string | null
-          technical_skills?: string | null
+          is_active?: boolean
+          permissions?: Json | null
+          role?: string
           updated_at?: string
-          user_id?: string | null
-          waitlist_id?: string | null
-          work_authorization_status?: string | null
-          work_history?: Json | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      application_reviews: {
+        Row: {
+          application_id: string
+          comments: string | null
+          created_at: string
+          feedback: Json | null
+          id: string
+          reviewed_at: string | null
+          reviewer_id: string
+          score: number | null
+          stage: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          application_id: string
+          comments?: string | null
+          created_at?: string
+          feedback?: Json | null
+          id?: string
+          reviewed_at?: string | null
+          reviewer_id: string
+          score?: number | null
+          stage: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          application_id?: string
+          comments?: string | null
+          created_at?: string
+          feedback?: Json | null
+          id?: string
+          reviewed_at?: string | null
+          reviewer_id?: string
+          score?: number | null
+          stage?: string
+          status?: string
+          updated_at?: string
         }
         Relationships: [
           {
+            foreignKeyName: "application_reviews_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "application_reviews_reviewer_id_fkey"
+            columns: ["reviewer_id"]
+            isOneToOne: false
+            referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      application_status_history: {
+        Row: {
+          application_id: string
+          changed_by: string | null
+          created_at: string
+          id: string
+          metadata: Json | null
+          new_status: string
+          previous_status: string | null
+          reason: string | null
+        }
+        Insert: {
+          application_id: string
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          new_status: string
+          previous_status?: string | null
+          reason?: string | null
+        }
+        Update: {
+          application_id?: string
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          new_status?: string
+          previous_status?: string | null
+          reason?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_status_history_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      applications: {
+        Row: {
+          application_status: string
+          background_type: string | null
+          cohort_id: string | null
+          created_at: string
+          current_location: string | null
+          email_id: string
+          essay_answers: Json | null
+          full_name: string
+          id: string
+          linkedin_profile_url: string | null
+          phone_number: string | null
+          resume_url: string | null
+          submitted_at: string | null
+          updated_at: string
+          user_id: string
+          waitlist_id: string | null
+          work_authorization_status: string | null
+        }
+        Insert: {
+          application_status?: string
+          background_type?: string | null
+          cohort_id?: string | null
+          created_at?: string
+          current_location?: string | null
+          email_id: string
+          essay_answers?: Json | null
+          full_name: string
+          id?: string
+          linkedin_profile_url?: string | null
+          phone_number?: string | null
+          resume_url?: string | null
+          submitted_at?: string | null
+          updated_at?: string
+          user_id: string
+          waitlist_id?: string | null
+          work_authorization_status?: string | null
+        }
+        Update: {
+          application_status?: string
+          background_type?: string | null
+          cohort_id?: string | null
+          created_at?: string
+          current_location?: string | null
+          email_id?: string
+          essay_answers?: Json | null
+          full_name?: string
+          id?: string
+          linkedin_profile_url?: string | null
+          phone_number?: string | null
+          resume_url?: string | null
+          submitted_at?: string | null
+          updated_at?: string
+          user_id?: string
+          waitlist_id?: string | null
+          work_authorization_status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_cohort_id_fkey"
+            columns: ["cohort_id"]
+            isOneToOne: false
+            referencedRelation: "cohorts"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "applications_waitlist_id_fkey"
             columns: ["waitlist_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "waitlist"
             referencedColumns: ["id"]
           },
         ]
+      }
+      cohorts: {
+        Row: {
+          created_at: string
+          current_enrolled: number
+          description: string | null
+          end_date: string
+          id: string
+          max_capacity: number
+          metadata: Json | null
+          name: string
+          start_date: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_enrolled?: number
+          description?: string | null
+          end_date: string
+          id?: string
+          max_capacity?: number
+          metadata?: Json | null
+          name: string
+          start_date: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_enrolled?: number
+          description?: string | null
+          end_date?: string
+          id?: string
+          max_capacity?: number
+          metadata?: Json | null
+          name?: string
+          start_date?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      communication_log: {
+        Row: {
+          application_id: string
+          body: string
+          created_at: string
+          email_type: string
+          id: string
+          metadata: Json | null
+          recipient_email: string
+          sender_id: string | null
+          sent_at: string
+          subject: string
+        }
+        Insert: {
+          application_id: string
+          body: string
+          created_at?: string
+          email_type: string
+          id?: string
+          metadata?: Json | null
+          recipient_email: string
+          sender_id?: string | null
+          sent_at?: string
+          subject: string
+        }
+        Update: {
+          application_id?: string
+          body?: string
+          created_at?: string
+          email_type?: string
+          id?: string
+          metadata?: Json | null
+          recipient_email?: string
+          sender_id?: string | null
+          sent_at?: string
+          subject?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "communication_log_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      document_versions: {
+        Row: {
+          application_id: string
+          created_at: string
+          document_type: string
+          file_name: string
+          file_size: number | null
+          file_url: string
+          id: string
+          is_current: boolean
+          uploaded_by: string | null
+          version_number: number
+        }
+        Insert: {
+          application_id: string
+          created_at?: string
+          document_type?: string
+          file_name: string
+          file_size?: number | null
+          file_url: string
+          id?: string
+          is_current?: boolean
+          uploaded_by?: string | null
+          version_number?: number
+        }
+        Update: {
+          application_id?: string
+          created_at?: string
+          document_type?: string
+          file_name?: string
+          file_size?: number | null
+          file_url?: string
+          id?: string
+          is_current?: boolean
+          uploaded_by?: string | null
+          version_number?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "document_versions_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      interviews: {
+        Row: {
+          application_id: string
+          created_at: string
+          duration_minutes: number | null
+          feedback: Json | null
+          id: string
+          interview_type: string
+          interviewer_id: string
+          meeting_link: string | null
+          notes: string | null
+          scheduled_at: string
+          score: number | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          application_id: string
+          created_at?: string
+          duration_minutes?: number | null
+          feedback?: Json | null
+          id?: string
+          interview_type: string
+          interviewer_id: string
+          meeting_link?: string | null
+          notes?: string | null
+          scheduled_at: string
+          score?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          application_id?: string
+          created_at?: string
+          duration_minutes?: number | null
+          feedback?: Json | null
+          id?: string
+          interview_type?: string
+          interviewer_id?: string
+          meeting_link?: string | null
+          notes?: string | null
+          scheduled_at?: string
+          score?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "interviews_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "interviews_interviewer_id_fkey"
+            columns: ["interviewer_id"]
+            isOneToOne: false
+            referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          preferences: Json | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          preferences?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          preferences?: Json | null
+          updated_at?: string
+        }
+        Relationships: []
       }
       waitlist: {
         Row: {
