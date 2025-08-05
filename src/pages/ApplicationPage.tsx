@@ -21,7 +21,7 @@ const ApplicationPage = () => {
                 onClick={() => navigate('/')}
                 className="flex items-center gap-2 hover:bg-muted/50"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4" color="#1F5F5F" strokeWidth={3} />
               </Button>
               
               <div className="flex items-center gap-3">
