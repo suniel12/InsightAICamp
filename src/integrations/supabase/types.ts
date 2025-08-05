@@ -20,6 +20,7 @@ export type Database = {
           created_at: string
           current_location: string | null
           education_history: Json | null
+          email: string | null
           essay_answers: Json | null
           full_name: string | null
           github_profile_url: string | null
@@ -32,7 +33,7 @@ export type Database = {
           submitted_at: string | null
           technical_skills: string | null
           updated_at: string
-          user_id: string
+          user_id: string | null
           waitlist_id: string | null
           work_authorization_status: string | null
           work_history: Json | null
@@ -42,6 +43,7 @@ export type Database = {
           created_at?: string
           current_location?: string | null
           education_history?: Json | null
+          email?: string | null
           essay_answers?: Json | null
           full_name?: string | null
           github_profile_url?: string | null
@@ -54,7 +56,7 @@ export type Database = {
           submitted_at?: string | null
           technical_skills?: string | null
           updated_at?: string
-          user_id: string
+          user_id?: string | null
           waitlist_id?: string | null
           work_authorization_status?: string | null
           work_history?: Json | null
@@ -64,6 +66,7 @@ export type Database = {
           created_at?: string
           current_location?: string | null
           education_history?: Json | null
+          email?: string | null
           essay_answers?: Json | null
           full_name?: string | null
           github_profile_url?: string | null
@@ -76,7 +79,7 @@ export type Database = {
           submitted_at?: string | null
           technical_skills?: string | null
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           waitlist_id?: string | null
           work_authorization_status?: string | null
           work_history?: Json | null
