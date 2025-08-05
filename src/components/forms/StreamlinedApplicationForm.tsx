@@ -240,23 +240,17 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
       const applicationData = {
         application_status: 'submitted' as const,
         submitted_at: new Date().toISOString(),
-        email: formData.email,
+        email_id: formData.email,
         full_name: formData.fullName,
         phone_number: formData.phoneNumber,
         linkedin_profile_url: formData.linkedinProfileUrl,
         current_location: formData.currentLocation,
         work_authorization_status: formData.workAuthorizationStatus,
-        selected_persona: formData.selectedPersona,
+        background_type: formData.selectedPersona,
         resume_url: resumeUrl || null,
         essay_answers: formData.essayAnswers,
-        // Explicitly set these fields for anonymous applications
         user_id: null,
-        waitlist_id: null,
-        education_history: null,
-        work_history: null,
-        technical_skills: null,
-        github_profile_url: null,
-        personal_website_url: null
+        waitlist_id: null
       };
 
       // Insert without any authentication context

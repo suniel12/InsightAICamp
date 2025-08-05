@@ -120,17 +120,13 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ recommendedRol
         user_id: user.id,
         application_status: 'submitted',
         submitted_at: new Date().toISOString(),
+        email_id: user.email || '',
         full_name: formData.fullName,
         phone_number: formData.phoneNumber,
         linkedin_profile_url: formData.linkedinProfileUrl,
-        github_profile_url: formData.githubProfileUrl,
-        personal_website_url: formData.personalWebsiteUrl,
         current_location: formData.currentLocation,
         work_authorization_status: formData.workAuthorizationStatus,
-        selected_persona: formData.selectedPersona,
-        technical_skills: formData.technicalSkills,
-        education_history: formData.educationHistory,
-        work_history: formData.workHistory,
+        background_type: formData.selectedPersona,
         essay_answers: formData.essayAnswers
       };
 
