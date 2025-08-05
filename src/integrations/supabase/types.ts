@@ -158,7 +158,7 @@ export type Database = {
           resume_url: string | null
           submitted_at: string | null
           updated_at: string
-          user_id: string
+          user_id: string | null
           waitlist_id: string | null
           work_authorization_status: string | null
         }
@@ -177,7 +177,7 @@ export type Database = {
           resume_url?: string | null
           submitted_at?: string | null
           updated_at?: string
-          user_id: string
+          user_id?: string | null
           waitlist_id?: string | null
           work_authorization_status?: string | null
         }
@@ -196,7 +196,7 @@ export type Database = {
           resume_url?: string | null
           submitted_at?: string | null
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           waitlist_id?: string | null
           work_authorization_status?: string | null
         }
