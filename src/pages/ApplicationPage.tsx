@@ -22,7 +22,6 @@ const ApplicationPage = () => {
                 className="flex items-center gap-2 hover:bg-muted/50"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to Home
               </Button>
               
               <div className="flex items-center gap-3">
@@ -34,7 +33,7 @@ const ApplicationPage = () => {
                   />
                 </div>
                 <span className="font-semibold text-lg" style={{ color: '#1F5F5F' }}>
-                  InsightPath GigaWatt Academy
+                  InsightPath
                 </span>
               </div>
             </div>
