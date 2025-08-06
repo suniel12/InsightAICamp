@@ -45,7 +45,7 @@ export const MarketOpportunitySection = memo(() => {
 
         {/* Data Center Career Comparison Table */}
         <div className="max-w-6xl mx-auto mb-16">
-          <h3 className="text-2xl font-bold mb-8 text-center">Data Center Career Paths: Traditional IT vs. Infrastructure Roles</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">Data Center Career Paths Are in High Demand</h3>
           <div className="overflow-x-auto bg-card rounded-lg border">
             <table className="w-full text-left">
               <thead className="bg-muted/50">
@@ -76,7 +76,7 @@ export const MarketOpportunitySection = memo(() => {
                   <td className="px-6 py-4 text-green-600">Low</td>
                 </tr>
                 <tr className="border-t bg-muted/20">
-                  <td className="px-6 py-4 font-medium text-muted-foreground">Entry-Level Software</td>
+                  <td className="px-6 py-4 font-medium text-muted-foreground">Entry-Level Software Engineer</td>
                   <td className="px-6 py-4 text-muted-foreground">$60K - $130K</td>
                   <td className="px-6 py-4 text-red-600">-27% (2024-2034)</td>
                   <td className="px-6 py-4 text-red-600">Very High</td>
