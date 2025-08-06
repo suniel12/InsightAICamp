@@ -26,7 +26,7 @@ const ApplicationPage = () => {
               
               <div className="flex items-center gap-3" aria-label="GigaWatt Academy">
                 <img 
-                  src="/Gigawattlogov2.png" 
+                  src="/favicon.png" 
                   alt="GigaWatt Academy Logo" 
                   className="w-8 h-8 object-contain"
                 />
