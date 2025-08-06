@@ -24,8 +24,15 @@ const ApplicationPage = () => {
                 <ArrowLeft className="w-4 h-4" color={BRAND_COLORS.PRIMARY} strokeWidth={3} aria-hidden="true" />
               </Button>
               
-              <div className="font-semibold text-xl" style={{ color: BRAND_COLORS.PRIMARY }} aria-label="GigaWatt Academy">
-                GigaWatt Academy
+              <div className="flex items-center gap-3" aria-label="GigaWatt Academy">
+                <img 
+                  src="/Gigawattlogov2.png" 
+                  alt="GigaWatt Academy Logo" 
+                  className="w-8 h-8 object-contain"
+                />
+                <div className="font-semibold text-xl" style={{ color: BRAND_COLORS.PRIMARY }}>
+                  GigaWatt Academy
+                </div>
               </div>
             </div>
 

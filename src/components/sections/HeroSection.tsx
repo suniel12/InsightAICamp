@@ -29,9 +29,16 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
       {/* Header with Academy Name and How it Works */}
       <header className="absolute top-0 left-0 right-0 z-20 py-8" role="banner">
         <nav className="container mx-auto px-6 flex justify-between items-center" role="navigation" aria-label="Main navigation">
-          {/* Academy Name on the left */}
-          <div className="font-semibold text-xl" style={{ color: BRAND_COLORS.PRIMARY }} aria-label="GigaWatt Academy homepage">
-            GigaWatt Academy
+          {/* Academy Name and Logo on the left */}
+          <div className="flex items-center gap-3" aria-label="GigaWatt Academy homepage">
+            <img 
+              src="/Gigawattlogov2.png" 
+              alt="GigaWatt Academy Logo" 
+              className="w-8 h-8 object-contain"
+            />
+            <div className="font-semibold text-xl" style={{ color: BRAND_COLORS.PRIMARY }}>
+              GigaWatt Academy
+            </div>
           </div>
           
           {/* How it Works on the right - clickable */}
