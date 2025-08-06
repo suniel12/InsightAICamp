@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface FinalCTASectionProps {
@@ -33,18 +32,10 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onStartQuiz })
             onClick={() => navigate('/application')}
           >
             Start Your Application
-            <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           
           <div className="flex flex-col md:flex-row gap-8 text-white/80">
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5" />
-              <span>90-Day Job Guarantee</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5" />
-              <span>No Payment Until Acceptance</span>
-            </div>
+
           </div>
         </div>
 
@@ -53,7 +44,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onStartQuiz })
             ⭐ ⭐ ⭐ ⭐ ⭐ Rated 4.9/5 by our graduates
           </p>
           <p className="text-sm text-white/60">
-            "This program completely transformed my career. I went from working retail to making $120K at a major cloud provider in just 8 weeks." - Sarah M., AWS Data Center Technician
+            "This program completely transformed my career. The adaptive learning module is a game-changer." - Vindhya D.
           </p>
         </div>
       </div>

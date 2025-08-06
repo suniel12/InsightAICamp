@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from 'lucide-react';
 
 interface UrgencySectionProps {
   seatsRemaining: number;
@@ -50,7 +49,6 @@ export const UrgencySection: React.FC<UrgencySectionProps> = ({ seatsRemaining }
               style={{ backgroundColor: '#1F5F5F', color: 'white' }}
             >
               Start Your Application
-              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </CardContent>
         </Card>

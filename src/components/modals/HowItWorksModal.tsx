@@ -12,7 +12,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl mb-6">Gigawatt Factory</DialogTitle>
+          <DialogTitle className="text-3xl mb-6">GigaWatt Academy</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-8">

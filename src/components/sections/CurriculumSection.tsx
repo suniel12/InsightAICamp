@@ -13,7 +13,7 @@ export const CurriculumSection: React.FC = () => {
             Master Three Pillars. Command Any Hyperscale Facility.
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-            Our curriculum is reverse-engineered from the job descriptions of top tech companies.
+            Our curriculum is created from collaboration with top tech companies.
           </p>
         </div>
 

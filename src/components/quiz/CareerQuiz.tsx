@@ -2,139 +2,388 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle } from 'lucide-react';
+import { Checkbox } from "@/components/ui/checkbox";
+import { CheckCircle, Clock, DollarSign, Target, TrendingUp, Award, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-import { QuizState, RoleRecommendation } from './types';
-import { QUESTION_FLOW } from './data';
-import { determineRecommendedRole } from './logic';
+import { AssessmentState, MultiPathRecommendation, Question, GridQuestion, MultiSelectQuestion } from './types';
+import { QUICK_ASSESSMENT, DETAILED_ASSESSMENT } from './data';
+import { generateMultiPathRecommendation } from './logic';
 
 export const CareerQuiz = () => {
   const navigate = useNavigate();
-  const [quizState, setQuizState] = useState<QuizState>({
+  const [assessmentState, setAssessmentState] = useState<AssessmentState>({
+    tier: 1,
     currentQuestionId: 'q1',
     answers: {},
-    questionPath: [],
-    isComplete: false
+    questionPath: []
   });
-  const [recommendation, setRecommendation] = useState<RoleRecommendation | null>(null);
+  const [recommendation, setRecommendation] = useState<MultiPathRecommendation | null>(null);
 
-  const currentQuestion = QUESTION_FLOW[quizState.currentQuestionId];
-  const progress = quizState.questionPath.length + 1;
+  const currentQuestions = QUICK_ASSESSMENT;
+  const currentQuestion = currentQuestions[assessmentState.currentQuestionId];
+  
+  // Quick assessment is always 5 questions
   const totalQuestions = 5;
+  const currentProgress = assessmentState.questionPath.length + 1;
 
-  const handleAnswer = (optionId: string) => {
-    const newAnswers = { ...quizState.answers, [quizState.currentQuestionId]: optionId };
-    const newPath = [...quizState.questionPath, quizState.currentQuestionId];
+  const handleAnswer = (optionId: string | string[]) => {
+    const newAnswers = { ...assessmentState.answers, [assessmentState.currentQuestionId]: optionId };
+    const newPath = [...assessmentState.questionPath, assessmentState.currentQuestionId];
     
-    const selectedOption = currentQuestion.options.find(opt => opt.id === optionId);
-    const nextQuestionId = selectedOption?.nextQuestionId;
-    
-    if (!nextQuestionId) {
-      // Quiz complete - generate recommendation
-      const finalRecommendation = determineRecommendedRole(newAnswers);
-      setRecommendation(finalRecommendation);
-      setQuizState({
-        ...quizState,
-        answers: newAnswers,
-        questionPath: newPath,
-        isComplete: true
-      });
+    if (assessmentState.tier === 1) {
+      const question = currentQuestion as Question;
+      const selectedOption = question.options.find(opt => opt.id === (Array.isArray(optionId) ? optionId[0] : optionId));
+      const nextQuestionId = selectedOption?.nextQuestionId;
+      
+      if (!nextQuestionId) {
+        // Quick assessment complete - show results immediately
+        const quickRecommendation = generateMultiPathRecommendation(newAnswers, false);
+        setRecommendation(quickRecommendation);
+        setAssessmentState({
+          ...assessmentState,
+          answers: newAnswers,
+          questionPath: newPath
+        });
+      } else {
+        // Continue to next question
+        setAssessmentState({
+          ...assessmentState,
+          currentQuestionId: nextQuestionId,
+          answers: newAnswers,
+          questionPath: newPath
+        });
+      }
     } else {
-      // Continue to next question
-      setQuizState({
-        currentQuestionId: nextQuestionId,
-        answers: newAnswers,
-        questionPath: newPath,
-        isComplete: false
-      });
+      // Detailed assessment - move to next question sequentially
+      const detailedQuestionIds = Object.keys(DETAILED_ASSESSMENT);
+      const currentIndex = detailedQuestionIds.indexOf(assessmentState.currentQuestionId);
+      const nextQuestionId = detailedQuestionIds[currentIndex + 1];
+      
+      if (!nextQuestionId) {
+        // Detailed assessment complete - generate recommendation
+        const finalRecommendation = generateMultiPathRecommendation(newAnswers, true);
+        setRecommendation(finalRecommendation);
+        setAssessmentState({
+          ...assessmentState,
+          answers: newAnswers,
+          questionPath: newPath,
+          isDetailedComplete: true
+        });
+      } else {
+        setAssessmentState({
+          ...assessmentState,
+          currentQuestionId: nextQuestionId,
+          answers: newAnswers,
+          questionPath: newPath
+        });
+      }
     }
   };
 
+  const handleGridAnswer = (category: string, value: string) => {
+    const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as Record<string, string> || {};
+    const newGridAnswers = { ...currentAnswers, [category]: value };
+    
+    // Update answers without advancing to next question
+    setAssessmentState({
+      ...assessmentState,
+      answers: { ...assessmentState.answers, [assessmentState.currentQuestionId]: newGridAnswers }
+    });
+  };
+
+  // Initialize grid question with default "None" values
+  const initializeGridQuestion = (gridQuestion: GridQuestion) => {
+    const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as Record<string, string> || {};
+    
+    // If no answers exist for this question, initialize all categories with "None"
+    if (Object.keys(currentAnswers).length === 0) {
+      const defaultAnswers: Record<string, string> = {};
+      gridQuestion.categories.forEach(category => {
+        defaultAnswers[category] = 'None';
+      });
+      
+      setAssessmentState({
+        ...assessmentState,
+        answers: { ...assessmentState.answers, [assessmentState.currentQuestionId]: defaultAnswers }
+      });
+      
+      return defaultAnswers;
+    }
+    
+    return currentAnswers;
+  };
+
+  const handleMultiSelectAnswer = (optionId: string, checked: boolean) => {
+    const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as string[] || [];
+    let newAnswers: string[] = [];
+    
+    if (checked) {
+      newAnswers = [...currentAnswers, optionId];
+    } else {
+      newAnswers = currentAnswers.filter(id => id !== optionId);
+    }
+    
+    // Update answers without advancing to next question
+    setAssessmentState({
+      ...assessmentState,
+      answers: { ...assessmentState.answers, [assessmentState.currentQuestionId]: newAnswers }
+    });
+  };
+
+  // Removed progressive disclosure functionality
+
   const resetQuiz = () => {
-    setQuizState({
+    setAssessmentState({
+      tier: 1,
       currentQuestionId: 'q1',
       answers: {},
-      questionPath: [],
-      isComplete: false
+      questionPath: []
     });
     setRecommendation(null);
   };
 
-  if (quizState.isComplete && recommendation) {
-    return (
-      <Card className="card-glow max-w-2xl mx-auto">
-        <CardHeader className="text-center">
-          <CardTitle className="text-3xl text-primary">{Math.round(recommendation.confidenceScore * 100)}% Success Match</CardTitle>
-          <p className="text-muted-foreground">Based on your profile, you're an excellent fit for our program</p>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="text-center">
-            <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-12 h-12 text-primary-foreground" />
+  // Removed progressive disclosure - quiz goes directly to results after 5 questions
+
+  // Final Results Screen
+  if (recommendation) {
+    const PathCard = ({ path, icon: Icon, title, description }: any) => (
+      <Card className="border-2 border-muted hover:border-primary/30 transition-colors h-full">
+        <CardContent className="p-8">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <Icon className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Recommended: {recommendation.title}</h3>
-            <p className="text-muted-foreground mb-6">
-              {recommendation.description}
-            </p>
-            <div className="text-sm text-muted-foreground italic mb-4">
-              {recommendation.reasoning}
+            <div>
+              <h4 className="font-bold text-lg">{title}</h4>
+              <p className="text-muted-foreground">{description}</p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">{recommendation.programDuration}</div>
-              <div className="text-sm text-muted-foreground">Program Duration</div>
+          
+          <div className="space-y-6">
+            <div>
+              <h5 className="font-semibold text-xl mb-3">{path.title}</h5>
+              <p className="text-muted-foreground leading-relaxed">{path.description}</p>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-accent">${Math.round((recommendation.salaryRange.min + recommendation.salaryRange.max) / 2 / 1000)}K</div>
-              <div className="text-sm text-muted-foreground">Average Salary</div>
+            
+            <div className="grid grid-cols-1 gap-4">
+              <div className="bg-muted/30 p-4 rounded-lg">
+                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Salary Range</span>
+                <div className="text-2xl font-bold text-primary mt-1">
+                  ${path.salaryRange.min.toLocaleString()}-${path.salaryRange.max.toLocaleString()}
+                </div>
+              </div>
+              <div className="bg-muted/30 p-4 rounded-lg">
+                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Training Duration</span>
+                <div className="text-2xl font-bold text-primary mt-1">{path.trainingDuration}</div>
+              </div>
             </div>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-semibold text-center">Why This Role Fits You:</h4>
-            <ul className="space-y-1">
-              {recommendation.personalizedInsights.map((insight, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>{insight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex gap-4">
-            <Button 
-              className="btn-hero flex-1" 
-              style={{ backgroundColor: '#1F5F5F', color: 'white' }}
-              onClick={() => navigate('/application')}
-            >
-              Start Your Application
-            </Button>
-            <Button variant="outline" onClick={resetQuiz}>Retake Quiz</Button>
+            
+            <div className="bg-accent/5 p-4 rounded-lg border border-accent/20">
+              <span className="text-sm font-medium text-accent uppercase tracking-wide">Why This Path</span>
+              <div className="mt-2 text-sm leading-relaxed">{path.reasoning}</div>
+            </div>
+            
           </div>
         </CardContent>
       </Card>
     );
+
+    return (
+      <div className="space-y-8 max-w-7xl mx-auto px-4">
+        <Card className="card-glow">
+          <CardHeader className="text-center pb-8">
+            <CardTitle className="text-4xl text-primary mb-4">Your Personalized Career Roadmap</CardTitle>
+          </CardHeader>
+          <CardContent className="pb-8">
+            <div className="max-w-3xl mx-auto">
+              <h4 className="font-semibold text-xl mb-6 flex items-center gap-3">
+                <Users className="w-6 h-6 text-primary" />
+                Your Personalized Insights
+              </h4>
+              <div className="grid gap-4 md:grid-cols-2">
+                {recommendation.personalizedInsights.map((insight, index) => (
+                  <div key={index} className="flex items-start gap-3 p-4 bg-muted/30 rounded-lg">
+                    <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed">{insight}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {recommendation.skillsGapAnalysis && (
+              <div className="max-w-3xl mx-auto mt-8 pt-8 border-t">
+                <h4 className="font-semibold text-xl mb-6 flex items-center gap-3">
+                  <Award className="w-6 h-6 text-primary" />
+                  Skills Gap Analysis
+                </h4>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                    <h5 className="font-medium text-green-800 mb-3">Your Current Strengths</h5>
+                    <div className="space-y-2">
+                      {recommendation.skillsGapAnalysis.currentSkills.slice(0, 4).map((skill, index) => (
+                        <div key={index} className="flex items-center gap-2 text-sm text-green-700">
+                          <CheckCircle className="w-4 h-4" />
+                          <span>{skill}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h5 className="font-medium text-blue-800 mb-3">Recommended Focus Areas</h5>
+                    <div className="space-y-2">
+                      {recommendation.skillsGapAnalysis.trainingRecommendations.map((rec, index) => (
+                        <div key={index} className="flex items-center gap-2 text-sm text-blue-700">
+                          <Target className="w-4 h-4" />
+                          <span>{rec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <div>
+          <h3 className="text-2xl font-bold text-center mb-8">Two potential roles for you</h3>
+          <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
+            <PathCard
+              path={recommendation.fastestPath}
+              icon={Clock}
+              title="FASTEST PATH"
+              description="Get employed quickly"
+            />
+            <PathCard
+              path={recommendation.highestSalaryPath}
+              icon={DollarSign}
+              title="HIGHEST SALARY"
+              description="Maximum earning potential"
+            />
+          </div>
+        </div>
+
+        <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+          <CardContent className="p-8 text-center">
+            <h4 className="text-2xl font-bold mb-4">Ready to Transform Your Career?</h4>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Join thousands of professionals who have successfully transitioned into high-paying data center careers. 
+              Our proven training program gets you job-ready in weeks, not years.
+            </p>
+            <div className="flex justify-center">
+              <Button 
+                className="btn-hero px-8 py-3 text-lg" 
+                style={{ backgroundColor: '#1F5F5F', color: 'white' }}
+                onClick={() => navigate('/application')}
+              >
+                Start Your Application
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
-  return (
-    <Card className="card-glow max-w-2xl mx-auto">
-      <CardHeader>
-        <div className="flex justify-between items-center">
-          <CardTitle>Career Discovery Assessment</CardTitle>
-          <Badge variant="secondary">{progress} of {totalQuestions}</Badge>
+  // Question Rendering
+  const renderQuestion = () => {
+    if (currentQuestion.type === 'grid') {
+      const gridQuestion = currentQuestion as GridQuestion;
+      const currentAnswers = initializeGridQuestion(gridQuestion);
+      
+      return (
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold mb-6">{gridQuestion.text}</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr>
+                  <th className="text-left p-2"></th>
+                  {gridQuestion.scaleOptions.map(option => (
+                    <th key={option} className="text-center p-2 text-sm">{option}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {gridQuestion.categories.map(category => (
+                  <tr key={category} className="border-t">
+                    <td className="p-2 text-sm font-medium">{category}</td>
+                    {gridQuestion.scaleOptions.map(option => (
+                      <td key={option} className="text-center p-2">
+                        <input
+                          type="radio"
+                          name={category}
+                          value={option}
+                          checked={currentAnswers[category] === option}
+                          onChange={() => handleGridAnswer(category, option)}
+                          className="w-4 h-4"
+                        />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <Button 
+            className="w-full mt-4"
+            onClick={() => {
+              // Advance to next question - grid is always complete with defaults
+              handleAnswer(currentAnswers);
+            }}
+          >
+            Continue
+          </Button>
         </div>
-        <div className="w-full bg-muted rounded-full h-2">
-          <div 
-            className="bg-primary h-2 rounded-full transition-all duration-500"
-            style={{ width: `${(progress / totalQuestions) * 100}%` }}
-          />
+      );
+    }
+
+    if (currentQuestion.type === 'multiselect') {
+      const multiQuestion = currentQuestion as MultiSelectQuestion;
+      const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as string[] || [];
+      
+      return (
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold mb-6">{multiQuestion.text}</h3>
+          <div className="space-y-3">
+            {multiQuestion.options.map((option) => (
+              <div key={option.id} className="flex items-start space-x-3 p-3 border rounded-lg">
+                <Checkbox
+                  id={option.id}
+                  checked={currentAnswers.includes(option.id)}
+                  onCheckedChange={(checked) => handleMultiSelectAnswer(option.id, checked as boolean)}
+                />
+                <label htmlFor={option.id} className="text-sm font-medium cursor-pointer">
+                  {option.text}
+                </label>
+              </div>
+            ))}
+          </div>
+          <Button 
+            className="w-full mt-4"
+            onClick={() => {
+              const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as string[] || [];
+              handleAnswer(currentAnswers);
+            }}
+            disabled={(() => {
+              const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as string[] || [];
+              return currentAnswers.length === 0;
+            })()}
+          >
+            Continue
+          </Button>
         </div>
-      </CardHeader>
-      <CardContent>
-        <h3 className="text-xl font-semibold mb-6">{currentQuestion.text}</h3>
+      );
+    }
+
+    // Regular question
+    const regularQuestion = currentQuestion as Question;
+    return (
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold mb-6">{regularQuestion.text}</h3>
         <div className="space-y-3">
-          {currentQuestion.options.map((option) => (
+          {regularQuestion.options.map((option) => (
             <Button
               key={option.id}
               variant="outline"
@@ -152,6 +401,27 @@ export const CareerQuiz = () => {
             </Button>
           ))}
         </div>
+      </div>
+    );
+  };
+
+  // Main Question Screen
+  return (
+    <Card className="card-glow max-w-2xl mx-auto">
+      <CardHeader>
+        <div className="flex justify-between items-center">
+          <CardTitle>Career Discovery Assessment</CardTitle>
+          <Badge variant="secondary">{currentProgress} of {totalQuestions}</Badge>
+        </div>
+        <div className="w-full bg-muted rounded-full h-2">
+          <div 
+            className="bg-primary h-2 rounded-full transition-all duration-500"
+            style={{ width: `${(currentProgress / totalQuestions) * 100}%` }}
+          />
+        </div>
+      </CardHeader>
+      <CardContent>
+        {renderQuestion()}
       </CardContent>
     </Card>
   );

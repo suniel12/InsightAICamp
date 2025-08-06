@@ -30,7 +30,7 @@ interface ApplicationData {
   selectedPersona: string;
 }
 
-// Quiz Q1 options for Step 3
+// Background options matching the quiz Q1 options
 const CAREER_BACKGROUNDS = [
   {
     id: 'recent_graduate',
@@ -38,24 +38,29 @@ const CAREER_BACKGROUNDS = [
     description: 'I have recently completed a degree or certificate program and am looking for my first major career role.'
   },
   {
+    id: 'software_engineer',
+    title: 'Software Engineer',
+    description: 'I have experience in software development, programming, or application development and want to transition to infrastructure.'
+  },
+  {
     id: 'it_professional',
     title: 'IT Professional',
-    description: 'I have experience in a role like help desk, network support, or system administration and I\'m looking to specialize or advance.'
+    description: 'I have experience in help desk, network support, or system administration and I\'m looking to specialize or advance.'
   },
   {
     id: 'skilled_trades',
     title: 'Skilled Trades Professional',
-    description: 'I have hands-on experience in a field like electrical, HVAC, mechanical, or as a general technician.'
+    description: 'I have hands-on experience in electrical, HVAC, mechanical work, or as a general technician.'
   },
   {
-    id: 'military_veteran',
-    title: 'Military/Veteran',
-    description: 'I am transitioning from or have prior military service and am looking to apply my skills in a new field.'
+    id: 'tech_adjacent',
+    title: 'Tech-Adjacent Professional',
+    description: 'I work with technology but not core IT (data entry, tech sales, digital marketing) and want to deepen my technical skills.'
   },
   {
-    id: 'career_changer',
-    title: 'Career Changer',
-    description: 'I\'m from a non-technical field (e.g., retail, hospitality, etc.) and am looking for a stable, high-growth career in tech.'
+    id: 'others',
+    title: 'Others',
+    description: 'Military/veteran, career changer, or other professional background seeking a stable, high-growth career in tech.'
   }
 ];
 
@@ -92,8 +97,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
   const [applicationId, setApplicationId] = useState<string | null>(null);
   const [isUploadingFile, setIsUploadingFile] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 3;
+  // Removed multi-step functionality - now single page
 
   const [formData, setFormData] = useState<ApplicationData>({
     email: '',
@@ -285,19 +289,14 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
     }
   };
 
-  const isStepValid = () => {
-    switch (currentStep) {
-      case 1:
-        return formData.email && formData.fullName && formData.phoneNumber && 
-               formData.linkedinProfileUrl && formData.currentLocation && 
-               formData.workAuthorizationStatus;
-      case 2:
-        return formData.essayAnswers.motivation && formData.essayAnswers.careerGoals;
-      case 3:
-        return formData.selectedPersona;
-      default:
-        return false;
-    }
+  const isFormValid = () => {
+    return formData.email && 
+           formData.fullName && 
+           formData.phoneNumber && 
+           formData.linkedinProfileUrl && 
+           formData.currentLocation && 
+           formData.workAuthorizationStatus &&
+           formData.resumeFile; // Resume is required since we extract info from it
   };
 
   if (isSubmitted && !showAccountCreation) {
@@ -332,6 +331,29 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
           <p className="text-xs text-muted-foreground mt-4">
             Creating an account will let you track your application status and access course previews.
           </p>
+          
+          {/* What Happens Next Section */}
+          <div className="border-t pt-8 mt-8">
+            <h4 className="font-semibold mb-6 text-lg text-center">What happens next?</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="font-semibold text-sm mb-1">1. Rapid Review</div>
+                <div className="text-xs text-muted-foreground">Application reviewed within 48 hours</div>
+              </div>
+              <div>
+                <div className="font-semibold text-sm mb-1">2. Brief Interview</div>
+                <div className="text-xs text-muted-foreground">Quick call with admissions team</div>
+              </div>
+              <div>
+                <div className="font-semibold text-sm mb-1">3. Early Access</div>
+                <div className="text-xs text-muted-foreground">Get course previews & resources</div>
+              </div>
+              <div>
+                <div className="font-semibold text-sm mb-1">4. Program Start</div>
+                <div className="text-xs text-muted-foreground">Join our next cohort</div>
+              </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
     );
@@ -485,16 +507,18 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
     );
   }
 
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold">Personal Information</h3>
-              <p className="text-muted-foreground">Let's start with your contact details</p>
-            </div>
-            
+  const renderSinglePageForm = () => {
+    return (
+      <div className="space-y-8">
+        {/* Personal Information & Resume Section */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-center text-2xl mb-4">Apply to GigaWatt Academy</CardTitle>
+            <p className="text-center text-muted-foreground">
+              Complete the form below to begin your journey into AI infrastructure careers
+            </p>
+          </CardHeader>
+          <CardContent className="space-y-6">
             <div>
               <Label htmlFor="email">Email Address *</Label>
               <Input
@@ -545,42 +569,34 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
               </p>
             </div>
 
-            <div>
-              <Label htmlFor="currentLocation">Current Location *</Label>
-              <Input
-                id="currentLocation"
-                value={formData.currentLocation}
-                onChange={(e) => handleInputChange('currentLocation', e.target.value)}
-                placeholder="City, State/Country"
-                required
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="currentLocation">Current Location *</Label>
+                <Input
+                  id="currentLocation"
+                  value={formData.currentLocation}
+                  onChange={(e) => handleInputChange('currentLocation', e.target.value)}
+                  placeholder="City, State/Country"
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="workAuth">Work Authorization Status *</Label>
+                <Select onValueChange={(value) => handleInputChange('workAuthorizationStatus', value)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your work authorization status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="authorized">Yes, I am authorized to work in the US</SelectItem>
+                    <SelectItem value="requires_sponsorship">No, I require work authorization/sponsorship</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
+            {/* Resume Upload */}
             <div>
-              <Label htmlFor="workAuth">Work Authorization Status *</Label>
-              <Select onValueChange={(value) => handleInputChange('workAuthorizationStatus', value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select your work authorization status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="authorized">Yes, I am authorized to work in the US</SelectItem>
-                  <SelectItem value="requires_sponsorship">No, I require work authorization/sponsorship</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        );
-
-      case 2:
-        return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold">Resume & Motivation</h3>
-              <p className="text-muted-foreground">Upload your resume and tell us about your goals</p>
-            </div>
-
-            <div>
-              <Label htmlFor="resume">Resume Upload</Label>
+              <Label htmlFor="resume">Resume Upload *</Label>
               <div className="border-2 border-dashed border-border rounded-lg p-6 text-center">
                 <input
                   id="resume"
@@ -610,9 +626,6 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
                         <div className="text-xs text-muted-foreground">
                           {(formData.resumeFile.size / 1024 / 1024).toFixed(2)} MB
                         </div>
-                        <div className="text-xs text-blue-600">
-                          🔒 Will be securely stored (admin access only)
-                        </div>
                       </>
                     ) : (
                       <>
@@ -621,160 +634,51 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
                         <div className="text-xs text-muted-foreground">
                           PDF, DOC, DOCX, TXT, RTF (Max 5MB)
                         </div>
-                        <div className="text-xs text-blue-600 mt-2">
-                          🔒 Private storage - only admissions team can access
-                        </div>
                       </>
                     )}
                   </div>
                 </label>
               </div>
-            </div>
-
-            <div>
-              <Label htmlFor="motivation">Why are you interested in a career in AI infrastructure? *</Label>
-              <Textarea
-                id="motivation"
-                value={formData.essayAnswers.motivation}
-                onChange={(e) => handleInputChange('essayAnswers', { ...formData.essayAnswers, motivation: e.target.value })}
-                placeholder="Tell us what draws you to this field and why you're excited about AI infrastructure..."
-                rows={4}
-                required
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="careerGoals">What are your career goals for the next 5 years? *</Label>
-              <Textarea
-                id="careerGoals"
-                value={formData.essayAnswers.careerGoals}
-                onChange={(e) => handleInputChange('essayAnswers', { ...formData.essayAnswers, careerGoals: e.target.value })}
-                placeholder="Describe your career aspirations and how this program fits into your plans..."
-                rows={4}
-                required
-              />
-            </div>
-          </div>
-        );
-
-      case 3:
-        return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold">Background Profile</h3>
-              <p className="text-muted-foreground">Which best describes your current career situation?</p>
-            </div>
-
-            <div className="space-y-3">
-              {CAREER_BACKGROUNDS.map((background) => (
-                <div
-                  key={background.id}
-                  className={`border rounded-lg p-4 cursor-pointer transition-all ${
-                    formData.selectedPersona === background.id
-                      ? 'border-primary bg-primary/5'
-                      : 'border-border hover:border-primary/50 hover:bg-muted/30'
-                  }`}
-                  onClick={() => handleInputChange('selectedPersona', background.id)}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-4 h-4 rounded-full border-2 mt-1 ${
-                      formData.selectedPersona === background.id
-                        ? 'border-primary bg-primary'
-                        : 'border-muted-foreground'
-                    }`} />
-                    <div>
-                      <h4 className="font-semibold">{background.title}</h4>
-                      <p className="text-sm text-muted-foreground mt-1">{background.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <p className="text-xs text-muted-foreground mt-2">
+                We'll extract your background, skills, and experience from your resume
+              </p>
             </div>
 
             {recommendedRole && (
               <div className="bg-accent/10 p-4 rounded-lg border border-accent/20">
-                <h4 className="font-semibold text-accent mb-2">Recommended Track</h4>
+                <h4 className="font-semibold text-accent mb-2">🎯 Recommended Track</h4>
                 <p className="text-sm">Based on your quiz results, we recommend the <strong>{recommendedRole}</strong> track.</p>
               </div>
             )}
 
-            <div className="bg-muted/50 p-4 rounded-lg">
-              <h4 className="font-semibold mb-2">What happens next?</h4>
-              <ul className="text-sm space-y-1 text-muted-foreground">
-                <li>• We'll review your application within 48 hours</li>
-                <li>• If selected, you'll receive an invitation for a brief interview</li>
-                <li>• Accepted candidates get early access to course materials</li>
-                <li>• Program starts with our next cohort</li>
-              </ul>
-            </div>
-          </div>
-        );
-
-      default:
-        return null;
-    }
+          </CardContent>
+        </Card>
+      </div>
+    );
   };
 
   return (
-    <Card className="max-w-4xl mx-auto">
-      <CardHeader>
-        <CardTitle className="text-center">Application for Gigawatt Academy</CardTitle>
-        <div className="flex justify-center mt-4">
-          <div className="flex space-x-2">
-            {Array.from({ length: totalSteps }, (_, i) => (
-              <div
-                key={i}
-                className={`w-3 h-3 rounded-full ${
-                  i + 1 <= currentStep ? 'bg-primary' : 'bg-muted'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-        <p className="text-center text-sm text-muted-foreground">
-          Step {currentStep} of {totalSteps}
-        </p>
-      </CardHeader>
-      <CardContent>
-        {renderStep()}
-        
-        <div className="flex justify-between mt-8">
-          <Button
-            variant="outline"
-            onClick={() => setCurrentStep(Math.max(1, currentStep - 1))}
-            disabled={currentStep === 1}
-          >
-            Previous
-          </Button>
-          
-          {currentStep < totalSteps ? (
-            <Button
-              onClick={() => setCurrentStep(Math.min(totalSteps, currentStep + 1))}
-              disabled={!isStepValid()}
-              className="btn-hero"
-              style={{ backgroundColor: '#1F5F5F', color: 'white' }}
-            >
-              Next
-            </Button>
+    <div className="max-w-4xl mx-auto">
+      {renderSinglePageForm()}
+      
+      {/* Submit Button */}
+      <div className="flex justify-center mt-8">
+        <Button
+          onClick={handleSubmit}
+          disabled={isSubmitting || !isFormValid()}
+          className="btn-hero px-12 py-6 text-lg"
+          style={{ backgroundColor: '#1F5F5F', color: 'white' }}
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              Submitting...
+            </>
           ) : (
-            <Button
-              onClick={handleSubmit}
-              disabled={isSubmitting || !isStepValid()}
-              className="btn-hero"
-              style={{ backgroundColor: '#1F5F5F', color: 'white' }}
-            >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Submitting...
-                </>
-              ) : (
-                'Submit Application'
-              )}
-            </Button>
+            'Submit Application'
           )}
-        </div>
-      </CardContent>
-    </Card>
+        </Button>
+      </div>
+    </div>
   );
 };

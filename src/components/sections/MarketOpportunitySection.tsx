@@ -6,7 +6,7 @@ export const MarketOpportunitySection: React.FC = () => {
     <section className="py-20 bg-gradient-to-r from-primary/10 to-accent/10">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          The Multi-Trillion Dollar Skills Gap You're Positioned to Fill
+          The Multi-Billion Dollar Skills Gap You're Positioned to Fill
         </h2>
         <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-16">
           While traditional IT roles face automation, a new class of infrastructure specialist is in critical demand.

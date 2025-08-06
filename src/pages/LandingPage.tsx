@@ -5,8 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { HeroSection } from '../components/sections/HeroSection';
 import { QuizSection } from '../components/sections/QuizSection';
 import { MarketOpportunitySection } from '../components/sections/MarketOpportunitySection';
-import { CurriculumSection } from '../components/sections/CurriculumSection';
-import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection';
+// import { CurriculumSection } from '../components/sections/CurriculumSection';
+// import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection';
 import { GuaranteeSection } from '../components/sections/GuaranteeSection';
 // import { UrgencySection } from '../components/sections/UrgencySection';
 import { FAQSection } from '../components/sections/FAQSection';
@@ -44,8 +44,8 @@ const LandingPage = () => {
       />
       <QuizSection />
       <MarketOpportunitySection />
-      <CurriculumSection />
-      <SuccessStoriesSection />
+      {/* <CurriculumSection /> */}
+      {/* <SuccessStoriesSection /> */}
       <GuaranteeSection />
       {/* <UrgencySection seatsRemaining={seatsRemaining} /> */}
       <FAQSection />

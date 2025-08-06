@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Target, DollarSign, Rocket } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import heroBackground from '@/assets/hero-background.jpg';
-import insightPathLogo from '@/assets/insightpath-logo.png';
 
 interface HeroSectionProps {
   onStartQuiz: () => void;
@@ -23,28 +22,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartQuiz, onShowHow
       />
       <div className="absolute inset-0 gradient-hero" />
       
-      {/* Header with Logo and Company Name */}
+      {/* Header with Academy Name and How it Works */}
       <header className="absolute top-0 left-0 right-0 z-20 py-8">
         <div className="container mx-auto px-6 flex justify-between items-center">
-          {/* Logo on the left */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10">
-              <img 
-                src={insightPathLogo} 
-                alt="InsightPath" 
-                className="w-full h-full"
-              />
-            </div>
-            <span className="font-semibold text-xl" style={{ color: '#1F5F5F' }}>InsightPath</span>
+          {/* Academy Name on the left */}
+          <div className="font-semibold text-xl" style={{ color: '#1F5F5F' }}>
+            GigaWatt Academy
           </div>
           
-          {/* Company name on the right - clickable */}
+          {/* How it Works on the right - clickable */}
           <button 
             onClick={onShowHowItWorks}
             className="font-semibold text-xl hover:opacity-80 transition-opacity cursor-pointer" 
             style={{ color: '#1F5F5F' }}
           >
-            GigaWatt Academy
+            How it Works
           </button>
         </div>
       </header>
@@ -105,11 +97,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartQuiz, onShowHow
               </Button>
             </div>
             <div className="text-center">
-              <p className="text-sm text-muted-foreground mb-2">
-                ✓ No payment required until acceptance
-              </p>
+  
               <p className="text-sm text-muted-foreground">
-                ✓ 90-day job guarantee included
+                ✓ 90-day job guarantee
               </p>
             </div>
           </div>
@@ -117,7 +107,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartQuiz, onShowHow
           {/* Social Proof */}
           <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground mb-4">
-              Our graduates power the backbone of data centers at:
+              Courses created in collaboration with leading tech companies:
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium opacity-80">
               <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30">AWS</span>
