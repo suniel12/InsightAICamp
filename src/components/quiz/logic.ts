@@ -159,7 +159,7 @@ export const generateCareerPath = (
   pathType: 'fastest' | 'highest_salary',
   role: RoleDefinition,
   answers: QuickAnswers | DetailedAnswers,
-  scores: any, // Updated to accept flexible scoring object
+  scores: Record<string, any>,
   isDetailed = false
 ): CareerPath => {
   // Adjust salary for background
@@ -242,7 +242,7 @@ export const generateNextSteps = (
   return pathSpecificSteps[pathType];
 };
 
-export const calculatePathConfidence = (scores: any, pathType: 'fastest' | 'highest_salary', isDetailed: boolean): number => {
+export const calculatePathConfidence = (scores: Record<string, any>, pathType: 'fastest' | 'highest_salary', isDetailed: boolean): number => {
   // Handle different scoring objects for quick vs detailed assessments
   if (isDetailed) {
     // Detailed assessment uses personalFit, careerAlignment, practicalFit
@@ -485,7 +485,7 @@ export const calculateMotivationAlignment = (role: RoleDefinition, motivation: s
 export const selectNonOverlappingPaths = (
   roleScores: Array<{ role: RoleDefinition; quickRelevance: number; backgroundFit: number; motivationAlignment: number }>,
   answers: QuickAnswers
-): { fastestRole: any; highestSalaryRole: any } => {
+): { fastestRole: { role: RoleDefinition; score: number }; highestSalaryRole: { role: RoleDefinition; score: number } } => {
   // Calculate combined scores for path selection
   const scoredRoles = roleScores.map(rs => ({
     ...rs,
@@ -707,7 +707,7 @@ export const calculatePracticalFitScore = (role: RoleDefinition, answers: Detail
 export const selectDetailedRecommendations = (
   roleScores: Array<{ role: RoleDefinition; personalFit: number; careerAlignment: number; practicalFit: number }>,
   answers: DetailedAnswers
-): { fastestRole: any; highestSalaryRole: any } => {
+): { fastestRole: { role: RoleDefinition; score: number }; highestSalaryRole: { role: RoleDefinition; score: number } } => {
   // Calculate composite scores with different weightings for each path
   const scoredRoles = roleScores.map(rs => ({
     ...rs,

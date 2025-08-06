@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from '@/integrations/supabase/client';
 import { Loader2, CheckCircle, Upload, FileText } from 'lucide-react';
+import { logger } from '@/utils/logger';
 
 interface ApplicationFormProps {
   recommendedRole?: string;
@@ -69,20 +70,20 @@ const checkStorageSetup = async () => {
   try {
     const { data: buckets, error } = await supabase.storage.listBuckets();
     if (error) {
-      console.error('Error listing buckets:', error);
+      logger.error('Error listing buckets', error);
       return false;
     }
     
     const resumesBucket = buckets?.find(bucket => bucket.id === 'resumes');
     if (!resumesBucket) {
-      console.error('Resumes bucket not found. Available buckets:', buckets?.map(b => b.id));
+      logger.error('Resumes bucket not found. Available buckets', buckets?.map(b => b.id));
       return false;
     }
     
-    console.log('Storage setup verified. Resumes bucket exists:', resumesBucket);
+    logger.info('Storage setup verified. Resumes bucket exists', resumesBucket);
     return true;
   } catch (error) {
-    console.error('Error checking storage setup:', error);
+    logger.error('Error checking storage setup', error);
     return false;
   }
 };
@@ -91,10 +92,6 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showAccountCreation, setShowAccountCreation] = useState(false);
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [isCreatingAccount, setIsCreatingAccount] = useState(false);
   const [applicationId, setApplicationId] = useState<string | null>(null);
   const [isUploadingFile, setIsUploadingFile] = useState(false);
   // Removed multi-step functionality - now single page
@@ -154,7 +151,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
       // Store in private folder structure: resumes/timestamp_randomId_filename
       const fileName = `private/${timestamp}_${randomId}_${sanitizedOriginalName}`;
 
-      console.log('Starting PRIVATE upload:', {
+      logger.info('Starting PRIVATE upload', {
         fileName,
         size: `${(file.size / 1024 / 1024).toFixed(2)}MB`,
         type: file.type
@@ -170,7 +167,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
         });
 
       if (error) {
-        console.error('Private storage upload error:', error);
+        logger.error('Private storage upload error', error);
         
         // Handle specific Supabase errors
         if (error.message.includes('Bucket not found')) {
@@ -188,7 +185,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
         throw new Error('Upload completed but no file path returned');
       }
 
-      console.log('Private upload successful:', data);
+      logger.info('Private upload successful', data);
       
       // For private storage, we store the file path (not a public URL)
       // Only admins will be able to access these files
@@ -203,7 +200,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
       return filePath;
       
     } catch (error: any) {
-      console.error('Private file upload error:', error);
+      logger.error('Private file upload error', error);
       
       // Provide user-friendly error messages
       let userMessage = error.message;
@@ -265,11 +262,11 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
         .single();
 
       if (error) {
-        console.error('Database error:', error);
+        logger.error('Database error', error);
         throw new Error(`Failed to submit application: ${error.message}`);
       }
 
-      console.log('Application submitted successfully:', data);
+      logger.info('Application submitted successfully', data);
       setApplicationId(data.id);
       setIsSubmitted(true);
       toast({
@@ -278,7 +275,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
       });
 
     } catch (error: any) {
-      console.error('Error submitting application:', error);
+      logger.error('Error submitting application', error);
       toast({
         title: "Submission Error",
         description: error.message || "There was an error submitting your application. Please try again.",
@@ -299,7 +296,7 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
            formData.resumeFile; // Resume is required since we extract info from it
   };
 
-  if (isSubmitted && !showAccountCreation) {
+  if (isSubmitted) {
     return (
       <Card className="max-w-2xl mx-auto">
         <CardContent className="p-8 text-center">
@@ -315,22 +312,15 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
             </p>
           )}
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button 
-              onClick={() => setShowAccountCreation(true)}
+              onClick={onClose}
               className="btn-hero"
               style={{ backgroundColor: '#1F5F5F', color: 'white' }}
             >
-              Create Account to Track Status
-            </Button>
-            <Button variant="outline" onClick={onClose}>
               Continue Exploring
             </Button>
           </div>
-          
-          <p className="text-xs text-muted-foreground mt-4">
-            Creating an account will let you track your application status and access course previews.
-          </p>
           
           {/* What Happens Next Section */}
           <div className="border-t pt-8 mt-8">
@@ -359,153 +349,6 @@ export const StreamlinedApplicationForm: React.FC<ApplicationFormProps> = ({ rec
     );
   }
 
-  const handleAccountCreation = async () => {
-    if (password !== confirmPassword) {
-      toast({
-        title: "Password Mismatch",
-        description: "Passwords do not match. Please try again.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    if (password.length < 6) {
-      toast({
-        title: "Password Too Short",
-        description: "Password must be at least 6 characters long.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsCreatingAccount(true);
-
-    try {
-      // Create user account with Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: formData.email,
-        password: password,
-      });
-
-      if (authError) {
-        throw authError;
-      }
-
-      // Link the application to the new user account
-      if (authData.user && applicationId) {
-        const { error: updateError } = await supabase
-          .from('applications')
-          .update({ user_id: authData.user.id })
-          .eq('id', applicationId);
-
-        if (updateError) {
-          console.error('Error linking application to user:', updateError);
-          // Don't throw error here - account was created successfully
-        }
-      }
-
-      toast({
-        title: "Account Created!",
-        description: "Your account has been created successfully. Please check your email to verify your account.",
-      });
-
-      // Close the form after successful account creation
-      setTimeout(() => {
-        onClose?.();
-      }, 2000);
-
-    } catch (error: any) {
-      console.error('Error creating account:', error);
-      toast({
-        title: "Account Creation Error",
-        description: error.message || "There was an error creating your account. You can try again later.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsCreatingAccount(false);
-    }
-  };
-
-  if (showAccountCreation) {
-    return (
-      <Card className="max-w-2xl mx-auto">
-        <CardContent className="p-8">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold mb-2">Create Your Account</h2>
-            <p className="text-muted-foreground">
-              Set up your account to track your application status and access course materials.
-            </p>
-          </div>
-
-          <div className="space-y-4 max-w-md mx-auto">
-            <div>
-              <Label htmlFor="account-email">Email Address</Label>
-              <Input
-                id="account-email"
-                type="email"
-                value={formData.email}
-                disabled
-                className="bg-muted"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="password">Create Password *</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter a secure password (min 6 characters)"
-                required
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="confirmPassword">Confirm Password *</Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm your password"
-                required
-              />
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button
-                onClick={handleAccountCreation}
-                disabled={isCreatingAccount || !password || !confirmPassword}
-                className="btn-hero flex-1"
-                style={{ backgroundColor: '#1F5F5F', color: 'white' }}
-              >
-                {isCreatingAccount ? (
-                  <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Creating Account...
-                  </>
-                ) : (
-                  'Create Account'
-                )}
-              </Button>
-              <Button 
-                variant="outline"
-                onClick={() => setShowAccountCreation(false)}
-                disabled={isCreatingAccount}
-              >
-                Skip for Now
-              </Button>
-            </div>
-
-            <p className="text-xs text-muted-foreground text-center">
-              By creating an account, you'll be able to track your application status and get early access to course previews.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
 
   const renderSinglePageForm = () => {
     return (

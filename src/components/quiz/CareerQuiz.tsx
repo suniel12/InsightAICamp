@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,9 +6,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle, Clock, DollarSign, Target, TrendingUp, Award, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-import { AssessmentState, MultiPathRecommendation, Question, GridQuestion, MultiSelectQuestion } from './types';
+import { AssessmentState, MultiPathRecommendation, Question, GridQuestion, MultiSelectQuestion, CareerPath } from './types';
 import { QUICK_ASSESSMENT, DETAILED_ASSESSMENT } from './data';
 import { generateMultiPathRecommendation } from './logic';
+import { QUIZ_CONFIG, BRAND_COLORS } from '@/constants/styles';
 
 export const CareerQuiz = () => {
   const navigate = useNavigate();
@@ -24,10 +25,10 @@ export const CareerQuiz = () => {
   const currentQuestion = currentQuestions[assessmentState.currentQuestionId];
   
   // Quick assessment is always 5 questions
-  const totalQuestions = 5;
+  const totalQuestions = QUIZ_CONFIG.TOTAL_QUICK_QUESTIONS;
   const currentProgress = assessmentState.questionPath.length + 1;
 
-  const handleAnswer = (optionId: string | string[]) => {
+  const handleAnswer = useCallback((optionId: string | string[]) => {
     const newAnswers = { ...assessmentState.answers, [assessmentState.currentQuestionId]: optionId };
     const newPath = [...assessmentState.questionPath, assessmentState.currentQuestionId];
     
@@ -79,9 +80,9 @@ export const CareerQuiz = () => {
         });
       }
     }
-  };
+  }, [assessmentState, currentQuestion]);
 
-  const handleGridAnswer = (category: string, value: string) => {
+  const handleGridAnswer = useCallback((category: string, value: string) => {
     const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as Record<string, string> || {};
     const newGridAnswers = { ...currentAnswers, [category]: value };
     
@@ -90,7 +91,7 @@ export const CareerQuiz = () => {
       ...assessmentState,
       answers: { ...assessmentState.answers, [assessmentState.currentQuestionId]: newGridAnswers }
     });
-  };
+  }, [assessmentState]);
 
   // Initialize grid question with default "None" values
   const initializeGridQuestion = (gridQuestion: GridQuestion) => {
@@ -114,7 +115,7 @@ export const CareerQuiz = () => {
     return currentAnswers;
   };
 
-  const handleMultiSelectAnswer = (optionId: string, checked: boolean) => {
+  const handleMultiSelectAnswer = useCallback((optionId: string, checked: boolean) => {
     const currentAnswers = assessmentState.answers[assessmentState.currentQuestionId] as string[] || [];
     let newAnswers: string[] = [];
     
@@ -129,11 +130,11 @@ export const CareerQuiz = () => {
       ...assessmentState,
       answers: { ...assessmentState.answers, [assessmentState.currentQuestionId]: newAnswers }
     });
-  };
+  }, [assessmentState]);
 
   // Removed progressive disclosure functionality
 
-  const resetQuiz = () => {
+  const resetQuiz = useCallback(() => {
     setAssessmentState({
       tier: 1,
       currentQuestionId: 'q1',
@@ -141,13 +142,20 @@ export const CareerQuiz = () => {
       questionPath: []
     });
     setRecommendation(null);
-  };
+  }, []);
 
   // Removed progressive disclosure - quiz goes directly to results after 5 questions
 
   // Final Results Screen
   if (recommendation) {
-    const PathCard = ({ path, icon: Icon, title, description }: any) => (
+    interface PathCardProps {
+      path: CareerPath;
+      icon: React.ComponentType<{ className?: string }>;
+      title: string;
+      description: string;
+    }
+
+    const PathCard = memo(({ path, icon: Icon, title, description }: PathCardProps) => (
       <Card className="border-2 border-muted hover:border-primary/30 transition-colors h-full">
         <CardContent className="p-8">
           <div className="flex items-center gap-4 mb-6">
@@ -187,7 +195,7 @@ export const CareerQuiz = () => {
           </div>
         </CardContent>
       </Card>
-    );
+    ));
 
     return (
       <div className="space-y-8 max-w-7xl mx-auto px-4">
@@ -274,7 +282,7 @@ export const CareerQuiz = () => {
             <div className="flex justify-center">
               <Button 
                 className="btn-hero px-8 py-3 text-lg" 
-                style={{ backgroundColor: '#1F5F5F', color: 'white' }}
+                style={{ backgroundColor: BRAND_COLORS.PRIMARY, color: BRAND_COLORS.WHITE }}
                 onClick={() => navigate('/application')}
               >
                 Start Your Application
@@ -407,21 +415,35 @@ export const CareerQuiz = () => {
 
   // Main Question Screen
   return (
-    <Card className="card-glow max-w-2xl mx-auto">
+    <Card className="card-glow max-w-2xl mx-auto" role="form" aria-labelledby="quiz-title">
       <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle>Career Discovery Assessment</CardTitle>
-          <Badge variant="secondary">{currentProgress} of {totalQuestions}</Badge>
+          <CardTitle id="quiz-title">Career Discovery Assessment</CardTitle>
+          <Badge variant="secondary" aria-label={`Question ${currentProgress} of ${totalQuestions}`}>
+            {currentProgress} of {totalQuestions}
+          </Badge>
         </div>
-        <div className="w-full bg-muted rounded-full h-2">
+        <div 
+          className="w-full bg-muted rounded-full h-2" 
+          role="progressbar" 
+          aria-valuenow={currentProgress} 
+          aria-valuemin={1} 
+          aria-valuemax={totalQuestions}
+          aria-label={`Quiz progress: ${currentProgress} of ${totalQuestions} questions completed`}
+        >
           <div 
             className="bg-primary h-2 rounded-full transition-all duration-500"
-            style={{ width: `${(currentProgress / totalQuestions) * 100}%` }}
+            style={{ 
+              width: `${(currentProgress / totalQuestions) * 100}%`,
+              transition: `width ${QUIZ_CONFIG.PROGRESS_BAR_TRANSITION}ms ease-in-out`
+            }}
           />
         </div>
       </CardHeader>
       <CardContent>
-        {renderQuestion()}
+        <div role="group" aria-labelledby="quiz-title">
+          {renderQuestion()}
+        </div>
       </CardContent>
     </Card>
   );

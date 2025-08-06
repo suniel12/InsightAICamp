@@ -19,4 +19,21 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Code splitting for better performance
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-accordion', '@radix-ui/react-checkbox', '@radix-ui/react-dialog'],
+          icons: ['lucide-react'],
+        },
+      },
+    },
+    // Asset optimization
+    assetsInlineLimit: 4096, // Inline assets smaller than 4KB
+    cssCodeSplit: true,
+    sourcemap: mode === 'development',
+    minify: mode === 'production' ? 'esbuild' : false,
+  },
 }));

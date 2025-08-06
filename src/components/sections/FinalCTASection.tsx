@@ -2,11 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
 
-interface FinalCTASectionProps {
-  onStartQuiz: () => void;
-}
-
-export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onStartQuiz }) => {
+export const FinalCTASection: React.FC = () => {
   const navigate = useNavigate();
   return (
     <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1F5F5F, #0F2027)' }}>
@@ -41,10 +37,10 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onStartQuiz })
 
         <div className="max-w-2xl mx-auto">
           <p className="text-sm text-white/70 mb-4">
-            ⭐ ⭐ ⭐ ⭐ ⭐ Rated 4.9/5 by our graduates
+            ⭐ ⭐ ⭐ ⭐ ⭐ Rated 5/5 by our graduates
           </p>
           <p className="text-sm text-white/60">
-            "This program completely transformed my career. The adaptive learning module is a game-changer." - Vindhya D.
+            "This program completely transformed my career. The adaptive learning module is a game-changer." - Vindhya N.
           </p>
         </div>
       </div>

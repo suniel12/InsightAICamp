@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/utils/logger';
 import { Loader2, CheckCircle, Upload } from 'lucide-react';
 
 interface ApplicationFormProps {
@@ -145,7 +146,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ recommendedRol
       });
 
     } catch (error: any) {
-      console.error('Error submitting application:', error);
+      logger.error('Error submitting application', error);
       toast({
         title: "Submission Error",
         description: error.message || "There was an error submitting your application. Please try again.",
