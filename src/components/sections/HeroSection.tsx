@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Target, DollarSign, Rocket } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import heroBackground from '@/assets/hero-background.jpg';
 import { BRAND_COLORS } from '@/constants/styles';
 
@@ -41,15 +41,25 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
             </div>
           </div>
           
-          {/* How it Works on the right - clickable */}
-          <button 
-            onClick={onShowHowItWorks}
-            className="font-semibold text-xl hover:opacity-80 transition-opacity cursor-pointer" 
-            style={{ color: BRAND_COLORS.PRIMARY }}
-            aria-label="Learn how GigaWatt Academy training works"
-          >
-            How it Works
-          </button>
+          {/* Navigation Links */}
+          <div className="flex items-center gap-6">
+            <Link 
+              to="/demo"
+              className="font-semibold text-lg hover:opacity-80 transition-opacity" 
+              style={{ color: BRAND_COLORS.PRIMARY }}
+              aria-label="View interactive demo"
+            >
+              Demo
+            </Link>
+            <button 
+              onClick={onShowHowItWorks}
+              className="font-semibold text-lg hover:opacity-80 transition-opacity cursor-pointer" 
+              style={{ color: BRAND_COLORS.PRIMARY }}
+              aria-label="Learn how GigaWatt Academy training works"
+            >
+              How it Works
+            </button>
+          </div>
         </nav>
       </header>
       
