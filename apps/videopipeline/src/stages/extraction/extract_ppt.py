@@ -8,49 +8,78 @@ import json
 from pptx import Presentation
 
 def extract_text_from_shape(shape):
-    """Extract text from a PowerPoint shape"""
-    if hasattr(shape, "text"):
-        return shape.text
-    return ""
+    """Extract text from a PowerPoint shape - optimized version"""
+    # Best practice: Check for text attribute to avoid exceptions
+    if not hasattr(shape, "text"):
+        return ""
+    
+    # Store text in variable to avoid repeated access (performance optimization)
+    shape_text = shape.text
+    return shape_text if shape_text else ""
 
 def extract_slide_content(slide):
-    """Extract all content from a slide"""
+    """Extract all content from a slide with performance optimizations"""
     slide_data = {
         "title": "",
         "bullets": [],
         "notes": "",
-        "images": []
+        "images": [],
+        "tables": [],
+        "charts": []
     }
     
-    # Extract title
+    # Extract title - store in variable to avoid repeated access
     if slide.shapes.title:
-        slide_data["title"] = slide.shapes.title.text
+        title_text = slide.shapes.title.text
+        slide_data["title"] = title_text if title_text else ""
     
-    # Extract text from all shapes
+    # Extract text from all shapes - optimized iteration
     for shape in slide.shapes:
+        # Handle text frames with proper run extraction
         if shape.has_text_frame:
-            text = shape.text.strip()
-            if text and text != slide_data["title"]:
-                # Split into bullets if it contains line breaks
-                bullets = [b.strip() for b in text.split('\n') if b.strip()]
-                slide_data["bullets"].extend(bullets)
+            # Best practice: Extract text from runs for complete formatting
+            text_parts = []
+            for paragraph in shape.text_frame.paragraphs:
+                # Join all runs in paragraph to preserve formatting boundaries
+                para_text = ''.join(run.text for run in paragraph.runs)
+                if para_text.strip():
+                    text_parts.append(para_text.strip())
+            
+            # Only add non-empty, non-title text
+            if text_parts and '\n'.join(text_parts) != slide_data["title"]:
+                slide_data["bullets"].extend(text_parts)
         
-        # Check for images
-        if shape.shape_type == 13:  # Picture
-            slide_data["images"].append({
-                "type": "embedded",
-                "position": {
-                    "left": shape.left,
-                    "top": shape.top,
-                    "width": shape.width,
-                    "height": shape.height
-                }
-            })
+        # Check for images with error handling
+        try:
+            if shape.shape_type == 13:  # Picture
+                slide_data["images"].append({
+                    "type": "embedded",
+                    "position": {
+                        "left": shape.left,
+                        "top": shape.top,
+                        "width": shape.width,
+                        "height": shape.height
+                    }
+                })
+        except Exception as e:
+            # Log but don't fail on individual shape errors
+            print(f"Warning: Could not extract image: {e}", file=sys.stderr)
+        
+        # Extract tables if present
+        if shape.has_table:
+            table_data = []
+            for row in shape.table.rows:
+                row_data = [cell.text for cell in row.cells]
+                table_data.append(row_data)
+            slide_data["tables"].append(table_data)
     
-    # Extract speaker notes
-    if slide.has_notes_slide:
-        notes_text = slide.notes_slide.notes_text_frame.text
-        slide_data["notes"] = notes_text
+    # Extract speaker notes with error handling
+    try:
+        if slide.has_notes_slide:
+            notes_text = slide.notes_slide.notes_text_frame.text
+            slide_data["notes"] = notes_text if notes_text else ""
+    except Exception as e:
+        print(f"Warning: Could not extract notes: {e}", file=sys.stderr)
     
     return slide_data
 
