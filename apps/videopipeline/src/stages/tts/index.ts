@@ -17,7 +17,7 @@ export class TTSStage {
 
   constructor(config: TTSConfig) {
     this.config = config;
-    this.outputDir = '/tmp/tts-output';
+    this.outputDir = './output/audio';
   }
 
   async generateAudio(narrations: NarrationScript[]): Promise<AudioFile[]> {
@@ -25,14 +25,23 @@ export class TTSStage {
     
     const audioFiles: AudioFile[] = [];
     
-    // Process in batches for efficiency
-    const batchSize = 5;
-    for (let i = 0; i < narrations.length; i += batchSize) {
-      const batch = narrations.slice(i, i + batchSize);
-      const batchResults = await Promise.all(
-        batch.map(narration => this.generateSingleAudio(narration))
-      );
-      audioFiles.push(...batchResults);
+    // Process one by one to handle failures gracefully
+    for (let i = 0; i < narrations.length; i++) {
+      try {
+        const audioFile = await this.generateSingleAudio(narrations[i]);
+        audioFiles.push(audioFile);
+        console.log(`✅ Generated audio for slide ${narrations[i].slideNumber}`);
+      } catch (error) {
+        console.error(`❌ Failed to generate audio for slide ${narrations[i].slideNumber}:`, error.message);
+        // Continue with other slides even if one fails
+        // Create a placeholder entry
+        audioFiles.push({
+          slideNumber: narrations[i].slideNumber,
+          url: '',
+          duration: 5, // Default duration
+          format: 'mp3'
+        });
+      }
     }
     
     return audioFiles;
@@ -52,30 +61,22 @@ export class TTSStage {
       // Eleven Flash v2.5 for low latency, Multilingual v2 for quality
       const modelId = this.config.modelId || 'eleven_multilingual_v2';
       
-      // Best practice: Optimize text with SSML-like markers for better expression
-      const optimizedText = this.optimizeTextForTTS(narration.mainNarration, narration.emphasis);
+      // Use the narration text directly without optimization to avoid character bloat
+      // ElevenLabs has a 5000 character limit per request on free tier
+      const maxChars = 4500; // Safe limit under the 5000 character API limit
+      const textToSend = narration.mainNarration.length > maxChars 
+        ? narration.mainNarration.substring(0, maxChars) + '...'
+        : narration.mainNarration;
       
       const response = await axios.post(
         `https://api.elevenlabs.io/v1/text-to-speech/${this.config.voiceId}`,
         {
-          text: optimizedText,
+          text: textToSend,
           model_id: modelId,
           voice_settings: {
-            // Best practice: Balanced settings for educational content
-            stability: 0.5,        // Moderate stability for natural variation
-            similarity_boost: 0.75, // High similarity for consistency
-            style: 0.3,            // Some style for engagement
-            use_speaker_boost: true
-          },
-          // Best practice: Apply text normalization for better pronunciation
-          apply_text_normalization: true,
-          // Optional: Use seed for consistency across regenerations
-          seed: narration.slideNumber,
-          // Best practice: Use previous/next text for better continuity
-          previous_text: this.getPreviousContext(narration.slideNumber),
-          next_text: this.getNextContext(narration.slideNumber),
-          // Optimize for latency if configured
-          optimize_streaming_latency: this.config.optimizeLatency ? 2 : 0
+            stability: 0.5,
+            similarity_boost: 0.75
+          }
         },
         {
           headers: {

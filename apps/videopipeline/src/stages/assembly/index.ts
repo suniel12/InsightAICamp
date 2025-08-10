@@ -23,11 +23,14 @@ export class AssemblyStage {
 
   constructor(config: AssemblyConfig) {
     this.config = config;
-    this.outputDir = '/tmp/video-output';
+    this.outputDir = './output/video-output';
   }
 
   async assemble(input: AssemblyInput): Promise<string> {
     await this.ensureOutputDir();
+    
+    // Copy slide images to output directory for Remotion access
+    await this.copySlideImages(input.slides);
     
     // Create Remotion composition
     const compositionPath = await this.createComposition(input);
@@ -75,13 +78,13 @@ export class AssemblyStage {
         if (videoDuration < duration) {
           sequences.push(`
       <Sequence from={${currentFrame + videoDuration}} durationInFrames={${duration - videoDuration}}>
-        <Slide src="${slide.enhancedImageUrl || slide.originalImageUrl || '/placeholder.jpg'}" duration={${duration - videoDuration}} />
+        <Slide src={staticFile('slide_${slide.number}.png')} duration={${duration - videoDuration}} />
       </Sequence>`);
         }
       } else {
         sequences.push(`
       <Sequence from={${currentFrame}} durationInFrames={${duration}}>
-        <Slide src="${slide.enhancedImageUrl || slide.originalImageUrl || '/placeholder.jpg'}" duration={${duration}} />
+        <Slide src={staticFile('slide_${slide.number}.png')} duration={${duration}} />
       </Sequence>`);
       }
       
@@ -102,9 +105,10 @@ import {
   useCurrentFrame,
   useVideoConfig,
   spring,
+  staticFile,
 } from 'remotion';
 
-// Slide component with transitions
+// Slide component with transitions (no zoom)
 const Slide = ({ src, duration }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -117,14 +121,8 @@ const Slide = ({ src, duration }) => {
     { extrapolateRight: 'clamp' }
   );
   
-  // Subtle zoom effect
-  const scale = spring({
-    frame,
-    fps,
-    from: 1,
-    to: 1.05,
-    durationInFrames: duration,
-  });
+  // No zoom - keep scale at 1
+  const scale = 1;
   
   return (
     <AbsoluteFill style={{ backgroundColor: '#000' }}>
@@ -165,18 +163,13 @@ const AIVideo = ({ src, duration }) => {
   );
 };
 
-// Title card for sections
+// Title card for sections (no zoom)
 const TitleCard = ({ title, subtitle, duration }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   
-  const titleScale = spring({
-    frame,
-    fps,
-    from: 0.8,
-    to: 1,
-    durationInFrames: fps,
-  });
+  // No zoom animation - keep scale at 1
+  const titleScale = 1;
   
   const opacity = interpolate(
     frame,
@@ -278,6 +271,7 @@ registerRoot(RemotionRoot);
     // Bundle the Remotion composition
     const bundleLocation = await bundle({
       entryPoint: compositionPath,
+      publicDir: path.join(this.outputDir, 'public'),
       // Use webpack config optimized for video rendering
       webpackOverride: (config) => {
         return {
@@ -440,4 +434,24 @@ registerRoot(RemotionRoot);
       await fs.mkdir(this.outputDir, { recursive: true });
     }
   }
+
+  private async copySlideImages(slides: any[]): Promise<void> {
+    const publicDir = path.join(this.outputDir, 'public');
+    await fs.mkdir(publicDir, { recursive: true });
+    
+    for (const slide of slides) {
+      if (slide.originalImageUrl) {
+        const sourcePath = slide.originalImageUrl;
+        const destPath = path.join(publicDir, `slide_${slide.number}.png`);
+        
+        try {
+          await fs.copyFile(sourcePath, destPath);
+          console.log(`Copied slide ${slide.number} image to public directory`);
+        } catch (error) {
+          console.error(`Failed to copy slide ${slide.number} image:`, error);
+        }
+      }
+    }
+  }
+
 }

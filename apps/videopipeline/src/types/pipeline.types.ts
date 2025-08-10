@@ -7,6 +7,8 @@ export interface SlideContent {
     url: string;
     position: { x: number; y: number };
   }>;
+  originalImageUrl?: string;  // Path to the original slide image
+  enhancedImageUrl?: string;  // Path to the enhanced slide image
 }
 
 export interface CourseContent {

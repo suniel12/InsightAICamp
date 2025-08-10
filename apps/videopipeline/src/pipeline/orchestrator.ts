@@ -137,6 +137,31 @@ export class PipelineOrchestrator {
       const courseContent = await this.extractContent();
       stageDurations.extraction = Date.now() - extractionStart;
       console.log(`✅ Extracted ${courseContent.slides.length} slides in ${stageDurations.extraction}ms`);
+      
+      // Stage 1b: Export high-resolution images if not already available
+      if (typeof this.config.input.pptPath === 'string') {
+        console.log('\n🖼️ Stage 1b: Exporting high-resolution slide images...');
+        const imageExportStart = Date.now();
+        const outputDir = path.join(this.config.output.dir, 'slides');
+        const slideImages = await this.stages.extraction.extractHighResImages(
+          this.config.input.pptPath,
+          outputDir,
+          this.config.output.resolution as '720p' | '1080p' | '4k'
+        );
+        
+        if (slideImages.length > 0) {
+          // Update slides with image paths
+          courseContent.slides.forEach((slide, index) => {
+            if (slideImages[index]) {
+              (slide as any).originalImageUrl = slideImages[index];
+            }
+          });
+          stageDurations.imageExport = Date.now() - imageExportStart;
+          console.log(`✅ Exported ${slideImages.length} slide images in ${stageDurations.imageExport}ms`);
+        } else {
+          console.log('⚠️ No slide images found or exported');
+        }
+      }
 
       // Stage 2: Generate narrations
       let narrations: NarrationScript[] = [];

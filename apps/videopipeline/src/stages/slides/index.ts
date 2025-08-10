@@ -32,7 +32,7 @@ export class SlidesStage {
   };
 
   constructor() {
-    this.outputDir = '/tmp/enhanced-slides';
+    this.outputDir = './output/enhanced-slides';
     this.brandColors = {
       primary: '#2563eb',    // Blue
       secondary: '#10b981',  // Green
@@ -224,21 +224,48 @@ export class SlidesStage {
   }
 
   private createBulletsSvg(bullets: string[], layout: SlideEnhancement['layout']): string {
-    const fontSize = 32;
-    const lineHeight = 50;
+    const fontSize = 28;
+    const lineHeight = 45;
     const maxWidth = layout === 'two-column' ? 800 : 1600;
+    const maxCharsPerLine = 80;
     
-    let svgContent = `<svg width="${maxWidth}" height="${bullets.length * lineHeight + 100}">`;
+    // Process bullets to wrap long text
+    const wrappedBullets: string[] = [];
+    bullets.forEach(bullet => {
+      if (bullet.length > maxCharsPerLine) {
+        const words = bullet.split(' ');
+        let currentLine = '';
+        words.forEach(word => {
+          if ((currentLine + word).length > maxCharsPerLine) {
+            if (currentLine) wrappedBullets.push(currentLine.trim());
+            currentLine = word + ' ';
+          } else {
+            currentLine += word + ' ';
+          }
+        });
+        if (currentLine) wrappedBullets.push(currentLine.trim());
+      } else {
+        wrappedBullets.push(bullet);
+      }
+    });
     
-    bullets.forEach((bullet, index) => {
+    let svgContent = `<svg width="${maxWidth}" height="${wrappedBullets.length * lineHeight + 100}">`;
+    
+    wrappedBullets.forEach((bullet, index) => {
       const y = index * lineHeight + 40;
-      const column = layout === 'two-column' && index >= bullets.length / 2 ? 1 : 0;
+      const column = layout === 'two-column' && index >= wrappedBullets.length / 2 ? 1 : 0;
       const x = column * 850 + 40;
-      const adjustedY = column === 1 ? y - (bullets.length / 2) * lineHeight : y;
+      const adjustedY = column === 1 ? y - (wrappedBullets.length / 2) * lineHeight : y;
       
-      // Add bullet point
+      // Add bullet point only for non-wrapped lines
+      const showBullet = index === 0 || (index > 0 && !wrappedBullets[index - 1].endsWith(bullet.substring(0, 10)));
+      
+      if (showBullet) {
+        svgContent += `
+          <circle cx="${x - 20}" cy="${adjustedY - 10}" r="5" fill="${this.brandColors.accent}" />`;
+      }
+      
       svgContent += `
-        <circle cx="${x - 20}" cy="${adjustedY - 10}" r="5" fill="${this.brandColors.accent}" />
         <text 
           x="${x}" 
           y="${adjustedY}" 

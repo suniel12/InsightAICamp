@@ -31,6 +31,7 @@ program
   .option('--no-video', 'Skip AI video generation')
   .option('--no-enhance', 'Skip slide enhancement')
   .option('--voice <id>', 'ElevenLabs voice ID')
+  .option('--use-cached-images', 'Use existing exported images without re-exporting')
   .option('--parallel', 'Enable parallel processing', true)
   .option('--cache', 'Enable caching', true)
   .action(async (input, options) => {
@@ -312,26 +313,26 @@ async function buildConfig(inputPath: string, options: any): Promise<PipelineCon
     },
     stages: {
       narration: {
-        enabled: options.narration !== false,
+        enabled: options.narration === true || options.narration === undefined,
         provider: 'openai',
         model: 'gpt-4-turbo-preview',
         apiKey: process.env.OPENAI_API_KEY || '',
       },
       tts: {
-        enabled: options.tts !== false,
+        enabled: options.tts === true || options.tts === undefined,
         provider: 'elevenlabs',
         voiceId: options.voice || process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL',
         apiKey: process.env.ELEVENLABS_API_KEY || '',
       },
       video: {
-        enabled: options.video !== false,
+        enabled: options.video === true || options.video === undefined,
         provider: 'runway',
         apiKey: process.env.RUNWAY_API_KEY || '',
         maxVideos: 5,
         quality: 'high',
       },
       slides: {
-        enhance: options.enhance !== false,
+        enhance: options.enhance === true || options.enhance === undefined,
       },
     },
     performance: {
