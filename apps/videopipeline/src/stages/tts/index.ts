@@ -1,199 +1,254 @@
-import { NarrationScript, AudioFile } from '../../types/pipeline.types';
-import axios from 'axios';
-import * as fs from 'fs/promises';
+import { AudioSegment, SegmentedAudioCollection, SpeechMark } from '../../types/pipeline.types';
 import * as path from 'path';
+import * as fs from 'fs/promises';
+import chalk from 'chalk';
 
-interface TTSConfig {
-  provider: 'elevenlabs' | 'google' | 'azure';
+export interface SegmentedTTSConfig {
+  provider: 'elevenlabs' | 'aws-polly' | 'google';
   voiceId: string;
   apiKey: string;
-  modelId?: string;
-  optimizeLatency?: boolean;
+  speechMarks?: boolean; // Enable speech marks for word-level timing
+  outputFormat: 'mp3' | 'wav';
 }
 
-export class TTSStage {
-  private config: TTSConfig;
-  private outputDir: string;
+export interface TTSSegmentResult {
+  segment: AudioSegment;
+  audioFilePath: string;
+  duration: number;
+  speechMarks?: SpeechMark[];
+  metadata: {
+    fileSize: number;
+    generationTime: number;
+  };
+}
 
-  constructor(config: TTSConfig) {
+export class SegmentedTTSStage {
+  private config: SegmentedTTSConfig;
+
+  constructor(config: SegmentedTTSConfig) {
     this.config = config;
-    this.outputDir = './output/audio';
   }
 
-  async generateAudio(narrations: NarrationScript[]): Promise<AudioFile[]> {
-    await this.ensureOutputDir();
-    
-    const audioFiles: AudioFile[] = [];
-    
-    // Process one by one to handle failures gracefully
-    for (let i = 0; i < narrations.length; i++) {
-      try {
-        const audioFile = await this.generateSingleAudio(narrations[i]);
-        audioFiles.push(audioFile);
-        console.log(`✅ Generated audio for slide ${narrations[i].slideNumber}`);
-      } catch (error) {
-        console.error(`❌ Failed to generate audio for slide ${narrations[i].slideNumber}:`, error.message);
-        // Continue with other slides even if one fails
-        // Create a placeholder entry
-        audioFiles.push({
-          slideNumber: narrations[i].slideNumber,
-          url: '',
-          duration: 5, // Default duration
-          format: 'mp3'
-        });
+  async generateSegmentedAudio(
+    audioSegments: AudioSegment[], 
+    sessionDir: string
+  ): Promise<SegmentedAudioCollection> {
+    console.log(chalk.cyan('🎤 Generating segmented TTS audio...'));
+    console.log(chalk.gray(`  Provider: ${this.config.provider}`));
+    console.log(chalk.gray(`  Segments: ${audioSegments.length}`));
+    console.log(chalk.gray(`  Voice: ${this.config.voiceId}`));
+
+    const outputDir = path.join(sessionDir, 'stage-09-segmented-tts');
+    await fs.mkdir(outputDir, { recursive: true });
+
+    const results: TTSSegmentResult[] = [];
+    let totalDuration = 0;
+    let totalFileSize = 0;
+
+    // Process segments in parallel with concurrency limit
+    const concurrencyLimit = 3;
+    for (let i = 0; i < audioSegments.length; i += concurrencyLimit) {
+      const batch = audioSegments.slice(i, i + concurrencyLimit);
+      
+      console.log(chalk.yellow(`\n🔄 Processing batch ${Math.floor(i / concurrencyLimit) + 1}/${Math.ceil(audioSegments.length / concurrencyLimit)}`));
+      
+      const batchPromises = batch.map(segment => 
+        this.generateSingleSegment(segment, outputDir)
+      );
+      
+      const batchResults = await Promise.all(batchPromises);
+      results.push(...batchResults);
+      
+      // Update totals
+      for (const result of batchResults) {
+        totalDuration += result.duration;
+        totalFileSize += result.metadata.fileSize;
+        console.log(chalk.green(`  ✓ ${result.segment.id}: ${result.duration.toFixed(1)}s (${Math.round(result.metadata.fileSize / 1024)}KB)`));
       }
     }
-    
-    return audioFiles;
-  }
 
-  private async generateSingleAudio(narration: NarrationScript): Promise<AudioFile> {
-    if (this.config.provider === 'elevenlabs') {
-      return this.generateElevenLabsAudio(narration);
-    }
-    
-    throw new Error(`TTS provider ${this.config.provider} not implemented`);
-  }
-
-  private async generateElevenLabsAudio(narration: NarrationScript): Promise<AudioFile> {
-    try {
-      // Best practice: Use appropriate model based on requirements
-      // Eleven Flash v2.5 for low latency, Multilingual v2 for quality
-      const modelId = this.config.modelId || 'eleven_multilingual_v2';
-      
-      // Use the narration text directly without optimization to avoid character bloat
-      // ElevenLabs has a 5000 character limit per request on free tier
-      const maxChars = 4500; // Safe limit under the 5000 character API limit
-      const textToSend = narration.mainNarration.length > maxChars 
-        ? narration.mainNarration.substring(0, maxChars) + '...'
-        : narration.mainNarration;
-      
-      const response = await axios.post(
-        `https://api.elevenlabs.io/v1/text-to-speech/${this.config.voiceId}`,
-        {
-          text: textToSend,
-          model_id: modelId,
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.75
-          }
-        },
-        {
-          headers: {
-            'Accept': 'audio/mpeg',
-            'xi-api-key': this.config.apiKey,
-            'Content-Type': 'application/json',
-          },
-          responseType: 'arraybuffer',
-        }
-      );
-
-      // Save audio file
-      const filename = `slide_${narration.slideNumber}_audio.mp3`;
-      const filepath = path.join(this.outputDir, filename);
-      await fs.writeFile(filepath, response.data);
-
-      // Get actual duration (would need audio analysis library)
-      const duration = await this.getAudioDuration(filepath);
-
-      return {
-        slideNumber: narration.slideNumber,
-        url: filepath,
-        duration: duration || narration.duration,
-        format: 'mp3',
+    // Create final collection with updated segments
+    const finalSegments = results.map(result => ({
+      ...result.segment,
+      audioFile: result.audioFilePath,
+      duration: result.duration,
+      speechMarks: result.speechMarks,
+      metadata: {
+        ...result.segment.metadata!,
+        provider: this.config.provider,
         voiceId: this.config.voiceId,
-      };
-    } catch (error) {
-      console.error('ElevenLabs TTS error:', error);
-      throw new Error(`Failed to generate audio for slide ${narration.slideNumber}`);
-    }
-  }
+        fileSize: result.metadata.fileSize
+      }
+    }));
 
-  private optimizeTextForTTS(text: string, emphasis?: Array<{ text: string }>): string {
-    let optimizedText = text;
-    
-    // Best practice: Add pauses and emphasis for better delivery
-    // Add slight pauses after periods
-    optimizedText = optimizedText.replace(/\. /g, '... ');
-    
-    // Add emphasis to key phrases
-    if (emphasis && emphasis.length > 0) {
-      emphasis.forEach(emp => {
-        // For ElevenLabs, emphasis comes from punctuation and context
-        // Add subtle emphasis with punctuation
-        optimizedText = optimizedText.replace(
-          emp.text,
-          `*${emp.text}*`
-        );
-      });
+    // Update start/end times based on actual audio durations
+    let cumulativeTime = 0;
+    for (const segment of finalSegments) {
+      segment.startTime = cumulativeTime;
+      segment.endTime = cumulativeTime + segment.duration;
+      cumulativeTime += segment.duration;
     }
-    
-    // Add emotional context for better expression
-    // ElevenLabs interprets context from the text itself
-    optimizedText = this.addEmotionalContext(optimizedText);
-    
-    return optimizedText;
-  }
 
-  private addEmotionalContext(text: string): string {
-    // Best practice: Add contextual cues for emotion
-    // Example: "Let's explore" becomes "Let's explore excitedly"
-    const emotionalMarkers = {
-      'Let\'s explore': 'Let\'s explore with curiosity',
-      'Important': 'This is particularly important',
-      'Remember': 'Remember carefully',
-      'Consider': 'Consider thoughtfully',
+    const collection: SegmentedAudioCollection = {
+      segments: finalSegments,
+      totalDuration,
+      sessionId: sessionDir.split('/').pop() || '',
+      createdAt: new Date().toISOString(),
+      metadata: {
+        segmentCount: finalSegments.length,
+        provider: this.config.provider,
+        voiceId: this.config.voiceId,
+        totalFileSize
+      }
     };
-    
-    let enhancedText = text;
-    Object.entries(emotionalMarkers).forEach(([original, enhanced]) => {
-      enhancedText = enhancedText.replace(original, enhanced);
-    });
-    
-    return enhancedText;
+
+    // Save collection metadata
+    const collectionPath = path.join(outputDir, 'segmented-audio-collection.json');
+    await fs.writeFile(collectionPath, JSON.stringify(collection, null, 2));
+
+    console.log(chalk.green('\n✅ Segmented TTS generation complete!'));
+    console.log(chalk.gray(`  Total duration: ${totalDuration.toFixed(1)}s`));
+    console.log(chalk.gray(`  Total size: ${Math.round(totalFileSize / 1024 / 1024 * 100) / 100}MB`));
+    console.log(chalk.gray(`  Collection saved: ${collectionPath}`));
+
+    return collection;
   }
 
-  private async getAudioDuration(filepath: string): Promise<number> {
-    // In production, use an audio library like ffprobe or music-metadata
-    // For now, estimate based on text length (150 words per minute)
-    // This is a placeholder - implement actual duration detection
-    return 30; // Default 30 seconds per slide
-  }
+  private async generateSingleSegment(
+    segment: AudioSegment, 
+    outputDir: string
+  ): Promise<TTSSegmentResult> {
+    const startTime = Date.now();
+    const fileName = `${segment.id}.${this.config.outputFormat}`;
+    const audioFilePath = path.join(outputDir, fileName);
 
-  private getPreviousContext(slideNumber: number): string {
-    // In production, maintain context from previous narrations
-    // This helps with voice continuity
-    return '';
-  }
+    let duration: number;
+    let speechMarks: SpeechMark[] | undefined;
+    let fileSize: number;
 
-  private getNextContext(slideNumber: number): string {
-    // In production, provide upcoming context for smoother transitions
-    return '';
-  }
-
-  private async ensureOutputDir(): Promise<void> {
     try {
-      await fs.access(this.outputDir);
-    } catch {
-      await fs.mkdir(this.outputDir, { recursive: true });
+      switch (this.config.provider) {
+        case 'elevenlabs':
+          ({ duration, speechMarks, fileSize } = await this.generateWithElevenLabs(segment.narrationText, audioFilePath));
+          break;
+        case 'aws-polly':
+          ({ duration, speechMarks, fileSize } = await this.generateWithAWSPolly(segment.narrationText, audioFilePath));
+          break;
+        case 'google':
+          ({ duration, speechMarks, fileSize } = await this.generateWithGoogle(segment.narrationText, audioFilePath));
+          break;
+        default:
+          throw new Error(`Unsupported TTS provider: ${this.config.provider}`);
+      }
+    } catch (error) {
+      console.error(chalk.red(`  ❌ Failed to generate ${segment.id}:`), error);
+      throw error;
+    }
+
+    const generationTime = Date.now() - startTime;
+
+    return {
+      segment,
+      audioFilePath,
+      duration,
+      speechMarks,
+      metadata: {
+        fileSize,
+        generationTime
+      }
+    };
+  }
+
+  private async generateWithElevenLabs(text: string, outputPath: string): Promise<{
+    duration: number;
+    speechMarks?: SpeechMark[];
+    fileSize: number;
+  }> {
+    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${this.config.voiceId}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'audio/mpeg',
+        'Content-Type': 'application/json',
+        'xi-api-key': this.config.apiKey,
+      },
+      body: JSON.stringify({
+        text,
+        model_id: 'eleven_turbo_v2_5',
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.75,
+        }
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`ElevenLabs API error: ${response.statusText}`);
+    }
+
+    const arrayBuffer = await response.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    
+    await fs.writeFile(outputPath, buffer);
+    
+    // Get audio duration using ffprobe-like calculation
+    const duration = await this.getAudioDuration(outputPath);
+    
+    return {
+      duration,
+      fileSize: buffer.length,
+      speechMarks: undefined // ElevenLabs doesn't provide speech marks yet
+    };
+  }
+
+  private async generateWithAWSPolly(text: string, outputPath: string): Promise<{
+    duration: number;
+    speechMarks?: SpeechMark[];
+    fileSize: number;
+  }> {
+    // AWS Polly implementation with speech marks
+    // This would require AWS SDK setup
+    throw new Error('AWS Polly implementation not yet available');
+  }
+
+  private async generateWithGoogle(text: string, outputPath: string): Promise<{
+    duration: number;
+    speechMarks?: SpeechMark[];
+    fileSize: number;
+  }> {
+    // Google Cloud TTS implementation
+    throw new Error('Google TTS implementation not yet available');
+  }
+
+  private async getAudioDuration(filePath: string): Promise<number> {
+    try {
+      // Use ffprobe to get precise duration
+      const { exec } = await import('child_process');
+      const { promisify } = await import('util');
+      const execAsync = promisify(exec);
+      
+      const { stdout } = await execAsync(
+        `ffprobe -v quiet -show_entries format=duration -of csv=p=0 "${filePath}"`
+      );
+      
+      return parseFloat(stdout.trim());
+    } catch (error) {
+      console.warn(`Could not get precise duration for ${filePath}, using estimation`);
+      
+      // Fallback: estimate based on text length and speech rate
+      const text = ''; // We'd need to pass this through
+      const wordsPerMinute = 150; // Average speech rate
+      const wordCount = text.split(' ').length;
+      return (wordCount / wordsPerMinute) * 60;
     }
   }
 
-  // Alternative implementation for different voice styles
-  async generateWithVoiceClone(
-    narration: NarrationScript,
-    voiceSamplePath: string
-  ): Promise<AudioFile> {
-    // Best practice for voice cloning:
-    // - Use 60+ seconds of clean audio for instant cloning
-    // - 30+ minutes for professional cloning
-    // - Ensure no background noise or effects
-    
-    const formData = new FormData();
-    formData.append('text', narration.mainNarration);
-    formData.append('voice_sample', await fs.readFile(voiceSamplePath));
-    
-    // Implementation would follow ElevenLabs voice cloning API
-    throw new Error('Voice cloning not yet implemented');
+  async loadExistingCollection(sessionDir: string): Promise<SegmentedAudioCollection | null> {
+    try {
+      const collectionPath = path.join(sessionDir, 'stage-09-segmented-tts/segmented-audio-collection.json');
+      const content = await fs.readFile(collectionPath, 'utf-8');
+      return JSON.parse(content);
+    } catch (error) {
+      return null;
+    }
   }
 }

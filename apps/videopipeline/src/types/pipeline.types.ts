@@ -52,6 +52,45 @@ export interface AudioFile {
   voiceId?: string;
 }
 
+export interface SpeechMark {
+  time: number;
+  type: 'sentence' | 'word' | 'viseme' | 'ssml';
+  start: number;
+  end: number;
+  value: string;
+}
+
+export interface AudioSegment {
+  id: string;
+  contentType: 'slide' | 'ai-image' | 'ai-video';
+  contentId: number | string;
+  narrationText: string;
+  audioFile: string;
+  duration: number;
+  speechMarks?: SpeechMark[];
+  startTime: number;
+  endTime: number;
+  metadata?: {
+    provider: string;
+    voiceId: string;
+    createdAt: string;
+    fileSize: number;
+  };
+}
+
+export interface SegmentedAudioCollection {
+  segments: AudioSegment[];
+  totalDuration: number;
+  sessionId: string;
+  createdAt: string;
+  metadata: {
+    segmentCount: number;
+    provider: string;
+    voiceId: string;
+    totalFileSize: number;
+  };
+}
+
 export interface GeneratedVideo {
   id: string;
   slideNumber: number;
@@ -76,14 +115,17 @@ export interface PipelineJob {
 }
 
 export type PipelineStage = 
-  | 'extraction'
-  | 'narration'
-  | 'slides'
-  | 'tts'
-  | 'video-detection'
-  | 'video-generation'
-  | 'assembly'
-  | 'enhancement';
+  | 'extraction'          // Stage 1: PPT content extraction
+  | 'image-export'        // Stage 2: Slide image export
+  | 'analysis'           // Stage 3: Personalized analysis & narration
+  | 'enhancement'        // Stage 4: Enhanced PPT creation
+  | 'script-generation'  // Stage 5: Script & media planning
+  | 'media-generation'   // Stage 6: AI media creation
+  | 'narration-prep'     // Stage 7: Final narration preparation
+  | 'segmentation'       // Stage 8: Narration segmentation
+  | 'tts'               // Stage 9: Segmented TTS generation
+  | 'timeline'          // Stage 10: Content-aware timeline
+  | 'assembly';         // Stage 11: Video assembly
 
 export interface PipelineConfig {
   llm: {

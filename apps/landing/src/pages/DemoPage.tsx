@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Player } from '@remotion/player';
 import { DataCenterRackEducation } from '../components/animation/DataCenterRackAnimation';
 import { ServerModuleCombined } from '../components/animation/ServerModuleCombined';
+import { DataCenterEducation3D } from '../components/animation/compositions/DataCenterEducation3D';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PlayCircle, PauseCircle, RotateCcw, Download, Share2, BookOpen, Zap, Shield, Activity } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { BRAND_COLORS } from '@/constants/styles';
 
 const DemoPage: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playerRef, setPlayerRef] = useState<any>(null);
-  const [selectedVideo, setSelectedVideo] = useState<'rack' | 'module'>('rack');
+  const [selectedVideo, setSelectedVideo] = useState<'rack' | 'module' | 'education3d'>('rack');
   const [currentFrame, setCurrentFrame] = useState(0);
+  const { id } = useParams<{ id?: string }>();
 
   const handlePlayPause = () => {
     if (playerRef) {
@@ -33,7 +35,7 @@ const DemoPage: React.FC = () => {
     }
   };
 
-  const handleVideoChange = (video: 'rack' | 'module') => {
+  const handleVideoChange = (video: 'rack' | 'module' | 'education3d') => {
     setSelectedVideo(video);
     setIsPlaying(false);
     // Reset player to beginning when switching videos
@@ -44,6 +46,15 @@ const DemoPage: React.FC = () => {
     }, 100);
     setCurrentFrame(0);
   };
+
+  // Allow deep-linking: /demo/:id -> preselect demo
+  useEffect(() => {
+    if (!id) return;
+    const normalized = id.toLowerCase();
+    if (normalized === 'rack') setSelectedVideo('rack');
+    else if (normalized === 'module' || normalized === 'server-module') setSelectedVideo('module');
+    else if (['education3d', '3d', 'datacenter-3d'].includes(normalized)) setSelectedVideo('education3d');
+  }, [id]);
 
   // Total frames for the selected video (0-indexed max)
   // Declared after currentVideo to avoid temporal dead zone issues
@@ -117,6 +128,20 @@ const DemoPage: React.FC = () => {
         { time: "0-30s", title: "Module Introduction", desc: "Welcome to server technologies" },
         { time: "30-60s", title: "What Is a Server?", desc: "Define servers and client-server architecture" },
         { time: "60-90s", title: "Server vs Desktop", desc: "Key differences and advantages" },
+      ]
+    },
+    education3d: {
+      component: DataCenterEducation3D,
+      duration: 3600,
+      title: "3D Data Center Journey",
+      description: "Full 3D walkthrough of modern data center infrastructure: IT, power, cooling, and networking.",
+      timeline: [
+        { time: "0-5s", title: "Title", desc: "Opening title card" },
+        { time: "5-20s", title: "Overview", desc: "Data center floor layout" },
+        { time: "20-35s", title: "IT Equipment", desc: "Server racks deep dive" },
+        { time: "35-47s", title: "Networking", desc: "Topology visualized" },
+        { time: "47-59s", title: "Power", desc: "UPS/PDUs redundancy" },
+        { time: "59-71s", title: "Cooling", desc: "Airflow and precision cooling" },
       ]
     }
   };
@@ -219,6 +244,20 @@ const DemoPage: React.FC = () => {
               >
                 <BookOpen className="h-5 w-5 mr-2" />
                 Module 3.1: Server Technologies
+              </Button>
+              <Button
+                onClick={() => handleVideoChange('education3d')}
+                variant={selectedVideo === 'education3d' ? 'default' : 'outline'}
+                size="lg"
+                className={`${
+                  selectedVideo === 'education3d' 
+                    ? 'text-white' 
+                    : 'border-white/30 text-white hover:bg-white/10'
+                }`}
+                style={selectedVideo === 'education3d' ? { backgroundColor: BRAND_COLORS.PRIMARY } : {}}
+              >
+                <Zap className="h-5 w-5 mr-2" />
+                3D Data Center Journey
               </Button>
             </div>
           </div>
@@ -331,7 +370,7 @@ const DemoPage: React.FC = () => {
                   Animation Timeline
                 </CardTitle>
                 <CardDescription>
-                  Key moments in the {selectedVideo === 'rack' ? '20-second' : '90-second'} educational journey
+                  Key moments in the {selectedVideo === 'rack' ? '20-second' : selectedVideo === 'module' ? '90-second' : '120-second'} educational journey
                 </CardDescription>
               </CardHeader>
               <CardContent>

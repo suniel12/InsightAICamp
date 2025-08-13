@@ -75,16 +75,17 @@ export class PipelineSession {
       title: title || `Pipeline Session ${this.sessionId}`,
       description: description || '',
       stages: {
-        1: { status: 'pending', name: 'input' },
-        2: { status: 'pending', name: 'images' },
-        3: { status: 'pending', name: 'personalized-analysis-narration' },
-        4: { status: 'pending', name: 'enhanced-ppt' },
-        5: { status: 'pending', name: 'script-video-planning' },
-        6: { status: 'pending', name: 'ai-videos' },
-        7: { status: 'pending', name: 'timeline' },
-        8: { status: 'pending', name: 'final-narration' },
-        9: { status: 'pending', name: 'tts-audio' },
-        10: { status: 'pending', name: 'final-video' }
+        1: { status: 'pending', name: 'extraction' },
+        2: { status: 'pending', name: 'image-export' },
+        3: { status: 'pending', name: 'analysis' },
+        4: { status: 'pending', name: 'enhancement' },
+        5: { status: 'pending', name: 'script-generation' },
+        6: { status: 'pending', name: 'media-generation' },
+        7: { status: 'pending', name: 'narration-prep' },
+        8: { status: 'pending', name: 'segmentation' },
+        9: { status: 'pending', name: 'tts' },
+        10: { status: 'pending', name: 'timeline' },
+        11: { status: 'pending', name: 'assembly' }
       }
     };
 

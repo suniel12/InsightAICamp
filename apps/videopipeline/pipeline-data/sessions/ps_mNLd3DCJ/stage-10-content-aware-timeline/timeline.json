@@ -1,0 +1,381 @@
+{
+  "events": [
+    {
+      "id": "slide-1",
+      "startTime": 0,
+      "endTime": 6.593300000000001,
+      "duration": 6.593300000000001,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-1-0.0",
+        "contentType": "slide",
+        "contentId": 1,
+        "narrationText": "Hello! Today, we're going to explore the world of data centers. At its core, a data center is the physical foundation that powers our digital world, from the apps on your phone to the complex systems that drive modern scientific research. For a biologist, it's helpful to think of a data center not as a complicated machine, but as the central nervous system of your research operations. It’s the behind-the-scenes hub that securely stores your critical data, runs your analyses, and connects you with collaborators across the globe.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-1-0.0.mp3",
+        "duration": 6.593300000000001,
+        "startTime": 0,
+        "endTime": 32.9665,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 527509
+        }
+      },
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide1.png",
+        "description": "Slide 1",
+        "transition": "fade"
+      },
+      "narrationContent": "Hello! Today, we're going to explore the world of data centers. At its core, a..."
+    },
+    {
+      "id": "ai-image-1",
+      "startTime": 6.593300000000001,
+      "endTime": 32.9665,
+      "duration": 26.373200000000004,
+      "type": "ai-image",
+      "audioSegment": {
+        "id": "segment-1-0.0",
+        "contentType": "slide",
+        "contentId": 1,
+        "narrationText": "Hello! Today, we're going to explore the world of data centers. At its core, a data center is the physical foundation that powers our digital world, from the apps on your phone to the complex systems that drive modern scientific research. For a biologist, it's helpful to think of a data center not as a complicated machine, but as the central nervous system of your research operations. It’s the behind-the-scenes hub that securely stores your critical data, runs your analyses, and connects you with collaborators across the globe.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-1-0.0.mp3",
+        "duration": 26.373200000000004,
+        "startTime": 6.593300000000001,
+        "endTime": 32.9665,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 527509
+        }
+      },
+      "content": {
+        "imagePath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide1_img1.png",
+        "description": "The Central Nervous System of Research",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Hello! Today, we're going to explore the world of data centers. At its core, a..."
+    },
+    {
+      "id": "transition-1-33.0",
+      "startTime": 32.9665,
+      "endTime": 33.4665,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-2",
+      "startTime": 33.4665,
+      "endTime": 77.482813,
+      "duration": 44.016313,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-2-35.7",
+        "contentType": "slide",
+        "contentId": 2,
+        "narrationText": "So, what does a data center actually do for you? It provides essential services that you likely use every day without a second thought. Data Storage: This is where your lab’s most valuable asset—your data—lives. From genomes and protein structures to microscope images, a data center provides a secure, managed environment to keep it safe. Application & Web Hosting: It runs the software and websites crucial for your work, whether it's a bioinformatics pipeline, a laboratory information system, or your public-facing lab page. Email Services: It also handles the basics, like the email you rely on for constant communication and collaboration.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-2-35.7.mp3",
+        "duration": 44.016313,
+        "startTime": 32.9665,
+        "endTime": 76.982813,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 704306
+        }
+      },
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide2.png",
+        "description": "Slide 2",
+        "transition": "fade"
+      },
+      "narrationContent": "So, what does a data center actually do for you? It provides essential services..."
+    },
+    {
+      "id": "transition-2-77.5",
+      "startTime": 77.482813,
+      "endTime": 77.982813,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-3",
+      "startTime": 77.982813,
+      "endTime": 87.36076299999999,
+      "duration": 9.37795,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-3-76.6",
+        "contentType": "slide",
+        "contentId": 3,
+        "narrationText": "Now, let's look under the hood. A data center is a specialized facility designed to house and protect the core components of IT. The key players are servers (the brainpower), storage systems (the long-term memory), and networking gear like routers that direct traffic. Just as important are the support systems. Think of uninterruptible power supplies (UPS) and cooling units as the heart and lungs. They provide consistent power and a controlled climate, which is critical because these components generate a tremendous amount of heat. You'll often see raised floors, which create a space for the massive amount of cabling and, more importantly, allow for efficient airflow to cool the equipment—a bit like a circulatory system delivering coolant and removing waste heat.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-3-76.6.mp3",
+        "duration": 9.37795,
+        "startTime": 76.982813,
+        "endTime": 123.87256299999999,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 750281
+        }
+      },
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide3.png",
+        "description": "Slide 3",
+        "transition": "fade"
+      },
+      "narrationContent": "Now, let's look under the hood. A data center is a specialized facility..."
+    },
+    {
+      "id": "ai-image-3",
+      "startTime": 87.36076299999999,
+      "endTime": 124.87256299999999,
+      "duration": 37.5118,
+      "type": "ai-image",
+      "audioSegment": {
+        "id": "segment-3-76.6",
+        "contentType": "slide",
+        "contentId": 3,
+        "narrationText": "Now, let's look under the hood. A data center is a specialized facility designed to house and protect the core components of IT. The key players are servers (the brainpower), storage systems (the long-term memory), and networking gear like routers that direct traffic. Just as important are the support systems. Think of uninterruptible power supplies (UPS) and cooling units as the heart and lungs. They provide consistent power and a controlled climate, which is critical because these components generate a tremendous amount of heat. You'll often see raised floors, which create a space for the massive amount of cabling and, more importantly, allow for efficient airflow to cool the equipment—a bit like a circulatory system delivering coolant and removing waste heat.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-3-76.6.mp3",
+        "duration": 37.5118,
+        "startTime": 87.36076299999999,
+        "endTime": 123.87256299999999,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 750281
+        }
+      },
+      "content": {
+        "imagePath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide3_img2.png",
+        "description": "Anatomy of a Data Center",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Now, let's look under the hood. A data center is a specialized facility..."
+    },
+    {
+      "id": "transition-3-124.9",
+      "startTime": 124.87256299999999,
+      "endTime": 125.37256299999999,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "ai-video-4-125.4",
+      "startTime": 125.37256299999999,
+      "endTime": 175.710501,
+      "duration": 50.337938,
+      "type": "ai-video",
+      "audioSegment": {
+        "id": "segment-4-125.5",
+        "contentType": "ai-video",
+        "contentId": 4,
+        "narrationText": "Why centralize all this? Two main reasons: efficiency and security. By grouping resources, data centers achieve economies of scale. It's cheaper to cool and power one large, optimized facility than hundreds of small server closets. It also allows for a shared pool of IT experts. To give you a sense of this, what might look like a single computer is actually one of hundreds, or even thousands, of servers. This massive infrastructure is what allows for incredible resource optimization and efficiency. The other huge benefit is enhanced security. Physically, these are fortresses with restricted access, 24/7 surveillance, and biometric scanners. Virtually, they have an immune system of sorts, with enterprise-grade firewalls and advanced threat protection to safeguard your data.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-4-125.5.mp3",
+        "duration": 50.337938,
+        "startTime": 123.87256299999999,
+        "endTime": 174.210501,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 805452
+        }
+      },
+      "content": {
+        "slideNumber": 4,
+        "videoPath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/videos/slide4_vid1.mp4",
+        "description": "Data Center Economies of Scale",
+        "transition": "fade"
+      },
+      "narrationContent": "Why centralize all this? Two main reasons: efficiency and security. By grouping..."
+    },
+    {
+      "id": "transition-4-175.7",
+      "startTime": 175.710501,
+      "endTime": 176.210501,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-5",
+      "startTime": 176.210501,
+      "endTime": 198.947476,
+      "duration": 22.736975,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-5-134.0",
+        "contentType": "slide",
+        "contentId": 5,
+        "narrationText": "Not all data centers are created equal. They are classified into four tiers based on their reliability and redundancy. Think of these tiers as increasing levels of resilience. A Tier 1 facility is the most basic, with a single path for power and cooling. It has about 99.671% availability, which sounds great, but it translates to over 28 hours of potential downtime per year. Tier 2 adds some redundant components, improving availability slightly to 99.741%, or about 22 hours of downtime annually. Tier 3 is a major step up. It has multiple power and cooling paths, and every component can be repaired or replaced without taking the system offline. This delivers 99.982% availability, which cuts potential downtime to just 1.5 hours per year. Finally, Tier 4 is fully fault-tolerant. Every component has a redundant counterpart, so it can withstand almost any single equipment failure. This provides 99.995% availability, or a mere 26 minutes of potential downtime annually. Choosing a tier is about risk management. For a biologist, downtime isn't just an inconvenience; it can be catastrophic. Imagine a complex sequencing analysis that has been running for 48 hours. An outage, even a brief one, could corrupt your data and force you to start over, wasting days of work and valuable resources. Businesses estimate the cost of downtime at around $300,000 per hour. For a research lab, the cost is measured in lost progress and potentially lost discoveries. Just like in a sensitive lab experiment, maintaining a stable environment is paramount. The higher the tier, the more stable that digital environment is.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-5-134.0.mp3",
+        "duration": 22.736975,
+        "startTime": 174.210501,
+        "endTime": 287.895376,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 1819003
+        }
+      },
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide5.png",
+        "description": "Slide 5",
+        "transition": "fade"
+      },
+      "narrationContent": "Not all data centers are created equal. They are classified into four tiers..."
+    },
+    {
+      "id": "ai-image-5",
+      "startTime": 198.947476,
+      "endTime": 289.895376,
+      "duration": 90.9479,
+      "type": "ai-image",
+      "audioSegment": {
+        "id": "segment-5-134.0",
+        "contentType": "slide",
+        "contentId": 5,
+        "narrationText": "Not all data centers are created equal. They are classified into four tiers based on their reliability and redundancy. Think of these tiers as increasing levels of resilience. A Tier 1 facility is the most basic, with a single path for power and cooling. It has about 99.671% availability, which sounds great, but it translates to over 28 hours of potential downtime per year. Tier 2 adds some redundant components, improving availability slightly to 99.741%, or about 22 hours of downtime annually. Tier 3 is a major step up. It has multiple power and cooling paths, and every component can be repaired or replaced without taking the system offline. This delivers 99.982% availability, which cuts potential downtime to just 1.5 hours per year. Finally, Tier 4 is fully fault-tolerant. Every component has a redundant counterpart, so it can withstand almost any single equipment failure. This provides 99.995% availability, or a mere 26 minutes of potential downtime annually. Choosing a tier is about risk management. For a biologist, downtime isn't just an inconvenience; it can be catastrophic. Imagine a complex sequencing analysis that has been running for 48 hours. An outage, even a brief one, could corrupt your data and force you to start over, wasting days of work and valuable resources. Businesses estimate the cost of downtime at around $300,000 per hour. For a research lab, the cost is measured in lost progress and potentially lost discoveries. Just like in a sensitive lab experiment, maintaining a stable environment is paramount. The higher the tier, the more stable that digital environment is.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-5-134.0.mp3",
+        "duration": 90.9479,
+        "startTime": 198.947476,
+        "endTime": 287.895376,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 1819003
+        }
+      },
+      "content": {
+        "imagePath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide5_img3.png",
+        "description": "The Four Tiers of Reliability",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Not all data centers are created equal. They are classified into four tiers..."
+    }
+  ],
+  "totalDuration": 289.895376,
+  "audioCollection": {
+    "segments": [
+      {
+        "id": "segment-1-0.0",
+        "contentType": "slide",
+        "contentId": 1,
+        "narrationText": "Hello! Today, we're going to explore the world of data centers. At its core, a data center is the physical foundation that powers our digital world, from the apps on your phone to the complex systems that drive modern scientific research. For a biologist, it's helpful to think of a data center not as a complicated machine, but as the central nervous system of your research operations. It’s the behind-the-scenes hub that securely stores your critical data, runs your analyses, and connects you with collaborators across the globe.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-1-0.0.mp3",
+        "duration": 32.9665,
+        "startTime": 0,
+        "endTime": 32.9665,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 527509
+        }
+      },
+      {
+        "id": "segment-2-35.7",
+        "contentType": "slide",
+        "contentId": 2,
+        "narrationText": "So, what does a data center actually do for you? It provides essential services that you likely use every day without a second thought. Data Storage: This is where your lab’s most valuable asset—your data—lives. From genomes and protein structures to microscope images, a data center provides a secure, managed environment to keep it safe. Application & Web Hosting: It runs the software and websites crucial for your work, whether it's a bioinformatics pipeline, a laboratory information system, or your public-facing lab page. Email Services: It also handles the basics, like the email you rely on for constant communication and collaboration.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-2-35.7.mp3",
+        "duration": 44.016313,
+        "startTime": 32.9665,
+        "endTime": 76.982813,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 704306
+        }
+      },
+      {
+        "id": "segment-3-76.6",
+        "contentType": "slide",
+        "contentId": 3,
+        "narrationText": "Now, let's look under the hood. A data center is a specialized facility designed to house and protect the core components of IT. The key players are servers (the brainpower), storage systems (the long-term memory), and networking gear like routers that direct traffic. Just as important are the support systems. Think of uninterruptible power supplies (UPS) and cooling units as the heart and lungs. They provide consistent power and a controlled climate, which is critical because these components generate a tremendous amount of heat. You'll often see raised floors, which create a space for the massive amount of cabling and, more importantly, allow for efficient airflow to cool the equipment—a bit like a circulatory system delivering coolant and removing waste heat.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-3-76.6.mp3",
+        "duration": 46.88975,
+        "startTime": 76.982813,
+        "endTime": 123.87256299999999,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 750281
+        }
+      },
+      {
+        "id": "segment-4-125.5",
+        "contentType": "ai-video",
+        "contentId": 4,
+        "narrationText": "Why centralize all this? Two main reasons: efficiency and security. By grouping resources, data centers achieve economies of scale. It's cheaper to cool and power one large, optimized facility than hundreds of small server closets. It also allows for a shared pool of IT experts. To give you a sense of this, what might look like a single computer is actually one of hundreds, or even thousands, of servers. This massive infrastructure is what allows for incredible resource optimization and efficiency. The other huge benefit is enhanced security. Physically, these are fortresses with restricted access, 24/7 surveillance, and biometric scanners. Virtually, they have an immune system of sorts, with enterprise-grade firewalls and advanced threat protection to safeguard your data.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-4-125.5.mp3",
+        "duration": 50.337938,
+        "startTime": 123.87256299999999,
+        "endTime": 174.210501,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 805452
+        }
+      },
+      {
+        "id": "segment-5-134.0",
+        "contentType": "slide",
+        "contentId": 5,
+        "narrationText": "Not all data centers are created equal. They are classified into four tiers based on their reliability and redundancy. Think of these tiers as increasing levels of resilience. A Tier 1 facility is the most basic, with a single path for power and cooling. It has about 99.671% availability, which sounds great, but it translates to over 28 hours of potential downtime per year. Tier 2 adds some redundant components, improving availability slightly to 99.741%, or about 22 hours of downtime annually. Tier 3 is a major step up. It has multiple power and cooling paths, and every component can be repaired or replaced without taking the system offline. This delivers 99.982% availability, which cuts potential downtime to just 1.5 hours per year. Finally, Tier 4 is fully fault-tolerant. Every component has a redundant counterpart, so it can withstand almost any single equipment failure. This provides 99.995% availability, or a mere 26 minutes of potential downtime annually. Choosing a tier is about risk management. For a biologist, downtime isn't just an inconvenience; it can be catastrophic. Imagine a complex sequencing analysis that has been running for 48 hours. An outage, even a brief one, could corrupt your data and force you to start over, wasting days of work and valuable resources. Businesses estimate the cost of downtime at around $300,000 per hour. For a research lab, the cost is measured in lost progress and potentially lost discoveries. Just like in a sensitive lab experiment, maintaining a stable environment is paramount. The higher the tier, the more stable that digital environment is.",
+        "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-segmented-tts/segment-5-134.0.mp3",
+        "duration": 113.684875,
+        "startTime": 174.210501,
+        "endTime": 287.895376,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+          "createdAt": "2025-08-13T17:56:36.631Z",
+          "fileSize": 1819003
+        }
+      }
+    ],
+    "totalDuration": 287.895376,
+    "sessionId": "ps_mNLd3DCJ",
+    "createdAt": "2025-08-13T17:56:45.678Z",
+    "metadata": {
+      "segmentCount": 5,
+      "provider": "elevenlabs",
+      "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+      "totalFileSize": 4606551
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-08-13T17:56:45.680Z",
+    "method": "content-aware-segmented",
+    "segmentCount": 5,
+    "transitionDuration": 0.5
+  }
+}
