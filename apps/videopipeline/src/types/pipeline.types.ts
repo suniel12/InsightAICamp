@@ -62,8 +62,12 @@ export interface SpeechMark {
 
 export interface AudioSegment {
   id: string;
-  contentType: 'slide' | 'ai-image' | 'ai-video';
-  contentId: number | string;
+  type: 'ai-video' | 'slide' | 'ai-image';
+  visualContent?: {
+    type: 'video' | 'slide' | 'image';
+    resource: string;
+    slide?: number;
+  };
   narrationText: string;
   audioFile: string;
   duration: number;
@@ -75,6 +79,8 @@ export interface AudioSegment {
     voiceId: string;
     createdAt: string;
     fileSize: number;
+    pace?: 'fast' | 'normal' | 'slow';
+    keyTerms?: string[];
   };
 }
 

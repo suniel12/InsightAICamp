@@ -126,11 +126,13 @@ export class SegmentedAssemblyStage {
       </Sequence>`;
 
       case 'ai-video':
+        // Get the actual video filename from the content.videoPath
+        const videoFileName = content.videoPath ? path.basename(content.videoPath) : `video_${content.slideNumber || 'unknown'}.mp4`;
         return `
-      {/* AI Video for slide ${content.slideNumber} */}
+      {/* AI Video: ${videoFileName} */}
       <Sequence from={${startFrame}} durationInFrames={${durationFrames}}>
         <AIVideoClip 
-          src={staticFile('video_${content.slideNumber}.mp4')}
+          src={staticFile('${videoFileName}')}
           duration={${durationFrames}}
           description="${content.description || ''}"
           transition="${content.transition || 'fade'}"
@@ -443,6 +445,9 @@ registerRoot(RemotionRoot);
     
     const publicDir = path.join(this.outputDir, 'public');
     await fs.mkdir(publicDir, { recursive: true });
+    
+    // Clean up old media files to avoid mixing old and new content
+    await this.cleanPublicDirectory(publicDir);
 
     // Copy slide images
     for (const slideImage of input.slideImages) {
@@ -464,7 +469,7 @@ registerRoot(RemotionRoot);
       }
     }
 
-    // Copy AI images from timeline events
+    // Copy AI images and videos from timeline events
     for (const event of input.timeline.events) {
       if (event.type === 'ai-image' && event.content.imagePath) {
         if (await this.fileExists(event.content.imagePath)) {
@@ -474,13 +479,22 @@ registerRoot(RemotionRoot);
           console.log(chalk.gray(`    ✓ AI Image: ${fileName}`));
         }
       }
+      
+      if (event.type === 'ai-video' && event.content.videoPath) {
+        if (await this.fileExists(event.content.videoPath)) {
+          const fileName = path.basename(event.content.videoPath);
+          const destPath = path.join(publicDir, fileName);
+          await fs.copyFile(event.content.videoPath, destPath);
+          console.log(chalk.gray(`    ✓ AI Video: ${fileName}`));
+        }
+      }
     }
 
     // Copy AI videos and images if they exist
     if (input.aiVideos) {
       for (const video of input.aiVideos) {
         if (video.url && await this.fileExists(video.url)) {
-          const fileName = `video_${video.slideNumber}.mp4`;
+          const fileName = path.basename(video.url);
           const destPath = path.join(publicDir, fileName);
           await fs.copyFile(video.url, destPath);
           console.log(chalk.gray(`    ✓ Video: ${fileName}`));
@@ -555,6 +569,35 @@ registerRoot(RemotionRoot);
   private async ensureOutputDir(): Promise<void> {
     await fs.mkdir(this.outputDir, { recursive: true });
     await fs.mkdir(path.join(this.outputDir, 'public'), { recursive: true });
+  }
+
+  private async cleanPublicDirectory(publicDir: string): Promise<void> {
+    try {
+      console.log(chalk.yellow('  🧹 Cleaning public directory...'));
+      
+      // Get all files in public directory
+      const files = await fs.readdir(publicDir);
+      
+      // Remove media files but keep other files that might be needed
+      const mediaExtensions = ['.png', '.jpg', '.jpeg', '.mp4', '.webm', '.mp3', '.wav'];
+      const filesToRemove = files.filter(file => 
+        mediaExtensions.some(ext => file.toLowerCase().endsWith(ext))
+      );
+      
+      for (const file of filesToRemove) {
+        const filePath = path.join(publicDir, file);
+        await fs.unlink(filePath);
+        console.log(chalk.gray(`    🗑️  Removed: ${file}`));
+      }
+      
+      if (filesToRemove.length > 0) {
+        console.log(chalk.green(`  ✓ Cleaned ${filesToRemove.length} old media files`));
+      } else {
+        console.log(chalk.gray('  ℹ️  No old media files to clean'));
+      }
+    } catch (error) {
+      console.log(chalk.yellow('  ⚠️  Could not clean public directory (may not exist yet)'));
+    }
   }
 
   private async fileExists(filePath: string): Promise<boolean> {

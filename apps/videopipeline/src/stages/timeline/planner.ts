@@ -65,17 +65,26 @@ export class ContentAwareTimelinePlanner {
     for (let i = 0; i < audioCollection.segments.length; i++) {
       const segment = audioCollection.segments[i];
       
-      // Create content events (may be multiple for AI images)
+      // Create one event per segment - simple 1:1 mapping
       const contentEvents = await this.createContentEvent(segment, currentTime, mediaManifest, slideInfo);
       events.push(...contentEvents);
       
       currentTime += segment.duration;
 
-      // Add transition between segments (except for the last one)
+      // Add simple fade transition between segments (except after the last segment)
       if (i < audioCollection.segments.length - 1) {
-        const transitionEvent = this.createTransitionEvent(currentTime, i + 1);
+        const transitionEvent: ContentAwareTimelineEvent = {
+          id: `transition-${i + 1}-${i + 2}`,
+          startTime: currentTime - this.config.transitionDuration / 2,
+          endTime: currentTime + this.config.transitionDuration / 2,
+          duration: this.config.transitionDuration,
+          type: 'transition',
+          content: {
+            transition: 'fade',
+            description: `Fade transition from segment ${i + 1} to segment ${i + 2}`
+          }
+        };
         events.push(transitionEvent);
-        currentTime += this.config.transitionDuration;
       }
     }
 
@@ -104,110 +113,61 @@ export class ContentAwareTimelinePlanner {
     mediaManifest: any,
     slideInfo: any
   ): Promise<ContentAwareTimelineEvent[]> {
-    const slideNumber = typeof segment.contentId === 'number' ? segment.contentId : parseInt(segment.contentId.toString());
-    const events: ContentAwareTimelineEvent[] = [];
-
-    // Check for AI video first - videos take full duration
-    const aiVideo = mediaManifest?.videos?.find((vid: any) => vid.slide === slideNumber);
-    if (aiVideo && segment.contentType === 'ai-video') {
-      events.push({
-        id: `ai-video-${slideNumber}-${startTime.toFixed(1)}`,
-        startTime,
-        endTime: startTime + segment.duration,
-        duration: segment.duration,
-        type: 'ai-video',
-        audioSegment: segment,
-        content: {
-          slideNumber,
-          videoPath: path.join(this.config.sessionDir, 'stage-06-ai-media/videos', aiVideo.file),
-          description: aiVideo.purpose || `AI video for slide ${slideNumber}`,
-          transition: 'fade'
-        },
-        narrationContent: this.truncateNarration(segment.narrationText, 80)
-      });
-    } else {
-      // Check for AI image - create separate slide and AI image events
-      const aiImage = mediaManifest?.images?.find((img: any) => img.slide === slideNumber);
-      
-      if (aiImage) {
-        // Split the segment: 20% for slide, 80% for AI image
-        const slideDuration = segment.duration * 0.2;
-        const imageDuration = segment.duration * 0.8;
-        
-        // First: Slide event
-        events.push({
-          id: `slide-${slideNumber}`,
-          startTime,
-          endTime: startTime + slideDuration,
-          duration: slideDuration,
-          type: 'slide',
-          audioSegment: {
-            ...segment,
-            duration: slideDuration
-          },
-          content: {
-            slideNumber,
-            slidePath: this.getSlideImagePath(slideNumber),
-            description: `Slide ${slideNumber}`,
-            transition: 'fade'
-          },
-          narrationContent: this.truncateNarration(segment.narrationText, 80)
-        });
-
-        // Second: AI image event (full-screen)
-        events.push({
-          id: `ai-image-${slideNumber}`,
-          startTime: startTime + slideDuration,
-          endTime: startTime + segment.duration,
-          duration: imageDuration,
-          type: 'ai-image',
-          audioSegment: {
-            ...segment,
-            startTime: startTime + slideDuration,
-            duration: imageDuration
-          },
-          content: {
-            imagePath: path.join(this.config.sessionDir, 'stage-06-ai-media/images', aiImage.file),
-            description: aiImage.purpose || `AI generated image for slide ${slideNumber}`,
-            transition: 'dissolve'
-          },
-          narrationContent: this.truncateNarration(segment.narrationText, 80)
-        });
-      } else {
-        // Regular slide - full duration
-        events.push({
-          id: `slide-${slideNumber}`,
-          startTime,
-          endTime: startTime + segment.duration,
-          duration: segment.duration,
-          type: 'slide',
-          audioSegment: segment,
-          content: {
-            slideNumber,
-            slidePath: this.getSlideImagePath(slideNumber),
-            description: `Slide ${slideNumber}`,
-            transition: 'fade'
-          },
-          narrationContent: this.truncateNarration(segment.narrationText, 80)
-        });
-      }
-    }
-
-    return events;
-  }
-
-  private createTransitionEvent(startTime: number, transitionNumber: number): ContentAwareTimelineEvent {
-    return {
-      id: `transition-${transitionNumber}-${startTime.toFixed(1)}`,
+    // Simple 1:1 mapping: One segment = One event
+    const segmentId = segment.id;
+    
+    // Create a single event for this segment that plays for its entire duration
+    const event: ContentAwareTimelineEvent = {
+      id: segmentId,
       startTime,
-      endTime: startTime + this.config.transitionDuration,
-      duration: this.config.transitionDuration,
-      type: 'transition',
-      content: {
-        transition: 'dissolve'
-      }
+      endTime: startTime + segment.duration,
+      duration: segment.duration,
+      type: segment.type,
+      audioSegment: segment,
+      content: this.getContentForSegment(segment, mediaManifest),
+      narrationContent: this.truncateNarration(segment.narrationText, 80)
     };
+
+    return [event];
   }
+
+  private getContentForSegment(segment: AudioSegment, mediaManifest: any): any {
+    switch (segment.type) {
+      case 'ai-video':
+        // Find the video in manifest
+        const video = mediaManifest?.videos?.find((vid: any) => 
+          vid.file === segment.visualContent?.resource
+        );
+        return {
+          videoPath: path.join(this.config.sessionDir, 'stage-06-ai-media/videos', segment.visualContent?.resource || ''),
+          description: video?.purpose || 'AI video content',
+          transition: 'fade'
+        };
+
+      case 'ai-image':
+        // Find the image in manifest
+        const image = mediaManifest?.images?.find((img: any) => 
+          img.file === segment.visualContent?.resource
+        );
+        return {
+          imagePath: path.join(this.config.sessionDir, 'stage-06-ai-media/images', segment.visualContent?.resource || ''),
+          description: image?.purpose || 'AI generated image',
+          transition: 'dissolve'
+        };
+
+      case 'slide':
+      default:
+        // Regular slide
+        const slideNumber = segment.visualContent?.slide || 1;
+        return {
+          slideNumber,
+          slidePath: this.getSlideImagePath(slideNumber),
+          description: `Slide ${slideNumber}`,
+          transition: 'fade'
+        };
+    }
+  }
+
 
   private getSlideImagePath(slideNumber: number): string {
     // Return path to the enhanced slide image
@@ -291,18 +251,16 @@ export class ContentAwareTimelinePlanner {
     console.log(chalk.gray('─'.repeat(80)));
 
     for (const event of timeline.events) {
-      if (event.type !== 'transition') {
-        const start = event.startTime.toFixed(1).padStart(6);
-        const end = event.endTime.toFixed(1).padStart(6);
-        const duration = event.duration.toFixed(1).padStart(5);
-        const type = event.type.padEnd(18);
-        const audioFile = event.audioSegment?.audioFile ? path.basename(event.audioSegment.audioFile) : 'none';
-        
-        console.log(chalk.gray(`  ${start}s-${end}s (${duration}s) ${type} | ${audioFile}`));
-        
-        if (event.narrationContent) {
-          console.log(chalk.dim(`    "${event.narrationContent}"`));
-        }
+      const start = event.startTime.toFixed(1).padStart(6);
+      const end = event.endTime.toFixed(1).padStart(6);
+      const duration = event.duration.toFixed(1).padStart(5);
+      const type = event.type.padEnd(15);
+      const audioFile = event.audioSegment?.audioFile ? path.basename(event.audioSegment.audioFile) : 'none';
+      
+      console.log(chalk.gray(`  ${start}s-${end}s (${duration}s) ${type} | ${audioFile}`));
+      
+      if (event.narrationContent) {
+        console.log(chalk.dim(`    "${event.narrationContent}"`));
       }
     }
     

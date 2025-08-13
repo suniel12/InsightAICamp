@@ -1,0 +1,62 @@
+{
+  "sessionId": "ps_3B69a_go",
+  "createdAt": "2025-08-13T18:03:01.160Z",
+  "updatedAt": "2025-08-13T18:03:01.161Z",
+  "status": "in_progress",
+  "currentStage": 8,
+  "title": "Data Centers Demo Video (Copied Content)",
+  "description": "Session with copied enhanced slides, AI content, and narration ready for segmented pipeline",
+  "stages": {
+    "1": {
+      "status": "completed",
+      "name": "extraction",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "2": {
+      "status": "completed",
+      "name": "image-export",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "3": {
+      "status": "completed",
+      "name": "analysis",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "4": {
+      "status": "completed",
+      "name": "enhancement",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "5": {
+      "status": "completed",
+      "name": "script-generation",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "6": {
+      "status": "completed",
+      "name": "media-generation",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "7": {
+      "status": "completed",
+      "name": "narration-prep",
+      "completedAt": "2025-08-13T18:00:00.000Z"
+    },
+    "8": {
+      "status": "pending",
+      "name": "segmentation"
+    },
+    "9": {
+      "status": "pending",
+      "name": "tts"
+    },
+    "10": {
+      "status": "pending",
+      "name": "timeline"
+    },
+    "11": {
+      "status": "pending",
+      "name": "assembly"
+    }
+  }
+}

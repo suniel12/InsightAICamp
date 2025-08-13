@@ -1,0 +1,33 @@
+{
+  "sessionId": "ps_3B69a_go",
+  "mode": "user-provided",
+  "images": [
+    {
+      "slide": 1,
+      "file": "slide1_img1.png",
+      "url": "/sessions/ps_3B69a_go/ai-images/slide1_img1.png",
+      "timing": "During Slide 1 narration",
+      "purpose": "The Central Nervous System of Research",
+      "status": "user-provided"
+    },
+    {
+      "slide": 3,
+      "file": "slide3_img2.png",
+      "url": "/sessions/ps_3B69a_go/ai-images/slide3_img2.png",
+      "timing": "During Slide 3 narration",
+      "purpose": "Anatomy of a Data Center",
+      "status": "user-provided"
+    }
+  ],
+  "videos": [
+    {
+      "slide": 4,
+      "file": "slide4_vid1.mp4",
+      "url": "/sessions/ps_3B69a_go/ai-videos/slide4_vid1.mp4",
+      "timing": "During Slide 4 narration after \"economies of scale\"",
+      "duration": "8 seconds",
+      "purpose": "Data Center Economies of Scale",
+      "status": "user-provided"
+    }
+  ]
+}

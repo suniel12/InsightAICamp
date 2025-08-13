@@ -129,7 +129,7 @@ export class SegmentedTTSStage {
     try {
       switch (this.config.provider) {
         case 'elevenlabs':
-          ({ duration, speechMarks, fileSize } = await this.generateWithElevenLabs(segment.narrationText, audioFilePath));
+          ({ duration, speechMarks, fileSize } = await this.generateWithElevenLabs(segment.narrationText, audioFilePath, segment.metadata?.pace));
           break;
         case 'aws-polly':
           ({ duration, speechMarks, fileSize } = await this.generateWithAWSPolly(segment.narrationText, audioFilePath));
@@ -159,11 +159,24 @@ export class SegmentedTTSStage {
     };
   }
 
-  private async generateWithElevenLabs(text: string, outputPath: string): Promise<{
+  private async generateWithElevenLabs(text: string, outputPath: string, pace?: string): Promise<{
     duration: number;
     speechMarks?: SpeechMark[];
     fileSize: number;
   }> {
+    // Adjust voice settings based on pace
+    let voiceSettings = {
+      stability: 0.5,
+      similarity_boost: 0.75,
+    };
+
+    if (pace === 'slow') {
+      voiceSettings = {
+        stability: 0.7, // More stable for slower speech
+        similarity_boost: 0.8,
+      };
+    }
+
     const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${this.config.voiceId}`, {
       method: 'POST',
       headers: {
@@ -172,12 +185,9 @@ export class SegmentedTTSStage {
         'xi-api-key': this.config.apiKey,
       },
       body: JSON.stringify({
-        text,
+        text: pace === 'slow' ? this.addPauseMarkers(text) : text,
         model_id: 'eleven_turbo_v2_5',
-        voice_settings: {
-          stability: 0.5,
-          similarity_boost: 0.75,
-        }
+        voice_settings: voiceSettings
       }),
     });
 
@@ -250,5 +260,15 @@ export class SegmentedTTSStage {
     } catch (error) {
       return null;
     }
+  }
+
+  private addPauseMarkers(text: string): string {
+    // Add pause markers for slower speech
+    return text
+      .replace(/\./g, '... ') // Longer pauses at sentence endings
+      .replace(/,/g, ', ') // Short pauses at commas
+      .replace(/—/g, '— ') // Pause at em dashes
+      .replace(/\s+/g, ' ') // Clean up multiple spaces
+      .trim();
   }
 }
