@@ -1,0 +1,57 @@
+[
+  {
+    "slideNumber": 1,
+    "prompt": "Illustration of a data center as a central cellular organ. A large glossy hub sits at the center representing the data center control, with three main streams radiating outward: Power depicted as a glowing lightning bolt, Data shown as flowing data packets, and Network as wavy signals. Surrounding racks resemble organs (liver-like servers, kidney-shaped cooling units). Use a clean vector style with cool blue/teal palette and lime highlights for data. Include labels Power, Data, Network and a small caption about enabling reliable computation for biology and education. Visual metaphor: living system that sustains computational biology workflows.",
+    "fileName": "slide1_img0.png"
+  },
+  {
+    "slideNumber": 1,
+    "prompt": "Two-panel infographic. Left panel shows the data center hub distributing energy, data, and signals to server racks; right panel shows computational biology workflows (sequence analysis, simulations, imaging pipelines) receiving resources. Use a consistent biology-inspired style, color-coded arrows, and labels mapping services to workflows. Minimal text for clarity.",
+    "fileName": "slide1_img1.png"
+  },
+  {
+    "slideNumber": 2,
+    "prompt": "Infographic: Data center services mapped to cellular functions. Icons labeled Email, Data storage/management, Web hosting, Application hosting arranged as organs within a stylized cell. Central nucleus coordinates activities; arrows connect services to cellular roles such as communication, resource storage, and processing. Color palette aligned with slide 1 for consistency.",
+    "fileName": "slide2_img2.png"
+  },
+  {
+    "slideNumber": 2,
+    "prompt": "Close-up diagram of central management at the data center. The nucleus (central management) sends commands to servers, routers, and storage devices. Visuals include simplified icons for management, security, and operations with arrows showing control flow. Style: clean vector, consistent with slides 1–3, subtle lab-friendly background.",
+    "fileName": "slide2_img3.png"
+  },
+  {
+    "slideNumber": 3,
+    "prompt": "Illustration of the data center physical backbone. Racks arranged as cellular organs; UPS depicted as a heart, PDU as vascular network; cooling units as lungs; raised floor visible with cabling like intracellular routing. Include labeled callouts for UPS, PDU, Servers, Routers, and Cooling Units. Style: vector with soft gradients; blue/green palette; readable captions.",
+    "fileName": "slide3_img4.png"
+  },
+  {
+    "slideNumber": 3,
+    "prompt": "Cross-section style diagram showing a raised floor as organized intracellular space. Cables flow under the floor like microtubules; airflow is depicted as blue arrows rising through racks; components include Servers, UPS, Cooling Units, PDU. Add labels and a small legend for airflow and cable management. Style: clean vector, lab-appropriate color coding.",
+    "fileName": "slide3_img5.png"
+  },
+  {
+    "slideNumber": 4,
+    "prompt": "Side-by-side concept visuals: Economies of scale in data centers as tissue-level resource sharing. Left panel shows a large data center sharing resources across multiple labs; right panel shows a small operation duplicating efforts. Use color cues to emphasize cost savings, staffing efficiency, and shared resources. Caption: Economies of scale in education and science IT.",
+    "fileName": "slide4_img6.png"
+  },
+  {
+    "slideNumber": 4,
+    "prompt": "Illustration of layered security as an immune defense: physical barriers (fence, badge access, surveillance) paired with virtual defenses (firewalls, antivirus). Central figure resembles a shielded organism defending a cell. Use dual-tone visuals, clear labels, and a cohesive color scheme with slide 1.",
+    "fileName": "slide4_img7.png"
+  },
+  {
+    "slideNumber": 5,
+    "prompt": "Tier levels visualization as a vertical stack of colored blocks labeled Tier 1 through Tier 4. Include icons representing redundancy, maintenance, and fault tolerance, plus short captions with availability numbers. Use a gradient from lower to higher reliability and annotate key features of each tier.",
+    "fileName": "slide5_img8.png"
+  },
+  {
+    "slideNumber": 6,
+    "prompt": "Availability vs downtime infographic by tier. Simple chart showing Tier 1 to Tier 4 with approximate downtime per year and matching cost implications. Include a small caption about $5,000 per minute outage and ~$300,000 per hour. Visual cues align with biology analogies (tissue stress and organism fitness).",
+    "fileName": "slide6_img9.png"
+  },
+  {
+    "slideNumber": 6,
+    "prompt": "Supporting decision map for choosing Tier based on lab needs. Flowchart-style graphic showing questions like data criticality, acceptable downtime, budget, maintenance capacity, and recommended Tier ranges. Style consistent with previous slides, with biology-inspired icons.",
+    "fileName": "slide6_img10.png"
+  }
+]

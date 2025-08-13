@@ -1,0 +1,198 @@
+{
+  "sessionId": "ps_3B69a_go",
+  "createdAt": "2025-08-13T20:09:57.925Z",
+  "totalSegments": 9,
+  "segments": [
+    {
+      "id": "segment-1-0.0",
+      "segmentNumber": 1,
+      "startTime": 0,
+      "endTime": 18.2,
+      "duration": 18.2,
+      "narrationText": "Welcome to the physical heart of our digital world. Endless corridors of servers—hundreds, or even thousands of them—all humming in unison, processing and storing the vast amounts of information we create and consume every second.",
+      "contentType": "ai-video",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "servers",
+        "digital"
+      ],
+      "visualContent": {
+        "type": "video",
+        "resource": "slide4_vid1.mp4"
+      }
+    },
+    {
+      "id": "segment-2-18.7",
+      "segmentNumber": 2,
+      "startTime": 18.7,
+      "endTime": 34.6,
+      "duration": 15.900000000000002,
+      "narrationText": "Today, we will talk a little bit about data center and various components. A data center is the physical infrastructure that powers the internet and cloud-based services we use daily.",
+      "contentType": "slide",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "infrastructure",
+        "research"
+      ],
+      "visualContent": {
+        "type": "slide",
+        "resource": "Intro to Data centers demo enhanced.pptx",
+        "slide": 1
+      }
+    },
+    {
+      "id": "segment-3-35.1",
+      "segmentNumber": 3,
+      "startTime": 35.1,
+      "endTime": 50.1,
+      "duration": 15,
+      "narrationText": "Think of it this way: if your research data—your genomic sequences and experimental results—is the unique DNA of your work, then the data center is the environment that securely stores this code and provides the power to analyze it, connecting you with collaborators across the globe.",
+      "contentType": "ai-image",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "research",
+        "genomic",
+        "analysis"
+      ],
+      "visualContent": {
+        "type": "image",
+        "resource": "slide1_img1.png"
+      }
+    },
+    {
+      "id": "segment-4-50.6",
+      "segmentNumber": 4,
+      "startTime": 50.6,
+      "endTime": 77.2,
+      "duration": 26.6,
+      "narrationText": "This central hub provides several essential services that you likely use every day without a second thought. \n\nData Storage is primary; this is where your lab's most valuable asset—your data—lives, from genomes and protein structures to microscope images, all kept in a secure, managed environment. It also handles \n\nApplication and Web Hosting , running the crucial software for your work, like a bioinformatics pipeline or a laboratory information system. And of course, it manages essential \n\n\nEmail Services for communication.",
+      "contentType": "slide",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "storage",
+        "hosting",
+        "email"
+      ],
+      "visualContent": {
+        "type": "slide",
+        "resource": "Intro to Data centers demo enhanced.pptx",
+        "slide": 2
+      }
+    },
+    {
+      "id": "segment-5-77.7",
+      "segmentNumber": 5,
+      "startTime": 77.7,
+      "endTime": 105.7,
+      "duration": 28,
+      "narrationText": "To provide these services, a data center relies on a meticulously designed internal environment to house its information systems. The core components include servers , storage systems , and routers. Just as important is the support infrastructure, which has unique and large power requirements and often features raised floor designs. These floors create an underground space for the massive amount of cabling and, critically, allow for efficient airflow from specialized cooling units  to cool the equipment—much like a circulatory system.",
+      "contentType": "slide",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "servers",
+        "storage",
+        "cooling",
+        "power"
+      ],
+      "visualContent": {
+        "type": "slide",
+        "resource": "Intro to Data centers demo enhanced.pptx",
+        "slide": 3
+      }
+    },
+    {
+      "id": "segment-6-106.2",
+      "segmentNumber": 6,
+      "startTime": 106.2,
+      "endTime": 123,
+      "duration": 16.799999999999997,
+      "narrationText": "The servers provide the 'brainpower' (Compute). The storage systems act as the 'long-term memory'. The uninterruptible power supplies (UPS) are the 'heart' , providing constant energy, while the cooling units are the 'lungs', managing the climate and removing heat.",
+      "contentType": "ai-image",
+      "pace": "normal",
+      "keyTerms": [
+        "servers",
+        "storage",
+        "ups",
+        "cooling"
+      ],
+      "visualContent": {
+        "type": "image",
+        "resource": "slide3_img2.png"
+      }
+    },
+    {
+      "id": "segment-7-123.5",
+      "segmentNumber": 7,
+      "startTime": 123.5,
+      "endTime": 157,
+      "duration": 33.5,
+      "narrationText": "Building such a complex, organ-like system makes sense when you consider the two main benefits of centralizing this technology: economies of scale and enhanced security. By sharing resources, you get cost savings from bulk purchasing , access to shared IT expertise , and optimized performance. The other huge benefit is multi-layered security. Physically, these are fortresses with 24/7 surveillance and biometric access controls. Virtually, they deploy an 'immune system' of enterprise-grade firewalls and advanced threat protection to safeguard your data.",
+      "contentType": "slide",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "economies",
+        "security",
+        "surveillance",
+        "firewalls"
+      ],
+      "visualContent": {
+        "type": "slide",
+        "resource": "Intro to Data centers demo enhanced.pptx",
+        "slide": 4
+      }
+    },
+    {
+      "id": "segment-8-157.5",
+      "segmentNumber": 8,
+      "startTime": 157.5,
+      "endTime": 255.4,
+      "duration": 97.9,
+      "narrationText": "But all this security and efficiency is meaningless without reliability. This is where we find the biggest differences between data centers, which are classified into four tiers based on redundancy and fault tolerance.\n\nA \n\nTier 1 facility is the most basic, with a single path for power and cooling. This translates to over 28 hours of potential downtime per year.\n\n\n\n\nTier 2 adds redundant capacity components , reducing potential downtime to about 22 hours annually.\n\n\n\nTier 3 is a major step up. With multiple power paths, it's concurrently maintainable , which cuts potential downtime to just 1.5 hours per year.\n\n\nFinally, \n\nTier 4 is fully fault-tolerant, with independently dual-powered equipment. This results in a mere 26 minutes of potential downtime annually.",
+      "contentType": "slide",
+      "pace": "normal",
+      "keyTerms": [
+        "data center",
+        "tier 1",
+        "tier 2",
+        "tier 3",
+        "tier 4",
+        "downtime",
+        "redundancy"
+      ],
+      "visualContent": {
+        "type": "slide",
+        "resource": "Intro to Data centers demo enhanced.pptx",
+        "slide": 5
+      }
+    },
+    {
+      "id": "segment-9-255.9",
+      "segmentNumber": 9,
+      "startTime": 255.9,
+      "endTime": 270,
+      "duration": 14.099999999999994,
+      "narrationText": "This choice is about risk management. For a biologist, downtime can be catastrophic. Imagine a complex sequencing analysis running for 48 hours. An outage could corrupt your data and force you to start over, wasting days of work. While businesses estimate this loss at around $300,000 per hour, for a research lab, the cost is measured in lost progress and potentially lost discoveries. Just like in a sensitive lab experiment, maintaining a stable digital environment is paramount.",
+      "contentType": "slide",
+      "pace": "normal",
+      "keyTerms": [
+        "conclusion",
+        "summary"
+      ],
+      "visualContent": {
+        "type": "slide",
+        "resource": "Intro to Data centers demo enhanced.pptx",
+        "slide": 6
+      }
+    }
+  ],
+  "metadata": {
+    "totalDuration": 270,
+    "averageSegmentDuration": 29.555555555555557
+  }
+}

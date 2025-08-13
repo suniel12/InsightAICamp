@@ -1,0 +1,19 @@
+{
+  "images": [
+    "slides/Slide1.png",
+    "slides/Slide2.png",
+    "slides/Slide3.png",
+    "slides/Slide4.png",
+    "slides/Slide5.png",
+    "slides/Slide6.png"
+  ],
+  "userContext": {
+    "background": "Biology graduate with lab experience",
+    "expertise": "beginner",
+    "industry": "Life Sciences/Education",
+    "goals": "Understand data center fundamentals"
+  },
+  "analysisModel": "gpt-5-nano",
+  "analysisType": "batch",
+  "timestamp": "2025-08-11T23:01:25.687Z"
+}

@@ -1,0 +1,65 @@
+{
+  "sessionId": "ps_P7ekUQo8",
+  "createdAt": "2025-08-11T01:47:02.984Z",
+  "updatedAt": "2025-08-11T01:47:02.988Z",
+  "status": "in_progress",
+  "currentStage": 3,
+  "title": "Data Center Education Video",
+  "description": "Test session for pipeline development",
+  "stages": {
+    "1": {
+      "status": "completed",
+      "name": "input",
+      "startedAt": "2025-08-11T01:47:02.985Z",
+      "completedAt": "2025-08-11T01:47:02.986Z"
+    },
+    "2": {
+      "status": "completed",
+      "name": "images",
+      "startedAt": "2025-08-11T01:47:02.986Z",
+      "completedAt": "2025-08-11T01:47:02.987Z"
+    },
+    "3": {
+      "status": "completed",
+      "name": "analysis",
+      "startedAt": "2025-08-11T01:47:02.988Z",
+      "completedAt": "2025-08-11T01:47:02.988Z"
+    },
+    "4": {
+      "status": "pending",
+      "name": "initial-narration"
+    },
+    "5": {
+      "status": "pending",
+      "name": "user-context"
+    },
+    "6": {
+      "status": "pending",
+      "name": "enhanced-ppt"
+    },
+    "7": {
+      "status": "pending",
+      "name": "script-video-planning"
+    },
+    "8": {
+      "status": "pending",
+      "name": "ai-videos"
+    },
+    "9": {
+      "status": "pending",
+      "name": "timeline"
+    },
+    "10": {
+      "status": "pending",
+      "name": "final-narration"
+    },
+    "11": {
+      "status": "pending",
+      "name": "tts-audio"
+    },
+    "12": {
+      "status": "pending",
+      "name": "final-video"
+    }
+  }
+}

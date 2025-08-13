@@ -1,0 +1,182 @@
+{
+  "events": [
+    {
+      "id": "overlay-1",
+      "startTime": 0,
+      "endTime": 44.00646734711321,
+      "duration": 44.00646734711321,
+      "type": "slide-with-overlay",
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/public/Slide1.png",
+        "overlayPath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide1_img1.png",
+        "description": "Introduction - The Central Nervous System of Research",
+        "transition": "fade"
+      },
+      "narrationContent": "Introduction and biological analogy for data centers"
+    },
+    {
+      "id": "transition-1",
+      "startTime": 44.00646734711321,
+      "endTime": 44.50646734711321,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-2",
+      "startTime": 44.50646734711321,
+      "endTime": 108.48301555370186,
+      "duration": 63.97654820658865,
+      "type": "slide",
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/public/Slide2.png",
+        "description": "What is a Data Center? - Services",
+        "transition": "fade"
+      },
+      "narrationContent": "Data center services: storage, hosting, email"
+    },
+    {
+      "id": "transition-2",
+      "startTime": 108.48301555370186,
+      "endTime": 108.98301555370186,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "overlay-3",
+      "startTime": 108.98301555370186,
+      "endTime": 170.11356434510282,
+      "duration": 61.130548791400955,
+      "type": "slide-with-overlay",
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/public/Slide3.png",
+        "overlayPath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide3_img2.png",
+        "description": "Data Center Infrastructure - Anatomy",
+        "transition": "fade"
+      },
+      "narrationContent": "Infrastructure components: servers, storage, cooling, power"
+    },
+    {
+      "id": "transition-3",
+      "startTime": 170.11356434510282,
+      "endTime": 170.61356434510282,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-4-intro",
+      "startTime": 170.61356434510282,
+      "endTime": 186.47999002979142,
+      "duration": 15.866425684688608,
+      "type": "slide",
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/public/Slide4.png",
+        "description": "Data Center Benefits - Efficiency introduction",
+        "transition": "fade"
+      },
+      "narrationContent": "Why centralize? Efficiency and economies of scale"
+    },
+    {
+      "id": "video-4",
+      "startTime": 186.47999002979142,
+      "endTime": 201.68275339354224,
+      "duration": 15.202763363750819,
+      "type": "ai-video",
+      "content": {
+        "slideNumber": 4,
+        "videoId": "slide4_vid1.mp4",
+        "videoPath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/videos/slide4_vid1.mp4",
+        "description": "Data Center Scale Visualization",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Video showing massive scale of data centers"
+    },
+    {
+      "id": "slide-4-outro",
+      "startTime": 201.68275339354224,
+      "endTime": 218.04917907823082,
+      "duration": 16.36642568468858,
+      "type": "slide",
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/public/Slide4.png",
+        "description": "Data Center Benefits - Security",
+        "transition": "fade"
+      },
+      "narrationContent": "Enhanced security benefits"
+    },
+    {
+      "id": "transition-4",
+      "startTime": 218.04917907823082,
+      "endTime": 218.54917907823082,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "overlay-5",
+      "startTime": 218.54917907823082,
+      "endTime": 301.374688,
+      "duration": 82.82550892176917,
+      "type": "slide-with-overlay",
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/public/Slide5.png",
+        "overlayPath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide5_img3.png",
+        "description": "Data Center Tiers - Reliability Levels",
+        "transition": "fade"
+      },
+      "narrationContent": "Four tiers of data center reliability and downtime costs"
+    }
+  ],
+  "totalDuration": 301.374688,
+  "audioTrack": {
+    "duration": 301.374688,
+    "path": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-tts-audio/narration.mp3"
+  },
+  "metadata": {
+    "createdAt": "2025-08-13T05:19:10.206Z",
+    "method": "content-aware",
+    "audioWPM": 137.3705279455984,
+    "transitionPoints": [
+      {
+        "time": "44.0",
+        "marker": "So, what does a data center actually do"
+      },
+      {
+        "time": "108.5",
+        "marker": "Now, let's look under the hood"
+      },
+      {
+        "time": "170.1",
+        "marker": "Why centralize all this"
+      },
+      {
+        "time": "186.5",
+        "marker": "To give you a sense of this"
+      },
+      {
+        "time": "201.7",
+        "marker": "The other huge benefit is enhanced security"
+      },
+      {
+        "time": "218.0",
+        "marker": "Not all data centers are created equal"
+      }
+    ]
+  }
+}

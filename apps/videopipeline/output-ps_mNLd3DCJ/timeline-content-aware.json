@@ -1,0 +1,219 @@
+{
+  "events": [
+    {
+      "id": "slide-1",
+      "startTime": 0,
+      "endTime": 5,
+      "duration": 5,
+      "type": "slide",
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide1.png",
+        "description": "Introduction - Understanding Data Centers",
+        "transition": "fade"
+      },
+      "narrationContent": "Hello! Today, we're going to explore the world of data centers"
+    },
+    {
+      "id": "ai-image-1",
+      "startTime": 5,
+      "endTime": 44.00646734711321,
+      "duration": 39.00646734711321,
+      "type": "ai-image",
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide1_img1.png",
+        "description": "DNA helix transitioning to data center - biological analogy",
+        "transition": "dissolve"
+      },
+      "narrationContent": "For a biologist, think of a data center as the central nervous system of your research operations"
+    },
+    {
+      "id": "transition-1",
+      "startTime": 44.00646734711321,
+      "endTime": 44.50646734711321,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-2",
+      "startTime": 44.50646734711321,
+      "endTime": 108.48301555370186,
+      "duration": 63.97654820658865,
+      "type": "slide",
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide2.png",
+        "description": "What is a Data Center? - Services",
+        "transition": "fade"
+      },
+      "narrationContent": "So, what does a data center actually do? Data Storage, Application & Web Hosting, Email Services"
+    },
+    {
+      "id": "transition-2",
+      "startTime": 108.48301555370186,
+      "endTime": 108.98301555370186,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-3",
+      "startTime": 108.98301555370186,
+      "endTime": 135,
+      "duration": 26.01698444629814,
+      "type": "slide",
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide3.png",
+        "description": "Data Center Infrastructure",
+        "transition": "fade"
+      },
+      "narrationContent": "Now, let's look under the hood. A data center is a specialized facility"
+    },
+    {
+      "id": "ai-image-2",
+      "startTime": 135,
+      "endTime": 170.11356434510282,
+      "duration": 35.11356434510282,
+      "type": "ai-image",
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide3_img2.png",
+        "description": "Data center components visualization",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Servers (brainpower), storage (memory), UPS and cooling as heart and lungs, raised floors for airflow"
+    },
+    {
+      "id": "transition-3",
+      "startTime": 170.11356434510282,
+      "endTime": 170.61356434510282,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-4-intro",
+      "startTime": 170.61356434510282,
+      "endTime": 186.47999002979142,
+      "duration": 15.866425684688608,
+      "type": "slide",
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide4.png",
+        "description": "Data Center Benefits",
+        "transition": "fade"
+      },
+      "narrationContent": "Why centralize all this? Two main reasons: efficiency and security"
+    },
+    {
+      "id": "video-4",
+      "startTime": 186.47999002979142,
+      "endTime": 201.68275339354224,
+      "duration": 15.202763363750819,
+      "type": "ai-video",
+      "content": {
+        "slideNumber": 4,
+        "videoId": "slide4_vid1.mp4",
+        "videoPath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/videos/slide4_vid1.mp4",
+        "description": "Data Center Scale Visualization",
+        "transition": "dissolve"
+      },
+      "narrationContent": "To give you a sense of this, what might look like a single computer is actually hundreds or thousands of servers"
+    },
+    {
+      "id": "slide-4-outro",
+      "startTime": 201.68275339354224,
+      "endTime": 218.04917907823082,
+      "duration": 16.36642568468858,
+      "type": "slide",
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide4.png",
+        "description": "Data Center Benefits - Security",
+        "transition": "fade"
+      },
+      "narrationContent": "The other huge benefit is enhanced security. Physically, these are fortresses"
+    },
+    {
+      "id": "transition-4",
+      "startTime": 218.04917907823082,
+      "endTime": 218.54917907823082,
+      "duration": 0.5,
+      "type": "transition",
+      "content": {
+        "transition": "dissolve"
+      }
+    },
+    {
+      "id": "slide-5",
+      "startTime": 218.54917907823082,
+      "endTime": 235,
+      "duration": 16.45082092176918,
+      "type": "slide",
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide5.png",
+        "description": "Data Center Classification Tiers & Downtime",
+        "transition": "fade"
+      },
+      "narrationContent": "Not all data centers are created equal. They are classified into four tiers"
+    },
+    {
+      "id": "ai-image-3",
+      "startTime": 235,
+      "endTime": 270,
+      "duration": 35,
+      "type": "ai-image",
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide5_img3.png",
+        "description": "Data Center Tiers visualization with shields",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Tier 1: 99.671% availability, 28 hours downtime. Tier 2: 99.741%, 22 hours. Tier 3: 99.982%, 1.5 hours. Tier 4: 99.995%, 26 minutes"
+    },
+    {
+      "id": "slide-6",
+      "startTime": 270,
+      "endTime": 301.374688,
+      "duration": 31.374688,
+      "type": "slide",
+      "content": {
+        "slideNumber": 6,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_mNLd3DCJ/public/Slide6.png",
+        "description": "What Do These Classifications Mean?",
+        "transition": "fade"
+      },
+      "narrationContent": "Choosing a tier is about risk management. Businesses estimate the cost of downtime at around $300,000 per hour"
+    }
+  ],
+  "totalDuration": 301.374688,
+  "audioTrack": {
+    "duration": 301.374688,
+    "path": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_mNLd3DCJ/stage-09-tts-audio/narration.mp3"
+  },
+  "metadata": {
+    "createdAt": "2025-08-13T06:10:00.000Z",
+    "method": "content-aware-narration-synced",
+    "audioWPM": 137.3705279455984,
+    "description": "Timeline synced with narration content - AI images shown full screen at appropriate content moments",
+    "narrationSync": {
+      "slide1": "Introduction - brief 5 seconds",
+      "aiImage1": "Biological analogy - central nervous system comparison",
+      "slide2": "Services discussion - storage, hosting, email",
+      "slide3": "Infrastructure overview introduction",
+      "aiImage2": "Detailed components - servers, cooling, raised floors",
+      "slide4": "Benefits - efficiency and security",
+      "video": "Scale visualization at 'To give you a sense of this'",
+      "slide5": "Tier classifications introduction",
+      "aiImage3": "Detailed tier breakdown with availability percentages",
+      "slide6": "Cost impact and risk management discussion"
+    }
+  }
+}

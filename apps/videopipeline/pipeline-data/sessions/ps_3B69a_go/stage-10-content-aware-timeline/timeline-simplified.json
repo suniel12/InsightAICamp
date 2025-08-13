@@ -1,0 +1,231 @@
+{
+  "events": [
+    {
+      "id": "segment-1-0.0",
+      "startTime": 0,
+      "endTime": 14.654688,
+      "duration": 14.654688,
+      "type": "ai-video",
+      "content": {
+        "videoPath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-06-ai-media/videos/slide4_vid1.mp4",
+        "description": "Data Center Economies of Scale",
+        "transition": "fade"
+      },
+      "narrationContent": "Welcome to the physical heart of our digital world. Endless corridors of...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-1-0.0.mp3"
+    },
+    {
+      "id": "transition-1-2",
+      "startTime": 14.154688,
+      "endTime": 15.154688,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 1 to segment 2"
+      }
+    },
+    {
+      "id": "segment-2-18.7",
+      "startTime": 14.654688,
+      "endTime": 25.234251,
+      "duration": 10.579563,
+      "type": "slide",
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide1.png",
+        "description": "Slide 1",
+        "transition": "fade"
+      },
+      "narrationContent": "Today, we will talk a little bit about data center and various components. A...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-2-18.7.mp3"
+    },
+    {
+      "id": "transition-2-3",
+      "startTime": 24.734251,
+      "endTime": 25.734251,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 2 to segment 3"
+      }
+    },
+    {
+      "id": "segment-3-35.1",
+      "startTime": 25.234251,
+      "endTime": 44.355876,
+      "duration": 19.121625,
+      "type": "ai-image",
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-06-ai-media/images/slide1_img1.png",
+        "description": "The Central Nervous System of Research",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Think of it this way: if your research data—your genomic sequences and...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-3-35.1.mp3"
+    },
+    {
+      "id": "transition-3-4",
+      "startTime": 43.855876,
+      "endTime": 44.855876,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 3 to segment 4"
+      }
+    },
+    {
+      "id": "segment-4-50.6",
+      "startTime": 44.355876,
+      "endTime": 79.64725100000001,
+      "duration": 35.291375,
+      "type": "slide",
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide2.png",
+        "description": "Slide 2",
+        "transition": "fade"
+      },
+      "narrationContent": "This central hub provides several essential services that you likely use every...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-4-50.6.mp3"
+    },
+    {
+      "id": "transition-4-5",
+      "startTime": 79.14725100000001,
+      "endTime": 80.14725100000001,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 4 to segment 5"
+      }
+    },
+    {
+      "id": "segment-5-77.7",
+      "startTime": 79.64725100000001,
+      "endTime": 112.01293900000002,
+      "duration": 32.365688,
+      "type": "slide",
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide3.png",
+        "description": "Slide 3",
+        "transition": "fade"
+      },
+      "narrationContent": "To provide these services, a data center relies on a meticulously designed...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-5-77.7.mp3"
+    },
+    {
+      "id": "transition-5-6",
+      "startTime": 111.51293900000002,
+      "endTime": 112.51293900000002,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 5 to segment 6"
+      }
+    },
+    {
+      "id": "segment-6-106.2",
+      "startTime": 112.01293900000002,
+      "endTime": 129.567189,
+      "duration": 17.55425,
+      "type": "ai-image",
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-06-ai-media/images/slide3_img2.png",
+        "description": "Anatomy of a Data Center",
+        "transition": "dissolve"
+      },
+      "narrationContent": "The servers provide the 'brainpower' (Compute). The storage systems act as the '...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-6-106.2.mp3"
+    },
+    {
+      "id": "transition-6-7",
+      "startTime": 129.067189,
+      "endTime": 130.067189,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 6 to segment 7"
+      }
+    },
+    {
+      "id": "segment-7-123.5",
+      "startTime": 129.567189,
+      "endTime": 165.77287700000002,
+      "duration": 36.205688,
+      "type": "slide",
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide4.png",
+        "description": "Slide 4",
+        "transition": "fade"
+      },
+      "narrationContent": "Building such a complex, organ-like system makes sense when you consider the...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-7-123.5.mp3"
+    },
+    {
+      "id": "transition-7-8",
+      "startTime": 165.27287700000002,
+      "endTime": 166.27287700000002,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 7 to segment 8"
+      }
+    },
+    {
+      "id": "segment-8-157.5",
+      "startTime": 165.77287700000002,
+      "endTime": 214.569565,
+      "duration": 48.796688,
+      "type": "slide",
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide5.png",
+        "description": "Slide 5",
+        "transition": "fade"
+      },
+      "narrationContent": "But all this security and efficiency is meaningless without reliability. This...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-8-157.5.mp3"
+    },
+    {
+      "id": "transition-8-9",
+      "startTime": 214.069565,
+      "endTime": 215.069565,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 8 to segment 9"
+      }
+    },
+    {
+      "id": "segment-9-255.9",
+      "startTime": 214.569565,
+      "endTime": 246.360565,
+      "duration": 31.791,
+      "type": "slide",
+      "content": {
+        "slideNumber": 6,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide6.png",
+        "description": "Slide 6",
+        "transition": "fade"
+      },
+      "narrationContent": "This choice is about risk management. For a biologist, downtime can be...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-9-255.9.mp3"
+    }
+  ],
+  "totalDuration": 246.360565,
+  "metadata": {
+    "createdAt": "2025-08-13T21:33:47.712Z",
+    "method": "content-aware-segmented",
+    "segmentCount": 9,
+    "transitionDuration": 1
+  }
+}

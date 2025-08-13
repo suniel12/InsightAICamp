@@ -1,0 +1,20 @@
+[
+  {
+    "slideNumber": 6,
+    "prompt": "Create a 20-second explainer video in a 2.5D vector style. The data center is portrayed as a living organism: nucleus governs services, mitochondria supply energy (power), bloodstream-like cabling carries data. Animate flow of power, data packets, and network signals through racks, with overlay text Power, Data, Network. End with a quick summary line emphasizing reliability enabling biology workflows.",
+    "fileName": "slide6_vid11.mp4",
+    "duration": "5 seconds"
+  },
+  {
+    "slideNumber": 6,
+    "prompt": "Animation comparing Tier options with fault tolerance. 15-second clip showing four stacked blocks representing Tier 1–4, each block powering up with redundancy indicators. Include maintenance events and failover visuals, finish with a callout about the higher uptime of higher tiers.",
+    "fileName": "slide6_vid12.mp4",
+    "duration": "5 seconds"
+  },
+  {
+    "slideNumber": 6,
+    "prompt": "Cost of outages quick explainers: 15-second 2.5D video. A running clock shows minutes of downtime, with escalating cost per minute and related budget icons. End with a prompt showing that investing in higher reliability reduces risk and cost.",
+    "fileName": "slide6_vid13.mp4",
+    "duration": "5 seconds"
+  }
+]

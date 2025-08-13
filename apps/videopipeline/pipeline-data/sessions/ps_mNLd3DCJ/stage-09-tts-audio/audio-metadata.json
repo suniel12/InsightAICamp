@@ -1,0 +1,17 @@
+{
+  "provider": "elevenlabs",
+  "voiceId": "MFZUKuGQUsGJPQjTS4wC",
+  "duration": 301.374688,
+  "format": "mp3",
+  "path": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-tts-audio/narration.mp3",
+  "fileSize": 4822040,
+  "generationTime": "63.3",
+  "createdAt": "2025-08-13T05:07:06.748Z",
+  "narrationStats": {
+    "wordCount": 690,
+    "targetDuration": 238.4,
+    "actualDuration": 301.374688,
+    "targetWPM": 173.65771812080536,
+    "actualWPM": 137.3705279455984
+  }
+}

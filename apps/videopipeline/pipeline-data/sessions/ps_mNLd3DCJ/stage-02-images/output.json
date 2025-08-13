@@ -1,0 +1,22 @@
+{
+  "images": [
+    "slides/Slide1.png",
+    "slides/Slide2.png",
+    "slides/Slide3.png",
+    "slides/Slide4.png",
+    "slides/Slide5.png",
+    "slides/Slide6.png"
+  ],
+  "resolution": "Exported from PowerPoint",
+  "format": "png",
+  "publicPath": "/sessions/ps_mNLd3DCJ/images",
+  "absolutePaths": {
+    "pipeline": "pipeline-data/sessions/ps_mNLd3DCJ/stage-02-images/slides",
+    "public": "public/sessions/ps_mNLd3DCJ/images"
+  },
+  "metadata": {
+    "totalSlides": 6,
+    "exportedAt": "2025-08-11T02:26:00Z",
+    "source": "PowerPoint Export"
+  }
+}

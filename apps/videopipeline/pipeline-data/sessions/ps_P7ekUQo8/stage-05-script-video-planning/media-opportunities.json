@@ -1,0 +1,189 @@
+{
+  "title": "Media Opportunities for Data Center Essentials",
+  "userProfile": "Biology Graduate",
+  "mediaOpportunities": [
+    {
+      "slideNumber": 1,
+      "slideTitle": "DATA CENTER ESSENTIALS",
+      "images": [
+        {
+          "id": "img_1_1",
+          "prompt": "Split-screen comparison: on left, human circulatory system with glowing blood vessels and heart; on right, data center network cables and servers with glowing data flow paths, photorealistic, educational diagram style",
+          "purpose": "Visual comparison of biological vs digital circulation",
+          "timing": "0:15-0:20",
+          "narrationContext": "Just like how your body's circulatory system delivers oxygen..."
+        },
+        {
+          "id": "img_1_2",
+          "prompt": "Transparent cutaway view of Earth showing interconnected data centers as glowing organs inside the planet, with light streams connecting them like neural pathways, futuristic visualization",
+          "purpose": "Illustrate data centers as vital organs of the internet",
+          "timing": "0:30-0:35",
+          "narrationContext": "Data centers are essentially the vital organs of the internet..."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "slideNumber": 2,
+      "slideTitle": "DATA CENTER EQUIPMENT AGENDA",
+      "images": [
+        {
+          "id": "img_2_1",
+          "prompt": "Three-panel educational diagram: left panel shows human brain and nervous system, middle panel shows heart and blood vessels, right panel shows lungs and thermoregulation, all in medical textbook illustration style with labels",
+          "purpose": "Set up the biological system analogies",
+          "timing": "0:05-0:10",
+          "narrationContext": "Just like how biologists organize living systems..."
+        },
+        {
+          "id": "img_2_2",
+          "prompt": "Cross-section view of a data center room showing three color-coded zones: blue for IT equipment (servers), red for power systems (cables and PDUs), and green for cooling systems (CRAC units and ducts), isometric technical diagram",
+          "purpose": "Visual overview of three equipment categories",
+          "timing": "0:45-0:50",
+          "narrationContext": "Three interconnected systems..."
+        }
+      ],
+      "videos": [
+        {
+          "id": "vid_2_1",
+          "prompt": "Camera slowly pans through a real data center, starting with servers blinking, then following power cables overhead, ending with cooling units releasing visible cold air mist, cinematic quality",
+          "purpose": "Show real data center environment in action",
+          "duration": "5 seconds",
+          "timing": "1:00-1:05",
+          "narrationContext": "Explore three interconnected systems...",
+          "priority": "high"
+        }
+      ]
+    },
+    {
+      "slideNumber": 3,
+      "slideTitle": "TERMS TO UNDERSTAND",
+      "images": [
+        {
+          "id": "img_3_1",
+          "prompt": "Side-by-side comparison: plant vascular tissue cross-section showing xylem and phloem on left, PDU power distribution unit with multiple outlets and monitoring display on right, technical illustration style",
+          "purpose": "PDU visual analogy to plant vascular tissue",
+          "timing": "0:15-0:20",
+          "narrationContext": "PDU - Think of this as specialized vascular tissue in plants..."
+        },
+        {
+          "id": "img_3_2",
+          "prompt": "Anatomical diagram showing human circulatory system with heart, arteries, and veins next to a chilled water system diagram with pumps, supply pipes (blue), and return pipes (red), educational infographic style",
+          "purpose": "CHWS/R circulatory system comparison",
+          "timing": "0:55-1:00",
+          "narrationContext": "CHWS/R - This is exactly like your circulatory system..."
+        },
+        {
+          "id": "img_3_3",
+          "prompt": "Grid of 7 technical equipment photos with labels: PDU unit, CRAC unit, CRAH unit, In-Row Cooling unit, UPS battery system, RAID disk array, all in clean product photography style",
+          "purpose": "Visual reference for all terminology",
+          "timing": "1:30-1:35",
+          "narrationContext": "Essential terminology overview"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "slideNumber": 4,
+      "slideTitle": "IT EQUIPMENT OVERVIEW",
+      "images": [
+        {
+          "id": "img_4_1",
+          "prompt": "Wide-angle photograph of a pristine white data center room with rows of black server racks, similar to a modern laboratory with white walls and floors, bright LED lighting",
+          "purpose": "Show white space environment",
+          "timing": "0:05-0:10",
+          "narrationContext": "The heart of our data center ecosystem - the white space..."
+        },
+        {
+          "id": "img_4_2",
+          "prompt": "Close-up cutaway diagram of a server rack showing U measurements (1.75 inches marked), servers at different U heights (1U, 2U, 4U), front access panels, LED indicators, and cable management, technical blueprint style",
+          "purpose": "Explain rack organization and U units",
+          "timing": "0:35-0:40",
+          "narrationContext": "Each rack is organized using standardized units called 'U'..."
+        },
+        {
+          "id": "img_4_3",
+          "prompt": "Microscope view of a biological cell with labeled organelles (nucleus, mitochondria, ribosomes) morphing into server components (CPU, storage, network cards), animated transition diagram",
+          "purpose": "Cell structure to server component analogy",
+          "timing": "1:00-1:05",
+          "narrationContext": "Organization is remarkably similar to cellular structure..."
+        }
+      ],
+      "videos": [
+        {
+          "id": "vid_4_1",
+          "prompt": "First-person walking tour entering a data center white space, doors opening to reveal endless rows of server racks with blinking lights, camera slowly panning across the massive scale, cinematic lighting",
+          "purpose": "Immersive experience of entering a data center",
+          "duration": "7 seconds",
+          "timing": "0:15-0:22",
+          "narrationContext": "Picture yourself walking into this space...",
+          "priority": "high"
+        }
+      ]
+    },
+    {
+      "slideNumber": 5,
+      "slideTitle": "NETWORK EQUIPMENT",
+      "images": [
+        {
+          "id": "img_5_1",
+          "prompt": "Evolution diagram showing progression from single-celled organism to complex mammal, paralleled below by progression from basic home router to enterprise data center switch, scientific illustration style",
+          "purpose": "Network equipment evolution analogy",
+          "timing": "0:10-0:15",
+          "narrationContext": "Different 'species' of network equipment..."
+        },
+        {
+          "id": "img_5_2",
+          "prompt": "Cross-section illustration of forest floor showing mycorrhizal networks connecting tree roots underground with glowing connection points, similar to network topology diagram",
+          "purpose": "Service provider equipment as mycorrhizal networks",
+          "timing": "0:50-0:55",
+          "narrationContext": "Service Provider equipment are like the mycorrhizal networks..."
+        },
+        {
+          "id": "img_5_3",
+          "prompt": "3D isometric view of server racks with top-of-rack switches highlighted in blue, showing data flow from servers to rack switches to aggregation switches to internet cloud, flow diagram style",
+          "purpose": "Top-of-rack switch architecture visualization",
+          "timing": "1:10-1:15",
+          "narrationContext": "Top-of-rack switches - imagine each rack as a small biological community..."
+        }
+      ],
+      "videos": [
+        {
+          "id": "vid_5_1",
+          "prompt": "Animated visualization of data packets flowing through network equipment, starting from a single server, through rack switches, aggregation switches, and out to the global internet, with packets shown as glowing orbs following paths, Tron-like aesthetic",
+          "purpose": "Show data flow through network hierarchy",
+          "duration": "6 seconds",
+          "timing": "1:30-1:36",
+          "narrationContext": "Hierarchical system remarkably similar to biological organization...",
+          "priority": "medium"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalImages": 14,
+    "totalVideos": 3,
+    "imagesBySlide": {
+      "slide1": 2,
+      "slide2": 2,
+      "slide3": 3,
+      "slide4": 3,
+      "slide5": 3
+    },
+    "videosBySlide": {
+      "slide1": 0,
+      "slide2": 1,
+      "slide3": 0,
+      "slide4": 1,
+      "slide5": 1
+    },
+    "generationTools": {
+      "images": "Imagen 4 Ultra via Gemini API",
+      "videos": "Runway Gen-4 or similar"
+    }
+  },
+  "rationale": {
+    "imageStrategy": "Generate supporting images to visualize biological analogies and technical concepts that enhance understanding for biology graduate",
+    "videoStrategy": "Limited to 3 key moments where motion adds unique value: seeing a real data center, experiencing the scale, and visualizing data flow",
+    "biologicalFocus": "Every image opportunity reinforces the biological analogies to help the learner connect familiar concepts to new technical knowledge"
+  }
+}

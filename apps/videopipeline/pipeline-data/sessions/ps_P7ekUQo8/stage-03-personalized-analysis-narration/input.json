@@ -1,0 +1,31 @@
+{
+  "slideImages": [
+    "slides/slide_1.png",
+    "slides/slide_2.png",
+    "slides/slide_3.png",
+    "slides/slide_4.png",
+    "slides/slide_5.png"
+  ],
+  "userContext": {
+    "background": "Biology Graduate",
+    "expertiseLevel": "Intermediate",
+    "educationalBackground": [
+      "Biology degree",
+      "Lab experience with cell cultures",
+      "Understanding of biological systems and ecosystems",
+      "Familiar with scientific research methods"
+    ],
+    "personalizationStrategy": {
+      "useAnalogies": true,
+      "analogyDomain": "Biology and Life Sciences",
+      "examples": [
+        "Compare data flow to biological systems",
+        "Use cellular and ecosystem metaphors",
+        "Reference lab experience and scientific methods",
+        "Draw parallels to biological organization"
+      ]
+    }
+  },
+  "model": "gpt-4",
+  "timestamp": "2025-08-11T02:05:00Z"
+}

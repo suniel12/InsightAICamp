@@ -1,0 +1,55 @@
+{
+  "sessionId": "ps_mNLd3DCJ",
+  "createdAt": "2025-08-11T20:30:00.410Z",
+  "updatedAt": "2025-08-13T04:25:27.308Z",
+  "status": "in_progress",
+  "currentStage": 6,
+  "title": "Public Slide Demo Video",
+  "description": "Testing pipeline with publicly available slides for demo",
+  "stages": {
+    "1": {
+      "status": "pending",
+      "name": "input"
+    },
+    "2": {
+      "status": "pending",
+      "name": "images"
+    },
+    "3": {
+      "status": "completed",
+      "name": "personalized-analysis-narration",
+      "startedAt": "2025-08-11T23:01:25.690Z",
+      "completedAt": "2025-08-11T23:02:20.013Z"
+    },
+    "4": {
+      "status": "pending",
+      "name": "enhanced-ppt"
+    },
+    "5": {
+      "status": "completed",
+      "name": "script-video-planning",
+      "completedAt": "2025-08-12T00:12:25.099Z"
+    },
+    "6": {
+      "status": "completed",
+      "name": "ai-videos",
+      "completedAt": "2025-08-13T04:25:27.308Z"
+    },
+    "7": {
+      "status": "pending",
+      "name": "timeline"
+    },
+    "8": {
+      "status": "pending",
+      "name": "final-narration"
+    },
+    "9": {
+      "status": "pending",
+      "name": "tts-audio"
+    },
+    "10": {
+      "status": "pending",
+      "name": "final-video"
+    }
+  }
+}

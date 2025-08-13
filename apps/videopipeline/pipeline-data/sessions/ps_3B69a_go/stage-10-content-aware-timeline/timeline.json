@@ -1,0 +1,717 @@
+{
+  "events": [
+    {
+      "id": "segment-1-0.0",
+      "startTime": 0,
+      "endTime": 14.654688,
+      "duration": 14.654688,
+      "type": "ai-video",
+      "audioSegment": {
+        "id": "segment-1-0.0",
+        "type": "ai-video",
+        "visualContent": {
+          "type": "video",
+          "resource": "slide4_vid1.mp4"
+        },
+        "narrationText": "Welcome to the physical heart of our digital world. Endless corridors of servers—hundreds, or even thousands of them—all humming in unison, processing and storing the vast amounts of information we create and consume every second.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-1-0.0.mp3",
+        "duration": 14.654688,
+        "startTime": 0,
+        "endTime": 14.654688,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.924Z",
+          "fileSize": 234520,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "servers",
+            "digital"
+          ]
+        }
+      },
+      "content": {
+        "videoPath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-06-ai-media/videos/slide4_vid1.mp4",
+        "description": "Data Center Economies of Scale",
+        "transition": "fade"
+      },
+      "narrationContent": "Welcome to the physical heart of our digital world. Endless corridors of..."
+    },
+    {
+      "id": "transition-1-2",
+      "startTime": 14.154688,
+      "endTime": 15.154688,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 1 to segment 2"
+      }
+    },
+    {
+      "id": "segment-2-18.7",
+      "startTime": 14.654688,
+      "endTime": 25.234251,
+      "duration": 10.579563,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-2-18.7",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 2
+        },
+        "narrationText": "Today, we will talk a little bit about data center and various components. A data center is the physical infrastructure that powers the internet and cloud-based services we use daily.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-2-18.7.mp3",
+        "duration": 10.579563,
+        "startTime": 14.654688,
+        "endTime": 25.234251,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 169318,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "infrastructure",
+            "research"
+          ]
+        }
+      },
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide1.png",
+        "description": "Slide 1",
+        "transition": "fade"
+      },
+      "narrationContent": "Today, we will talk a little bit about data center and various components. A..."
+    },
+    {
+      "id": "transition-2-3",
+      "startTime": 24.734251,
+      "endTime": 25.734251,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 2 to segment 3"
+      }
+    },
+    {
+      "id": "segment-3-35.1",
+      "startTime": 25.234251,
+      "endTime": 44.355876,
+      "duration": 19.121625,
+      "type": "ai-image",
+      "audioSegment": {
+        "id": "segment-3-35.1",
+        "type": "ai-image",
+        "visualContent": {
+          "type": "image",
+          "resource": "slide1_img1.png"
+        },
+        "narrationText": "Think of it this way: if your research data—your genomic sequences and experimental results—is the unique DNA of your work, then the data center is the environment that securely stores this code and provides the power to analyze it, connecting you with collaborators across the globe.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-3-35.1.mp3",
+        "duration": 19.121625,
+        "startTime": 25.234251,
+        "endTime": 44.355876,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 305991,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "research",
+            "genomic",
+            "analysis"
+          ]
+        }
+      },
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-06-ai-media/images/slide1_img1.png",
+        "description": "The Central Nervous System of Research",
+        "transition": "dissolve"
+      },
+      "narrationContent": "Think of it this way: if your research data—your genomic sequences and..."
+    },
+    {
+      "id": "transition-3-4",
+      "startTime": 43.855876,
+      "endTime": 44.855876,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 3 to segment 4"
+      }
+    },
+    {
+      "id": "segment-4-50.6",
+      "startTime": 44.355876,
+      "endTime": 79.64725100000001,
+      "duration": 35.291375,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-4-50.6",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 4
+        },
+        "narrationText": "This central hub provides several essential services that you likely use every day without a second thought. \n\nData Storage is primary; this is where your lab's most valuable asset—your data—lives, from genomes and protein structures to microscope images, all kept in a secure, managed environment. It also handles \n\nApplication and Web Hosting , running the crucial software for your work, like a bioinformatics pipeline or a laboratory information system. And of course, it manages essential \n\n\nEmail Services for communication.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-4-50.6.mp3",
+        "duration": 35.291375,
+        "startTime": 44.355876,
+        "endTime": 79.64725100000001,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 564707,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "storage",
+            "hosting",
+            "email"
+          ]
+        }
+      },
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide2.png",
+        "description": "Slide 2",
+        "transition": "fade"
+      },
+      "narrationContent": "This central hub provides several essential services that you likely use every..."
+    },
+    {
+      "id": "transition-4-5",
+      "startTime": 79.14725100000001,
+      "endTime": 80.14725100000001,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 4 to segment 5"
+      }
+    },
+    {
+      "id": "segment-5-77.7",
+      "startTime": 79.64725100000001,
+      "endTime": 112.01293900000002,
+      "duration": 32.365688,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-5-77.7",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 5
+        },
+        "narrationText": "To provide these services, a data center relies on a meticulously designed internal environment to house its information systems. The core components include servers , storage systems , and routers. Just as important is the support infrastructure, which has unique and large power requirements and often features raised floor designs. These floors create an underground space for the massive amount of cabling and, critically, allow for efficient airflow from specialized cooling units  to cool the equipment—much like a circulatory system.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-5-77.7.mp3",
+        "duration": 32.365688,
+        "startTime": 79.64725100000001,
+        "endTime": 112.01293900000002,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 517896,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "servers",
+            "storage",
+            "cooling",
+            "power"
+          ]
+        }
+      },
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide3.png",
+        "description": "Slide 3",
+        "transition": "fade"
+      },
+      "narrationContent": "To provide these services, a data center relies on a meticulously designed..."
+    },
+    {
+      "id": "transition-5-6",
+      "startTime": 111.51293900000002,
+      "endTime": 112.51293900000002,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 5 to segment 6"
+      }
+    },
+    {
+      "id": "segment-6-106.2",
+      "startTime": 112.01293900000002,
+      "endTime": 129.567189,
+      "duration": 17.55425,
+      "type": "ai-image",
+      "audioSegment": {
+        "id": "segment-6-106.2",
+        "type": "ai-image",
+        "visualContent": {
+          "type": "image",
+          "resource": "slide3_img2.png"
+        },
+        "narrationText": "The servers provide the 'brainpower' (Compute). The storage systems act as the 'long-term memory'. The uninterruptible power supplies (UPS) are the 'heart' , providing constant energy, while the cooling units are the 'lungs', managing the climate and removing heat.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-6-106.2.mp3",
+        "duration": 17.55425,
+        "startTime": 112.01293900000002,
+        "endTime": 129.567189,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 280913,
+          "pace": "slow",
+          "keyTerms": [
+            "servers",
+            "storage",
+            "ups",
+            "cooling"
+          ]
+        }
+      },
+      "content": {
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-06-ai-media/images/slide3_img2.png",
+        "description": "Anatomy of a Data Center",
+        "transition": "dissolve"
+      },
+      "narrationContent": "The servers provide the 'brainpower' (Compute). The storage systems act as the '..."
+    },
+    {
+      "id": "transition-6-7",
+      "startTime": 129.067189,
+      "endTime": 130.067189,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 6 to segment 7"
+      }
+    },
+    {
+      "id": "segment-7-123.5",
+      "startTime": 129.567189,
+      "endTime": 165.77287700000002,
+      "duration": 36.205688,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-7-123.5",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 4
+        },
+        "narrationText": "Building such a complex, organ-like system makes sense when you consider the two main benefits of centralizing this technology: economies of scale and enhanced security. By sharing resources, you get cost savings from bulk purchasing , access to shared IT expertise , and optimized performance. The other huge benefit is multi-layered security. Physically, these are fortresses with 24/7 surveillance and biometric access controls. Virtually, they deploy an 'immune system' of enterprise-grade firewalls and advanced threat protection to safeguard your data.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-7-123.5.mp3",
+        "duration": 36.205688,
+        "startTime": 129.567189,
+        "endTime": 165.77287700000002,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 579336,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "economies",
+            "security",
+            "surveillance",
+            "firewalls"
+          ]
+        }
+      },
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide4.png",
+        "description": "Slide 4",
+        "transition": "fade"
+      },
+      "narrationContent": "Building such a complex, organ-like system makes sense when you consider the..."
+    },
+    {
+      "id": "transition-7-8",
+      "startTime": 165.27287700000002,
+      "endTime": 166.27287700000002,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 7 to segment 8"
+      }
+    },
+    {
+      "id": "segment-8-157.5",
+      "startTime": 165.77287700000002,
+      "endTime": 214.569565,
+      "duration": 48.796688,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-8-157.5",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 5
+        },
+        "narrationText": "But all this security and efficiency is meaningless without reliability. This is where we find the biggest differences between data centers, which are classified into four tiers based on redundancy and fault tolerance.\n\nA \n\nTier 1 facility is the most basic, with a single path for power and cooling. This translates to over 28 hours of potential downtime per year.\n\n\n\n\nTier 2 adds redundant capacity components , reducing potential downtime to about 22 hours annually.\n\n\n\nTier 3 is a major step up. With multiple power paths, it's concurrently maintainable , which cuts potential downtime to just 1.5 hours per year.\n\n\nFinally, \n\nTier 4 is fully fault-tolerant, with independently dual-powered equipment. This results in a mere 26 minutes of potential downtime annually.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-8-157.5.mp3",
+        "duration": 48.796688,
+        "startTime": 165.77287700000002,
+        "endTime": 214.569565,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 780792,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "tier 1",
+            "tier 2",
+            "tier 3",
+            "tier 4",
+            "downtime",
+            "redundancy"
+          ]
+        }
+      },
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide5.png",
+        "description": "Slide 5",
+        "transition": "fade"
+      },
+      "narrationContent": "But all this security and efficiency is meaningless without reliability. This..."
+    },
+    {
+      "id": "transition-8-9",
+      "startTime": 214.069565,
+      "endTime": 215.069565,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 8 to segment 9"
+      }
+    },
+    {
+      "id": "segment-9-255.9",
+      "startTime": 214.569565,
+      "endTime": 246.360565,
+      "duration": 31.791,
+      "type": "slide",
+      "audioSegment": {
+        "id": "segment-9-255.9",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 6
+        },
+        "narrationText": "This choice is about risk management. For a biologist, downtime can be catastrophic. Imagine a complex sequencing analysis running for 48 hours. An outage could corrupt your data and force you to start over, wasting days of work. While businesses estimate this loss at around $300,000 per hour, for a research lab, the cost is measured in lost progress and potentially lost discoveries. Just like in a sensitive lab experiment, maintaining a stable digital environment is paramount.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-9-255.9.mp3",
+        "duration": 31.791,
+        "startTime": 214.569565,
+        "endTime": 246.360565,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 508701,
+          "pace": "slow",
+          "keyTerms": [
+            "conclusion",
+            "summary"
+          ]
+        }
+      },
+      "content": {
+        "slideNumber": 6,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_3B69a_go/public/Slide6.png",
+        "description": "Slide 6",
+        "transition": "fade"
+      },
+      "narrationContent": "This choice is about risk management. For a biologist, downtime can be..."
+    }
+  ],
+  "totalDuration": 246.360565,
+  "audioCollection": {
+    "segments": [
+      {
+        "id": "segment-1-0.0",
+        "type": "ai-video",
+        "visualContent": {
+          "type": "video",
+          "resource": "slide4_vid1.mp4"
+        },
+        "narrationText": "Welcome to the physical heart of our digital world. Endless corridors of servers—hundreds, or even thousands of them—all humming in unison, processing and storing the vast amounts of information we create and consume every second.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-1-0.0.mp3",
+        "duration": 14.654688,
+        "startTime": 0,
+        "endTime": 14.654688,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.924Z",
+          "fileSize": 234520,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "servers",
+            "digital"
+          ]
+        }
+      },
+      {
+        "id": "segment-2-18.7",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 2
+        },
+        "narrationText": "Today, we will talk a little bit about data center and various components. A data center is the physical infrastructure that powers the internet and cloud-based services we use daily.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-2-18.7.mp3",
+        "duration": 10.579563,
+        "startTime": 14.654688,
+        "endTime": 25.234251,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 169318,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "infrastructure",
+            "research"
+          ]
+        }
+      },
+      {
+        "id": "segment-3-35.1",
+        "type": "ai-image",
+        "visualContent": {
+          "type": "image",
+          "resource": "slide1_img1.png"
+        },
+        "narrationText": "Think of it this way: if your research data—your genomic sequences and experimental results—is the unique DNA of your work, then the data center is the environment that securely stores this code and provides the power to analyze it, connecting you with collaborators across the globe.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-3-35.1.mp3",
+        "duration": 19.121625,
+        "startTime": 25.234251,
+        "endTime": 44.355876,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 305991,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "research",
+            "genomic",
+            "analysis"
+          ]
+        }
+      },
+      {
+        "id": "segment-4-50.6",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 4
+        },
+        "narrationText": "This central hub provides several essential services that you likely use every day without a second thought. \n\nData Storage is primary; this is where your lab's most valuable asset—your data—lives, from genomes and protein structures to microscope images, all kept in a secure, managed environment. It also handles \n\nApplication and Web Hosting , running the crucial software for your work, like a bioinformatics pipeline or a laboratory information system. And of course, it manages essential \n\n\nEmail Services for communication.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-4-50.6.mp3",
+        "duration": 35.291375,
+        "startTime": 44.355876,
+        "endTime": 79.64725100000001,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 564707,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "storage",
+            "hosting",
+            "email"
+          ]
+        }
+      },
+      {
+        "id": "segment-5-77.7",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 5
+        },
+        "narrationText": "To provide these services, a data center relies on a meticulously designed internal environment to house its information systems. The core components include servers , storage systems , and routers. Just as important is the support infrastructure, which has unique and large power requirements and often features raised floor designs. These floors create an underground space for the massive amount of cabling and, critically, allow for efficient airflow from specialized cooling units  to cool the equipment—much like a circulatory system.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-5-77.7.mp3",
+        "duration": 32.365688,
+        "startTime": 79.64725100000001,
+        "endTime": 112.01293900000002,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 517896,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "servers",
+            "storage",
+            "cooling",
+            "power"
+          ]
+        }
+      },
+      {
+        "id": "segment-6-106.2",
+        "type": "ai-image",
+        "visualContent": {
+          "type": "image",
+          "resource": "slide3_img2.png"
+        },
+        "narrationText": "The servers provide the 'brainpower' (Compute). The storage systems act as the 'long-term memory'. The uninterruptible power supplies (UPS) are the 'heart' , providing constant energy, while the cooling units are the 'lungs', managing the climate and removing heat.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-6-106.2.mp3",
+        "duration": 17.55425,
+        "startTime": 112.01293900000002,
+        "endTime": 129.567189,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 280913,
+          "pace": "slow",
+          "keyTerms": [
+            "servers",
+            "storage",
+            "ups",
+            "cooling"
+          ]
+        }
+      },
+      {
+        "id": "segment-7-123.5",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 4
+        },
+        "narrationText": "Building such a complex, organ-like system makes sense when you consider the two main benefits of centralizing this technology: economies of scale and enhanced security. By sharing resources, you get cost savings from bulk purchasing , access to shared IT expertise , and optimized performance. The other huge benefit is multi-layered security. Physically, these are fortresses with 24/7 surveillance and biometric access controls. Virtually, they deploy an 'immune system' of enterprise-grade firewalls and advanced threat protection to safeguard your data.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-7-123.5.mp3",
+        "duration": 36.205688,
+        "startTime": 129.567189,
+        "endTime": 165.77287700000002,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 579336,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "economies",
+            "security",
+            "surveillance",
+            "firewalls"
+          ]
+        }
+      },
+      {
+        "id": "segment-8-157.5",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 5
+        },
+        "narrationText": "But all this security and efficiency is meaningless without reliability. This is where we find the biggest differences between data centers, which are classified into four tiers based on redundancy and fault tolerance.\n\nA \n\nTier 1 facility is the most basic, with a single path for power and cooling. This translates to over 28 hours of potential downtime per year.\n\n\n\n\nTier 2 adds redundant capacity components , reducing potential downtime to about 22 hours annually.\n\n\n\nTier 3 is a major step up. With multiple power paths, it's concurrently maintainable , which cuts potential downtime to just 1.5 hours per year.\n\n\nFinally, \n\nTier 4 is fully fault-tolerant, with independently dual-powered equipment. This results in a mere 26 minutes of potential downtime annually.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-8-157.5.mp3",
+        "duration": 48.796688,
+        "startTime": 165.77287700000002,
+        "endTime": 214.569565,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 780792,
+          "pace": "slow",
+          "keyTerms": [
+            "data center",
+            "tier 1",
+            "tier 2",
+            "tier 3",
+            "tier 4",
+            "downtime",
+            "redundancy"
+          ]
+        }
+      },
+      {
+        "id": "segment-9-255.9",
+        "type": "slide",
+        "visualContent": {
+          "type": "slide",
+          "resource": "Intro to Data centers demo enhanced.pptx",
+          "slide": 6
+        },
+        "narrationText": "This choice is about risk management. For a biologist, downtime can be catastrophic. Imagine a complex sequencing analysis running for 48 hours. An outage could corrupt your data and force you to start over, wasting days of work. While businesses estimate this loss at around $300,000 per hour, for a research lab, the cost is measured in lost progress and potentially lost discoveries. Just like in a sensitive lab experiment, maintaining a stable digital environment is paramount.",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_3B69a_go/stage-09-segmented-tts/segment-9-255.9.mp3",
+        "duration": 31.791,
+        "startTime": 214.569565,
+        "endTime": 246.360565,
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "NFG5qt843uXKj4pFvR7C",
+          "createdAt": "2025-08-13T20:09:57.925Z",
+          "fileSize": 508701,
+          "pace": "slow",
+          "keyTerms": [
+            "conclusion",
+            "summary"
+          ]
+        }
+      }
+    ],
+    "totalDuration": 246.360565,
+    "sessionId": "ps_3B69a_go",
+    "createdAt": "2025-08-13T20:10:02.311Z",
+    "metadata": {
+      "segmentCount": 9,
+      "provider": "elevenlabs",
+      "voiceId": "NFG5qt843uXKj4pFvR7C",
+      "totalFileSize": 3942174
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-08-13T21:33:47.712Z",
+    "method": "content-aware-segmented",
+    "segmentCount": 9,
+    "transitionDuration": 1
+  }
+}

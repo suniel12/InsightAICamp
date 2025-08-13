@@ -1,73 +1,165 @@
-# Welcome to your Lovable project
+# InsightAICamp - AI-Powered Educational Content Platform
 
-## Project info
+A monorepo containing the landing page and automated video generation pipeline for creating educational courses at scale.
 
-**URL**: https://lovable.dev/projects/36f42ac8-8680-4e39-91ab-09906b6a9b7d
+## 🏗️ Project Structure
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/36f42ac8-8680-4e39-91ab-09906b6a9b7d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+InsightAICamp/
+├── apps/
+│   ├── landing/          # Marketing website and demo videos
+│   └── videopipeline/    # Automated course generation pipeline
+├── packages/
+│   ├── types/           # Shared TypeScript types
+│   └── utils/           # Shared utilities
+└── content/             # Course content and assets
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Quick Start
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Prerequisites
+- Node.js 18+
+- Python 3.8+ (for PPT extraction)
+- LibreOffice (for slide conversion)
+- FFmpeg (for video processing)
 
-**Use GitHub Codespaces**
+### Installation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# Install all dependencies
+npm install
 
-## What technologies are used for this project?
+# Install Python dependencies for PPT extraction
+pip install python-pptx
+```
 
-This project is built with:
+### Development
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Run landing page
+npm run dev:landing
 
-## How can I deploy this project?
+# Run video pipeline
+npm run dev:pipeline
 
-Simply open [Lovable](https://lovable.dev/projects/36f42ac8-8680-4e39-91ab-09906b6a9b7d) and click on Share -> Publish.
+# Run both simultaneously
+npm run dev:all
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 📁 Applications
 
-Yes, you can!
+### Landing Page (`apps/landing`)
+- Marketing website built with React, Vite, TypeScript
+- 3D demo videos using Remotion and React Three Fiber
+- Course previews and testimonials
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Video Pipeline (`apps/videopipeline`)
+Automated pipeline that converts PowerPoint/PDF to professional video courses:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. **Extraction** - Parse PPT/PDF content
+2. **Narration** - Generate scripts using AI (GPT-4)
+3. **Slides** - Enhance visual presentation
+4. **TTS** - Convert text to speech (ElevenLabs)
+5. **Video** - Generate AI videos for key concepts (Runway Gen-3)
+6. **Assembly** - Combine into final video using Remotion
+
+## 🛠️ Available Scripts
+
+```bash
+# Development
+npm run dev:landing      # Start landing page dev server
+npm run dev:pipeline     # Start pipeline dev server
+npm run dev:all         # Start both apps
+
+# Building
+npm run build           # Build all packages and apps
+npm run build:landing   # Build landing page only
+npm run build:pipeline  # Build pipeline only
+
+# Pipeline Operations
+npm run pipeline:start  # Start pipeline API
+npm run pipeline:worker # Start background workers
+
+# Remotion
+npm run remotion:studio # Open Remotion Studio for video editing
+```
+
+## 🎯 Pipeline Usage
+
+### Basic Usage
+
+```javascript
+import { VideoPipeline } from '@insightaicamp/videopipeline';
+
+const pipeline = new VideoPipeline({
+  llm: {
+    provider: 'openai',
+    model: 'gpt-4',
+    apiKey: process.env.OPENAI_API_KEY
+  },
+  tts: {
+    provider: 'elevenlabs',
+    voiceId: 'voice-id',
+    apiKey: process.env.ELEVENLABS_API_KEY
+  },
+  videoGen: {
+    provider: 'runway',
+    apiKey: process.env.RUNWAY_API_KEY,
+    maxVideosPerCourse: 5,
+    maxDurationPerVideo: 10
+  },
+  output: {
+    format: 'mp4',
+    resolution: '1080p',
+    fps: 30
+  }
+});
+
+// Process a single course
+const outputPath = await pipeline.processCourse(pptFile, 'ppt');
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create `.env` files in respective app directories:
+
+```bash
+# apps/videopipeline/.env
+OPENAI_API_KEY=your-key
+ELEVENLABS_API_KEY=your-key
+RUNWAY_API_KEY=your-key
+```
+
+## 📦 Technology Stack
+
+- **Frontend**: React, Vite, Tailwind CSS, shadcn-ui, Remotion, React Three Fiber
+- **Pipeline**: Node.js, TypeScript, BullMQ, Express
+- **AI Services**: OpenAI GPT-4, ElevenLabs, Runway Gen-3
+- **Infrastructure**: Docker, Kubernetes (optional)
+
+## 🚢 Deployment
+
+### Landing Page (Lovable/Vercel)
+```bash
+cd apps/landing
+npm run build
+# Deploy dist/ to Lovable or Vercel
+```
+
+### Video Pipeline (Docker/Cloud Run)
+```bash
+cd apps/videopipeline
+npm run build
+docker build -t videopipeline .
+# Deploy to Google Cloud Run, AWS ECS, or your preferred platform
+```
+
+## 📝 License
+
+Private - All rights reserved
+
+## 🤝 Contributing
+
+Internal project - Please follow the established patterns and conventions.

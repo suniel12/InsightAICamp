@@ -1,0 +1,107 @@
+{
+  "mode": "user-provided",
+  "images": [
+    {
+      "fileName": "slide1_img1.png",
+      "slideNumber": 1,
+      "purpose": "The Central Nervous System of Research",
+      "timing": "During Slide 1 narration",
+      "paths": {
+        "pipeline": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide1_img1.png",
+        "public": "/sessions/ps_mNLd3DCJ/ai-images/slide1_img1.png"
+      },
+      "status": "user-provided",
+      "source": "image1.png",
+      "integratedAt": "2025-08-13T04:25:27.284Z"
+    },
+    {
+      "fileName": "slide3_img2.png",
+      "slideNumber": 3,
+      "purpose": "Anatomy of a Data Center",
+      "timing": "During Slide 3 narration",
+      "paths": {
+        "pipeline": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide3_img2.png",
+        "public": "/sessions/ps_mNLd3DCJ/ai-images/slide3_img2.png"
+      },
+      "status": "user-provided",
+      "source": "image2.png",
+      "integratedAt": "2025-08-13T04:25:27.290Z"
+    },
+    {
+      "fileName": "slide5_img3.png",
+      "slideNumber": 5,
+      "purpose": "The Four Tiers of Reliability",
+      "timing": "During Slide 5 narration",
+      "paths": {
+        "pipeline": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/images/slide5_img3.png",
+        "public": "/sessions/ps_mNLd3DCJ/ai-images/slide5_img3.png"
+      },
+      "status": "user-provided",
+      "source": "image3.png",
+      "integratedAt": "2025-08-13T04:25:27.296Z"
+    }
+  ],
+  "videos": [
+    {
+      "fileName": "slide4_vid1.mp4",
+      "slideNumber": 4,
+      "purpose": "Data Center Economies of Scale",
+      "timing": "During Slide 4 narration after \"economies of scale\"",
+      "duration": "8 seconds",
+      "paths": {
+        "pipeline": "pipeline-data/sessions/ps_mNLd3DCJ/stage-06-ai-media/videos/slide4_vid1.mp4",
+        "public": "/sessions/ps_mNLd3DCJ/ai-videos/slide4_vid1.mp4"
+      },
+      "status": "user-provided",
+      "source": "video1.mp4",
+      "integratedAt": "2025-08-13T04:25:27.307Z"
+    }
+  ],
+  "summary": {
+    "totalImages": 3,
+    "integratedImages": 3,
+    "missingImages": 0,
+    "totalVideos": 1,
+    "integratedVideos": 1,
+    "missingVideos": 0,
+    "integrationTime": "2025-08-13T04:25:27.308Z"
+  },
+  "source": {
+    "userMediaDir": "user-media",
+    "mapping": {
+      "images": [
+        {
+          "userFile": "image1.png",
+          "pipelineFile": "slide1_img1.png",
+          "slideNumber": 1,
+          "purpose": "The Central Nervous System of Research",
+          "timing": "During Slide 1 narration"
+        },
+        {
+          "userFile": "image2.png",
+          "pipelineFile": "slide3_img2.png",
+          "slideNumber": 3,
+          "purpose": "Anatomy of a Data Center",
+          "timing": "During Slide 3 narration"
+        },
+        {
+          "userFile": "image3.png",
+          "pipelineFile": "slide5_img3.png",
+          "slideNumber": 5,
+          "purpose": "The Four Tiers of Reliability",
+          "timing": "During Slide 5 narration"
+        }
+      ],
+      "videos": [
+        {
+          "userFile": "video1.mp4",
+          "pipelineFile": "slide4_vid1.mp4",
+          "slideNumber": 4,
+          "purpose": "Data Center Economies of Scale",
+          "timing": "During Slide 4 narration after \"economies of scale\"",
+          "duration": "8 seconds"
+        }
+      ]
+    }
+  }
+}
