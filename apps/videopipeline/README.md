@@ -79,6 +79,32 @@ PowerPoint → Extraction → Narration → TTS → Video → Assembly → Final
               Content    Scripts    Audio   Clips
 ```
 
+## Important: Remotion Asset Requirements
+
+⚠️ **Critical**: Remotion requires all media assets (images, videos, audio) to be accessible from the `public` folder.
+
+### Asset Location Requirements:
+- **Development**: Assets must be in `public/` directory
+- **Session-based**: Use `public/sessions/{sessionId}/` for organized storage
+- **Dual Storage**: Pipeline stores in both:
+  - `pipeline-data/sessions/{sessionId}/` (for processing)
+  - `public/sessions/{sessionId}/` (for Remotion access)
+
+### Example Structure:
+```
+public/
+├── sessions/
+│   └── ps_abc123/
+│       ├── images/     # Slide images (.png)
+│       ├── audio/      # TTS audio files (.mp3)
+│       └── videos/     # AI-generated videos (.mp4)
+```
+
+### Why This Matters:
+- Remotion serves assets via HTTP during rendering
+- Files outside `public/` are not accessible to Remotion
+- The pipeline automatically copies assets to both locations
+
 ## Development
 
 ```bash

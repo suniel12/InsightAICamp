@@ -1,0 +1,17 @@
+{
+  "sessionId": "ps_mNLd3DCJ",
+  "createdAt": "2025-08-13T05:35:48.486Z",
+  "renderTime": "5.1 minutes",
+  "videoPath": "pipeline-data/sessions/ps_mNLd3DCJ/stage-10-final-video/final-video.mp4",
+  "format": "mp4",
+  "resolution": "1080p",
+  "fps": 30,
+  "duration": 301.374688,
+  "fileSize": 36167672,
+  "fileSizeMB": "34.49",
+  "timeline": {
+    "events": 11,
+    "duration": 301.374688,
+    "method": "intelligent-audio-based"
+  }
+}

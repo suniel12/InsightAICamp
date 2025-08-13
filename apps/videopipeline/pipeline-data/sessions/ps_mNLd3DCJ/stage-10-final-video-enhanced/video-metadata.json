@@ -1,0 +1,13 @@
+{
+  "sessionId": "ps_mNLd3DCJ",
+  "createdAt": "2025-08-13T15:06:08.474Z",
+  "duration": 301.374688,
+  "audioFile": "pipeline-data/sessions/ps_mNLd3DCJ/stage-09-tts-audio/narration.mp3",
+  "timeline": "output-ps_mNLd3DCJ/timeline-content-aware.json",
+  "outputVideo": "output/video-output/enhanced_video_2025-08-13T14-59-36-025Z.mp4",
+  "renderTime": 394,
+  "fileSize": 87.45,
+  "slides": 6,
+  "aiImages": 3,
+  "aiVideos": 1
+}

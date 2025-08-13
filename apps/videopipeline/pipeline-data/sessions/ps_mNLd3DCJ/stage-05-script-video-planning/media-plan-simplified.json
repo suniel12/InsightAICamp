@@ -1,0 +1,48 @@
+{
+  "totalImages": 3,
+  "totalVideos": 1,
+  "opportunities": [
+    {
+      "slideNumber": 1,
+      "type": "image",
+      "prompt": "Create a conceptual, photorealistic image showing the connection between biological research and a data center. On the left, a strand of DNA glows softly. From this strand, luminous, fiber-optic-like lines of light emerge and flow to the right, plugging into a sleek, modern server rack that is slightly out of focus in the background. The overall color palette should be deep blues and teals, with the light from the DNA and data lines providing a brilliant, energetic contrast. The mood should be sophisticated, clean, and high-tech, symbolizing data flowing from life science into a digital brain.",
+      "purpose": "The Central Nervous System of Research",
+      "timing": "During Slide 1 narration",
+      "priority": "high",
+      "narrationContext": "Connection between biological research and data centers"
+    },
+    {
+      "slideNumber": 3,
+      "type": "image",
+      "prompt": "Generate a simplified 3D infographic of a data center's core components with a clean, white background. In the center, show a transparent server rack with glowing blue servers labeled 'Compute (Brain)'. To its right, a sleek storage array labeled 'Storage (Memory)'. To its left, a large, industrial cooling unit with arrows showing cool air flowing in at the bottom and warm air venting out the top, labeled 'Cooling (Lungs)'. Below them all, show a battery array for a UPS, labeled 'Power (Heart)'. Use clear, minimalist icons and text. The style should be diagrammatic and educational, avoiding clutter.",
+      "purpose": "Anatomy of a Data Center",
+      "timing": "During Slide 3 narration",
+      "priority": "high",
+      "narrationContext": "Visualizing data center components as biological organs"
+    },
+    {
+      "slideNumber": 4,
+      "type": "video",
+      "prompt": "Create an 8-second, photorealistic video that starts with a close-up shot of a single blinking light on one server in a data center rack. In a smooth and continuous motion, the camera should pull back dramatically over the 8 seconds to reveal that the single server is just one of hundreds in a vast, seemingly endless hallway of identical server racks. The final shot should emphasize the immense scale of the facility.",
+      "purpose": "Data Center Economies of Scale",
+      "timing": "During Slide 4 narration after 'economies of scale'",
+      "duration": "8 seconds",
+      "priority": "high",
+      "narrationContext": "Demonstrating the massive scale of data center infrastructure"
+    },
+    {
+      "slideNumber": 5,
+      "type": "image",
+      "prompt": "Create a clear, compelling infographic visualizing the four data center tiers as a series of four concentric, glowing shields. The innermost shield, labeled 'Tier 1,' should be the smallest and simplest. Each subsequent shield—'Tier 2,' 'Tier 3,' and 'Tier 4'—should be progressively larger, more complex, and more robust in its design. Below each shield, display its key availability stat and annual downtime: '99.671% / 28 hrs downtime' for Tier 1, up to '99.995% / 26 mins downtime' for Tier 4. The background should be dark to make the glowing shields pop. The visual metaphor is 'layers of defense'.",
+      "purpose": "The Four Tiers of Reliability",
+      "timing": "During Slide 5 narration",
+      "priority": "high",
+      "narrationContext": "Visualizing reliability tiers as layers of defense"
+    }
+  ],
+  "rationale": "Updated with specific prompts from the refined narration script, focusing on biological research analogies for the target audience. Single video demonstrates the scale of data center infrastructure.",
+  "estimatedCost": {
+    "images": "$180-360 (3 images at $60-120 each)",
+    "videos": "$240-480 (1 video at 8 seconds)"
+  }
+}
