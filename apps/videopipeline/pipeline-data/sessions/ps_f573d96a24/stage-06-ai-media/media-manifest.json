@@ -1,0 +1,24 @@
+{
+  "sessionId": "ps_f573d96a24",
+  "generatedAt": "2025-08-14T00:02:07.139Z",
+  "persona": "Helpdesk/Desktop Support Technician",
+  "images": [
+    {
+      "id": "helpdesk_img1",
+      "filename": "helpdesk_img1.png",
+      "purpose": "To bridge the gap between the IT technician's current, abstract work and their future, physical work",
+      "timing": "03:15",
+      "filepath": "pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/images/helpdesk_img1.png"
+    }
+  ],
+  "videos": [
+    {
+      "id": "slide4_vid1",
+      "filename": "slide4_vid1.mp4",
+      "slide": "4",
+      "purpose": "data center walkthrough",
+      "timing": "reused from previous session"
+    }
+  ],
+  "totalAssets": 2
+}

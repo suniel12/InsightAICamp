@@ -1,0 +1,21 @@
+{
+  "images": [
+    "slides/Slide1.png",
+    "slides/Slide2.png",
+    "slides/Slide3.png",
+    "slides/Slide4.png",
+    "slides/Slide5.png",
+    "slides/Slide6.png"
+  ],
+  "userContext": {
+    "background": "Helpdesk/Desktop Support Technician with IT support experience",
+    "expertise": "intermediate",
+    "industry": "Information Technology/Support Services",
+    "goals": "Understand how data center infrastructure impacts end-user experience and service delivery",
+    "experience": "Experienced in troubleshooting user issues, managing service tickets, remote desktop support, and working with enterprise IT systems",
+    "familiarTools": "Ticketing systems, remote desktop, monitoring dashboards, Active Directory, VPN troubleshooting"
+  },
+  "analysisModel": "gpt-4",
+  "analysisType": "batch",
+  "timestamp": "2025-08-13T15:35:00.000Z"
+}

@@ -220,118 +220,118 @@ const SegmentedVideoComposition = () => {
       {/* Visual sequences */}
       
       {/* AI Video: slide4_vid1.mp4 */}
-      <Sequence from={0} durationInFrames={440}>
+      <Sequence from={0} durationInFrames={567}>
         <AIVideoClip 
           src={staticFile('slide4_vid1.mp4')}
-          duration={440}
-          description="Data Center Economies of Scale"
+          duration={567}
+          description="Data center walkthrough"
           transition="fade"
         />
       </Sequence>
       {/* Slide 1 */}
-      <Sequence from={439} durationInFrames={318}>
+      <Sequence from={566} durationInFrames={517}>
         <SlideDisplay 
           src={staticFile('slide_1.png')}
-          duration={318}
+          duration={517}
           transition="fade"
         />
       </Sequence>
       {/* AI Generated Image */}
-      <Sequence from={757} durationInFrames={574}>
+      <Sequence from={1083} durationInFrames={477}>
         <AIImageDisplay 
-          src={staticFile('slide1_img1.png')}
-          duration={574}
-          description="The Central Nervous System of Research"
-          transition="dissolve"
+          src={staticFile('helpdesk_img1.png')}
+          duration={477}
+          description="Helpdesk technician perspective"
+          transition="fade"
         />
       </Sequence>
       {/* Slide 2 */}
-      <Sequence from={1330} durationInFrames={1059}>
+      <Sequence from={1559} durationInFrames={633}>
         <SlideDisplay 
           src={staticFile('slide_2.png')}
-          duration={1059}
+          duration={633}
           transition="fade"
         />
       </Sequence>
       {/* Slide 3 */}
-      <Sequence from={2389} durationInFrames={971}>
+      <Sequence from={2191} durationInFrames={678}>
         <SlideDisplay 
           src={staticFile('slide_3.png')}
-          duration={971}
+          duration={678}
           transition="fade"
         />
       </Sequence>
       {/* AI Generated Image */}
-      <Sequence from={3360} durationInFrames={527}>
+      <Sequence from={2869} durationInFrames={577}>
         <AIImageDisplay 
-          src={staticFile('slide3_img2.png')}
-          duration={527}
-          description="Anatomy of a Data Center"
-          transition="dissolve"
+          src={staticFile('helpdesk_img2.png')}
+          duration={577}
+          description="Helpdesk technician perspective"
+          transition="fade"
         />
       </Sequence>
       {/* Slide 4 */}
-      <Sequence from={3887} durationInFrames={1087}>
+      <Sequence from={3446} durationInFrames={712}>
         <SlideDisplay 
           src={staticFile('slide_4.png')}
-          duration={1087}
+          duration={712}
           transition="fade"
         />
       </Sequence>
       {/* Slide 5 */}
-      <Sequence from={4973} durationInFrames={1464}>
+      <Sequence from={4158} durationInFrames={1402}>
         <SlideDisplay 
           src={staticFile('slide_5.png')}
-          duration={1464}
+          duration={1402}
           transition="fade"
         />
       </Sequence>
       {/* Slide 6 */}
-      <Sequence from={6437} durationInFrames={954}>
+      <Sequence from={5559} durationInFrames={741}>
         <SlideDisplay 
           src={staticFile('slide_6.png')}
-          duration={954}
+          duration={741}
           transition="fade"
         />
       </Sequence>
       
       {/* Segmented audio sequences */}
       
-      {/* Audio for segment-1-0.0 */}
-      <Sequence from={0} durationInFrames={440}>
-        <Audio src={staticFile('segment-1-0.0.mp3')} />
+      {/* Audio for segment-1 */}
+      <Sequence from={0} durationInFrames={567}>
+        <Audio src={staticFile('segment-1.mp3')} />
       </Sequence>
-      {/* Audio for segment-2-18.7 */}
-      <Sequence from={439} durationInFrames={318}>
-        <Audio src={staticFile('segment-2-18.7.mp3')} />
+      {/* Audio for segment-2 */}
+      <Sequence from={566} durationInFrames={517}>
+        <Audio src={staticFile('segment-2.mp3')} />
       </Sequence>
-      {/* Audio for segment-3-35.1 */}
-      <Sequence from={757} durationInFrames={574}>
-        <Audio src={staticFile('segment-3-35.1.mp3')} />
+      {/* Audio for segment-3 */}
+      <Sequence from={1083} durationInFrames={477}>
+        <Audio src={staticFile('segment-3.mp3')} />
       </Sequence>
-      {/* Audio for segment-4-50.6 */}
-      <Sequence from={1330} durationInFrames={1059}>
-        <Audio src={staticFile('segment-4-50.6.mp3')} />
+      {/* Audio for segment-4 */}
+      <Sequence from={1559} durationInFrames={633}>
+        <Audio src={staticFile('segment-4.mp3')} />
       </Sequence>
-      {/* Audio for segment-5-77.7 */}
-      <Sequence from={2389} durationInFrames={971}>
-        <Audio src={staticFile('segment-5-77.7.mp3')} />
+      {/* Audio for segment-5 */}
+      <Sequence from={2191} durationInFrames={678}>
+        <Audio src={staticFile('segment-5.mp3')} />
       </Sequence>
-      {/* Audio for segment-6-106.2 */}
-      <Sequence from={3360} durationInFrames={527}>
-        <Audio src={staticFile('segment-6-106.2.mp3')} />
+      {/* Audio for segment-6 */}
+      <Sequence from={2869} durationInFrames={577}>
+        <Audio src={staticFile('segment-6.mp3')} />
       </Sequence>
-      {/* Audio for segment-7-123.5 */}
-      <Sequence from={3887} durationInFrames={1087}>
-        <Audio src={staticFile('segment-7-123.5.mp3')} />
+      {/* Audio for segment-7 */}
+      <Sequence from={3446} durationInFrames={712}>
+        <Audio src={staticFile('segment-7.mp3')} />
       </Sequence>
-      {/* Audio for segment-8-157.5 */}
-      <Sequence from={4973} durationInFrames={1464}>
-        <Audio src={staticFile('segment-8-157.5.mp3')} />
+      {/* Audio for segment-8 */}
+      <Sequence from={4158} durationInFrames={1402}>
+        <Audio src={staticFile('segment-8.mp3')} />
       </Sequence>
-      {/* Audio for segment-9-255.9 */}
-      <Sequence from={6437} durationInFrames={954}>
-        <Audio src={staticFile('segment-9-255.9.mp3')} />
+      {/* Audio for segment-9 */}
+      <Sequence from={5559} durationInFrames={741}>
+        <Audio src={staticFile('segment-9.mp3')} />
       </Sequence>
     </AbsoluteFill>
   );
@@ -345,7 +345,7 @@ export const RemotionRoot = () => {
       <Composition
         id="SegmentedVideo"
         component={SegmentedVideoComposition}
-        durationInFrames={7391}
+        durationInFrames={6300}
         fps={30}
         width={1920}
         height={1080}

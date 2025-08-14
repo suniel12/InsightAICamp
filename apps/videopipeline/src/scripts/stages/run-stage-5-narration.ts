@@ -101,7 +101,7 @@ Generate the complete narration script with media cues embedded.`;
     console.log('');
 
     const response = await openai.chat.completions.create({
-      model: 'gpt-5-nano',
+      model: 'gpt-5-thinking',
       messages: [
         {
           role: 'system',

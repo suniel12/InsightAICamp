@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "id": "helpdesk_img1",
+      "contentType": "ai-image",
+      "prompt": "Create a conceptual, photorealistic image from the perspective of an IT helpdesk technician. In the foreground, we see the back of the technician's head and shoulders as they look at multiple monitors on their desk. One monitor displays a glowing, complex service monitoring dashboard with graphs and alerts. Luminous, blue data lines flow directly out of this screen, extending into the background where they connect to a vast, sleek, and modern data center server hall, which is slightly out of focus. The mood should be high-tech and professional, clearly linking the technician's daily monitoring tasks to the underlying physical infrastructure.",
+      "purpose": "To bridge the gap between the IT technician's current, abstract work and their future, physical work",
+            "timing": "03:15",
+            "segment": 4
+
+    }
+  ]
+}

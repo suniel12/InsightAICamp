@@ -1,0 +1,701 @@
+{
+  "events": [
+    {
+      "id": "segment-1",
+      "startTime": 0,
+      "endTime": 18.8865,
+      "duration": 18.8865,
+      "audioSegment": {
+        "id": "segment-1",
+        "segmentNumber": 1,
+        "title": "Video - slide4_vid1.mp4",
+        "startTime": 0,
+        "endTime": 18.8865,
+        "duration": 18.8865,
+        "contentType": "video",
+        "contentFile": "slide4_vid1.mp4",
+        "slideNumber": null,
+        "narrationText": "Welcome to the environment you're preparing to enter. What you're seeing is the physical hardware that underpins all modern IT services. Endless corridors of servers that you will soon be responsible for installing, monitoring, and maintaining. This is the world of the data center technician.",
+        "keyTerms": [
+          "data center",
+          "servers",
+          "technician",
+          "maintaining"
+        ],
+        "timing": "0.0s - 18.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-1.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 302229
+        }
+      },
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_f573d96a24/public/Slide1.png",
+        "description": "Data center walkthrough",
+        "transition": "fade",
+        "videoPath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/videos/slide4_vid1.mp4"
+      },
+      "narrationContent": "Welcome to the environment you're preparing to enter. What you're seeing is the...",
+      "type": "ai-video"
+    },
+    {
+      "id": "transition-1-2",
+      "startTime": 18.3865,
+      "endTime": 19.3865,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 1 to segment 2"
+      }
+    },
+    {
+      "id": "segment-2",
+      "startTime": 18.8865,
+      "endTime": 36.101188,
+      "duration": 17.214688,
+      "audioSegment": {
+        "id": "segment-2",
+        "segmentNumber": 2,
+        "title": "Slide 1 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 18.8865,
+        "endTime": 36.101188,
+        "duration": 17.214688,
+        "contentType": "slide",
+        "contentFile": "Slide1.png",
+        "slideNumber": 1,
+        "narrationText": "Today, we're diving into data center infrastructure. For anyone moving from IT support to a hands-on technical role, mastering these concepts is the critical first step. This knowledge is the bridge from troubleshooting software to managing the physical hardware itself.",
+        "keyTerms": [
+          "data center",
+          "infrastructure",
+          "technician",
+          "hardware"
+        ],
+        "timing": "18.5s - 38.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-2.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 275480
+        }
+      },
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "slide_1.png",
+        "description": "Slide 1",
+        "transition": "fade"
+      },
+      "narrationContent": "Today, we're diving into data center infrastructure. For anyone moving from IT...",
+      "type": "slide"
+    },
+    {
+      "id": "transition-2-3",
+      "startTime": 35.601188,
+      "endTime": 36.601188,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 2 to segment 3"
+      }
+    },
+    {
+      "id": "segment-3",
+      "startTime": 36.101188,
+      "endTime": 51.983626,
+      "duration": 15.882438,
+      "audioSegment": {
+        "id": "segment-3",
+        "segmentNumber": 3,
+        "title": "Image - slide1_img1.png",
+        "startTime": 36.101188,
+        "endTime": 51.983626,
+        "duration": 15.882438,
+        "contentType": "image",
+        "contentFile": "helpdesk_img1.png",
+        "slideNumber": null,
+        "narrationText": "Think of it this way: the alerts you see on monitoring dashboards are signals from the very systems you'll soon work with directly. Understanding the physical layout and function is key to moving beyond the ticket queue and into a role where you are the one resolving the core issue.",
+        "keyTerms": [
+          "monitoring",
+          "hardware",
+          "technician",
+          "resolving"
+        ],
+        "timing": "39.0s - 57.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-3.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 254164
+        }
+      },
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_f573d96a24/public/Slide1.png",
+        "description": "Helpdesk technician perspective",
+        "transition": "fade",
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/images/helpdesk_img1.png"
+      },
+      "narrationContent": "Think of it this way: the alerts you see on monitoring dashboards are signals...",
+      "type": "ai-image"
+    },
+    {
+      "id": "transition-3-4",
+      "startTime": 51.483626,
+      "endTime": 52.483626,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 3 to segment 4"
+      }
+    },
+    {
+      "id": "segment-4",
+      "startTime": 51.983626,
+      "endTime": 73.064439,
+      "duration": 21.080813,
+      "audioSegment": {
+        "id": "segment-4",
+        "segmentNumber": 4,
+        "title": "Slide 2 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 51.983626,
+        "endTime": 73.064439,
+        "duration": 21.080813,
+        "contentType": "slide",
+        "contentFile": "Slide2.png",
+        "slideNumber": 2,
+        "narrationText": "A data center hosts the core services you're already familiar with. This includes Application Hosting, Authentication Services like Active Directory, and all File and Data Storage. As a data center technician, your job will be to physically ensure the servers, storage arrays, and network gear running these services stay online and performant.",
+        "keyTerms": [
+          "application hosting",
+          "active directory",
+          "storage",
+          "servers"
+        ],
+        "timing": "57.5s - 87.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-4.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 337338
+        }
+      },
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "slide_2.png",
+        "description": "Slide 2",
+        "transition": "fade"
+      },
+      "narrationContent": "A data center hosts the core services you're already familiar with. This...",
+      "type": "slide"
+    },
+    {
+      "id": "transition-4-5",
+      "startTime": 72.564439,
+      "endTime": 73.564439,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 4 to segment 5"
+      }
+    },
+    {
+      "id": "segment-5",
+      "startTime": 73.064439,
+      "endTime": 95.660314,
+      "duration": 22.595875,
+      "audioSegment": {
+        "id": "segment-5",
+        "segmentNumber": 5,
+        "title": "Slide 3 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 73.064439,
+        "endTime": 95.660314,
+        "duration": 22.595875,
+        "contentType": "slide",
+        "contentFile": "Slide3.png",
+        "slideNumber": 3,
+        "narrationText": "To keep services running, a data center is a highly engineered environment you will learn to navigate. Your work will involve the core components: racking servers, provisioning storage systems, and cabling networking gear. You'll also work with the support infrastructure, including the massive power distribution units and the industrial-scale cooling systems that are vital for equipment health.",
+        "keyTerms": [
+          "servers",
+          "storage",
+          "networking",
+          "power",
+          "cooling"
+        ],
+        "timing": "88.0s - 118.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-5.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 361579
+        }
+      },
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "slide_3.png",
+        "description": "Slide 3",
+        "transition": "fade"
+      },
+      "narrationContent": "To keep services running, a data center is a highly engineered environment you...",
+      "type": "slide"
+    },
+    {
+      "id": "transition-5-6",
+      "startTime": 95.160314,
+      "endTime": 96.160314,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 5 to segment 6"
+      }
+    },
+    {
+      "id": "segment-6",
+      "startTime": 95.660314,
+      "endTime": 114.886377,
+      "duration": 19.226063,
+      "audioSegment": {
+        "id": "segment-6",
+        "segmentNumber": 6,
+        "title": "Image - slide3_img2.png",
+        "startTime": 95.660314,
+        "endTime": 114.886377,
+        "duration": 19.226063,
+        "contentType": "image",
+        "contentFile": "helpdesk_img1.png",
+        "slideNumber": null,
+        "narrationText": "This analogy is crucial for a technician. The servers are the 'brainpower' (Compute), and the storage is the 'memory'. The uninterruptible power supplies (UPS) are the 'heart', and the cooling units are the 'lungs'. Your role is to be the primary caregiver for this entire system.",
+        "keyTerms": [
+          "compute",
+          "memory",
+          "ups",
+          "cooling"
+        ],
+        "timing": "118.5s - 135.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-6.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 307662
+        }
+      },
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_f573d96a24/public/Slide1.png",
+        "description": "Helpdesk technician perspective",
+        "transition": "fade",
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/images/helpdesk_img2.png"
+      },
+      "narrationContent": "This analogy is crucial for a technician. The servers are the 'brainpower' (Comp...",
+      "type": "ai-image"
+    },
+    {
+      "id": "transition-6-7",
+      "startTime": 114.386377,
+      "endTime": 115.386377,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 6 to segment 7"
+      }
+    },
+    {
+      "id": "segment-7",
+      "startTime": 114.886377,
+      "endTime": 138.605502,
+      "duration": 23.719125,
+      "audioSegment": {
+        "id": "segment-7",
+        "segmentNumber": 7,
+        "title": "Slide 4 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 114.886377,
+        "endTime": 138.605502,
+        "duration": 23.719125,
+        "contentType": "slide",
+        "contentFile": "Slide4.png",
+        "slideNumber": 4,
+        "narrationText": "Centralizing this technology provides two key benefits you will help uphold: efficiency and security. By grouping resources, you achieve economies of scale. The other huge benefit is multi-layered security. As a technician, you become a critical part of this, enforcing physical access controls and assisting with the deployment of virtual defenses like firewalls.",
+        "keyTerms": [
+          "economies of scale",
+          "security",
+          "technician",
+          "firewalls"
+        ],
+        "timing": "136.0 - 171.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-7.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 379551
+        }
+      },
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "slide_4.png",
+        "description": "Slide 4",
+        "transition": "fade"
+      },
+      "narrationContent": "Centralizing this technology provides two key benefits you will help uphold:...",
+      "type": "slide"
+    },
+    {
+      "id": "transition-7-8",
+      "startTime": 138.105502,
+      "endTime": 139.105502,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 7 to segment 8"
+      }
+    },
+    {
+      "id": "segment-8",
+      "startTime": 138.605502,
+      "endTime": 185.31244,
+      "duration": 46.706938,
+      "audioSegment": {
+        "id": "segment-8",
+        "segmentNumber": 8,
+        "title": "Slide 5 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 138.605502,
+        "endTime": 185.31244,
+        "duration": 46.706938,
+        "contentType": "slide",
+        "contentFile": "Slide5.png",
+        "slideNumber": 5,
+        "narrationText": "Reliability is paramount, and it’s where technicians play a vital role. Data centers are classified into four tiers based on their redundancy.\n\nA Tier 1 facility is the most basic, with single points of failure.\n\nTier 2 adds some redundant components for more resilience.\n\nTier 3 is where the role of a technician shines. It’s concurrently maintainable, meaning you can perform maintenance—like swapping a power supply—without service interruption. This provides 99.982% availability.\n\nFinally, Tier 4 is fully fault-tolerant. As a technician here, you are maintaining a near-perfectly resilient environment with only minutes of potential downtime per year.",
+        "keyTerms": [
+          "tier 1",
+          "tier 2",
+          "tier 3",
+          "tier 4",
+          "downtime",
+          "redundancy",
+          "maintenance"
+        ],
+        "timing": "171.5s - 256.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-8.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 747356
+        }
+      },
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "slide_5.png",
+        "description": "Slide 5",
+        "transition": "fade"
+      },
+      "narrationContent": "Reliability is paramount, and it’s where technicians play a vital role. Data...",
+      "type": "slide"
+    },
+    {
+      "id": "transition-8-9",
+      "startTime": 184.81244,
+      "endTime": 185.81244,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 8 to segment 9"
+      }
+    },
+    {
+      "id": "segment-9",
+      "startTime": 185.31244,
+      "endTime": 209.998128,
+      "duration": 24.685688,
+      "audioSegment": {
+        "id": "segment-9",
+        "segmentNumber": 9,
+        "title": "Slide 6 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 185.31244,
+        "endTime": 209.998128,
+        "duration": 24.685688,
+        "contentType": "slide",
+        "contentFile": "Slide6.png",
+        "slideNumber": 6,
+        "narrationText": "This tier system is all about risk management and understanding these tiers is fundamental to your new career. Businesses can lose hundreds of thousands of dollars per hour in revenue when a data center goes down. It's not just about uptime numbers; it's about the procedures and skills required to achieve them. This knowledge bridges the gap between a software ticket and the physical solution that you will soon be providing.",
+        "keyTerms": [
+          "conclusion",
+          "summary",
+          "technician",
+          "career",
+          "skills"
+        ],
+        "timing": "257.0s - 270.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-9.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 395016
+        }
+      },
+      "content": {
+        "slideNumber": 6,
+        "slidePath": "slide_6.png",
+        "description": "Slide 6",
+        "transition": "fade"
+      },
+      "narrationContent": "This tier system is all about risk management and understanding these tiers is...",
+      "type": "slide"
+    }
+  ],
+  "totalDuration": 209.998128,
+  "audioCollection": {
+    "segments": [
+      {
+        "id": "segment-1",
+        "segmentNumber": 1,
+        "title": "Video - slide4_vid1.mp4",
+        "startTime": 0,
+        "endTime": 18.8865,
+        "duration": 18.8865,
+        "contentType": "video",
+        "contentFile": "slide4_vid1.mp4",
+        "slideNumber": null,
+        "narrationText": "Welcome to the environment you're preparing to enter. What you're seeing is the physical hardware that underpins all modern IT services. Endless corridors of servers that you will soon be responsible for installing, monitoring, and maintaining. This is the world of the data center technician.",
+        "keyTerms": [
+          "data center",
+          "servers",
+          "technician",
+          "maintaining"
+        ],
+        "timing": "0.0s - 18.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-1.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 302229
+        }
+      },
+      {
+        "id": "segment-2",
+        "segmentNumber": 2,
+        "title": "Slide 1 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 18.8865,
+        "endTime": 36.101188,
+        "duration": 17.214688,
+        "contentType": "slide",
+        "contentFile": "Slide1.png",
+        "slideNumber": 1,
+        "narrationText": "Today, we're diving into data center infrastructure. For anyone moving from IT support to a hands-on technical role, mastering these concepts is the critical first step. This knowledge is the bridge from troubleshooting software to managing the physical hardware itself.",
+        "keyTerms": [
+          "data center",
+          "infrastructure",
+          "technician",
+          "hardware"
+        ],
+        "timing": "18.5s - 38.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-2.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 275480
+        }
+      },
+      {
+        "id": "segment-3",
+        "segmentNumber": 3,
+        "title": "Image - slide1_img1.png",
+        "startTime": 36.101188,
+        "endTime": 51.983626,
+        "duration": 15.882438,
+        "contentType": "image",
+        "contentFile": "helpdesk_img1.png",
+        "slideNumber": null,
+        "narrationText": "Think of it this way: the alerts you see on monitoring dashboards are signals from the very systems you'll soon work with directly. Understanding the physical layout and function is key to moving beyond the ticket queue and into a role where you are the one resolving the core issue.",
+        "keyTerms": [
+          "monitoring",
+          "hardware",
+          "technician",
+          "resolving"
+        ],
+        "timing": "39.0s - 57.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-3.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 254164
+        }
+      },
+      {
+        "id": "segment-4",
+        "segmentNumber": 4,
+        "title": "Slide 2 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 51.983626,
+        "endTime": 73.064439,
+        "duration": 21.080813,
+        "contentType": "slide",
+        "contentFile": "Slide2.png",
+        "slideNumber": 2,
+        "narrationText": "A data center hosts the core services you're already familiar with. This includes Application Hosting, Authentication Services like Active Directory, and all File and Data Storage. As a data center technician, your job will be to physically ensure the servers, storage arrays, and network gear running these services stay online and performant.",
+        "keyTerms": [
+          "application hosting",
+          "active directory",
+          "storage",
+          "servers"
+        ],
+        "timing": "57.5s - 87.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-4.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 337338
+        }
+      },
+      {
+        "id": "segment-5",
+        "segmentNumber": 5,
+        "title": "Slide 3 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 73.064439,
+        "endTime": 95.660314,
+        "duration": 22.595875,
+        "contentType": "slide",
+        "contentFile": "Slide3.png",
+        "slideNumber": 3,
+        "narrationText": "To keep services running, a data center is a highly engineered environment you will learn to navigate. Your work will involve the core components: racking servers, provisioning storage systems, and cabling networking gear. You'll also work with the support infrastructure, including the massive power distribution units and the industrial-scale cooling systems that are vital for equipment health.",
+        "keyTerms": [
+          "servers",
+          "storage",
+          "networking",
+          "power",
+          "cooling"
+        ],
+        "timing": "88.0s - 118.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-5.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 361579
+        }
+      },
+      {
+        "id": "segment-6",
+        "segmentNumber": 6,
+        "title": "Image - slide3_img2.png",
+        "startTime": 95.660314,
+        "endTime": 114.886377,
+        "duration": 19.226063,
+        "contentType": "image",
+        "contentFile": "helpdesk_img1.png",
+        "slideNumber": null,
+        "narrationText": "This analogy is crucial for a technician. The servers are the 'brainpower' (Compute), and the storage is the 'memory'. The uninterruptible power supplies (UPS) are the 'heart', and the cooling units are the 'lungs'. Your role is to be the primary caregiver for this entire system.",
+        "keyTerms": [
+          "compute",
+          "memory",
+          "ups",
+          "cooling"
+        ],
+        "timing": "118.5s - 135.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-6.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 307662
+        }
+      },
+      {
+        "id": "segment-7",
+        "segmentNumber": 7,
+        "title": "Slide 4 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 114.886377,
+        "endTime": 138.605502,
+        "duration": 23.719125,
+        "contentType": "slide",
+        "contentFile": "Slide4.png",
+        "slideNumber": 4,
+        "narrationText": "Centralizing this technology provides two key benefits you will help uphold: efficiency and security. By grouping resources, you achieve economies of scale. The other huge benefit is multi-layered security. As a technician, you become a critical part of this, enforcing physical access controls and assisting with the deployment of virtual defenses like firewalls.",
+        "keyTerms": [
+          "economies of scale",
+          "security",
+          "technician",
+          "firewalls"
+        ],
+        "timing": "136.0 - 171.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-7.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 379551
+        }
+      },
+      {
+        "id": "segment-8",
+        "segmentNumber": 8,
+        "title": "Slide 5 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 138.605502,
+        "endTime": 185.31244,
+        "duration": 46.706938,
+        "contentType": "slide",
+        "contentFile": "Slide5.png",
+        "slideNumber": 5,
+        "narrationText": "Reliability is paramount, and it’s where technicians play a vital role. Data centers are classified into four tiers based on their redundancy.\n\nA Tier 1 facility is the most basic, with single points of failure.\n\nTier 2 adds some redundant components for more resilience.\n\nTier 3 is where the role of a technician shines. It’s concurrently maintainable, meaning you can perform maintenance—like swapping a power supply—without service interruption. This provides 99.982% availability.\n\nFinally, Tier 4 is fully fault-tolerant. As a technician here, you are maintaining a near-perfectly resilient environment with only minutes of potential downtime per year.",
+        "keyTerms": [
+          "tier 1",
+          "tier 2",
+          "tier 3",
+          "tier 4",
+          "downtime",
+          "redundancy",
+          "maintenance"
+        ],
+        "timing": "171.5s - 256.5s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-8.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 747356
+        }
+      },
+      {
+        "id": "segment-9",
+        "segmentNumber": 9,
+        "title": "Slide 6 - Intro to Data centers demo enhanced.pptx",
+        "startTime": 185.31244,
+        "endTime": 209.998128,
+        "duration": 24.685688,
+        "contentType": "slide",
+        "contentFile": "Slide6.png",
+        "slideNumber": 6,
+        "narrationText": "This tier system is all about risk management and understanding these tiers is fundamental to your new career. Businesses can lose hundreds of thousands of dollars per hour in revenue when a data center goes down. It's not just about uptime numbers; it's about the procedures and skills required to achieve them. This knowledge bridges the gap between a software ticket and the physical solution that you will soon be providing.",
+        "keyTerms": [
+          "conclusion",
+          "summary",
+          "technician",
+          "career",
+          "skills"
+        ],
+        "timing": "257.0s - 270.0s",
+        "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-9.mp3",
+        "metadata": {
+          "provider": "elevenlabs",
+          "voiceId": "pNInz6obpgDQGcFmaJgB",
+          "fileSize": 395016
+        }
+      }
+    ],
+    "totalDuration": 209.998128,
+    "sessionId": "ps_f573d96a24",
+    "createdAt": "2025-08-14T00:07:33.523Z",
+    "metadata": {
+      "segmentCount": 9,
+      "provider": "elevenlabs",
+      "voiceId": "pNInz6obpgDQGcFmaJgB",
+      "totalFileSize": 3360375
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-08-14T00:09:23.603Z",
+    "method": "content-aware-segmented",
+    "segmentCount": 9,
+    "transitionDuration": 1
+  }
+}

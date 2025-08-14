@@ -1,0 +1,237 @@
+{
+  "events": [
+    {
+      "id": "segment-1",
+      "startTime": 0,
+      "endTime": 18.8865,
+      "duration": 18.8865,
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_f573d96a24/public/Slide1.png",
+        "description": "Slide 1",
+        "transition": "fade",
+        "videoPath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/videos/slide4_vid1.mp4"
+      },
+      "narrationContent": "Welcome to the environment you're preparing to enter. What you're seeing is the...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-1.mp3",
+      "type": "ai-video"
+    },
+    {
+      "id": "transition-1-2",
+      "startTime": 18.3865,
+      "endTime": 19.3865,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 1 to segment 2"
+      }
+    },
+    {
+      "id": "segment-2",
+      "startTime": 18.8865,
+      "endTime": 36.101188,
+      "duration": 17.214688,
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "slide_1.png",
+        "description": "Slide 1",
+        "transition": "fade"
+      },
+      "narrationContent": "Today, we're diving into data center infrastructure. For anyone moving from IT...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-2.mp3",
+      "type": "slide"
+    },
+    {
+      "id": "transition-2-3",
+      "startTime": 35.601188,
+      "endTime": 36.601188,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 2 to segment 3"
+      }
+    },
+    {
+      "id": "segment-3",
+      "startTime": 36.101188,
+      "endTime": 51.983626,
+      "duration": 15.882438,
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_f573d96a24/public/Slide1.png",
+        "description": "Slide 1",
+        "transition": "fade",
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/images/helpdesk_img1.png"
+      },
+      "narrationContent": "Think of it this way: the alerts you see on monitoring dashboards are signals...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-3.mp3",
+      "type": "ai-image"
+    },
+    {
+      "id": "transition-3-4",
+      "startTime": 51.483626,
+      "endTime": 52.483626,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 3 to segment 4"
+      }
+    },
+    {
+      "id": "segment-4",
+      "startTime": 51.983626,
+      "endTime": 73.064439,
+      "duration": 21.080813,
+      "content": {
+        "slideNumber": 2,
+        "slidePath": "slide_2.png",
+        "description": "Slide 2",
+        "transition": "fade"
+      },
+      "narrationContent": "A data center hosts the core services you're already familiar with. This...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-4.mp3",
+      "type": "slide"
+    },
+    {
+      "id": "transition-4-5",
+      "startTime": 72.564439,
+      "endTime": 73.564439,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 4 to segment 5"
+      }
+    },
+    {
+      "id": "segment-5",
+      "startTime": 73.064439,
+      "endTime": 95.660314,
+      "duration": 22.595875,
+      "content": {
+        "slideNumber": 3,
+        "slidePath": "slide_3.png",
+        "description": "Slide 3",
+        "transition": "fade"
+      },
+      "narrationContent": "To keep services running, a data center is a highly engineered environment you...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-5.mp3",
+      "type": "slide"
+    },
+    {
+      "id": "transition-5-6",
+      "startTime": 95.160314,
+      "endTime": 96.160314,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 5 to segment 6"
+      }
+    },
+    {
+      "id": "segment-6",
+      "startTime": 95.660314,
+      "endTime": 114.886377,
+      "duration": 19.226063,
+      "content": {
+        "slideNumber": 1,
+        "slidePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/output-ps_f573d96a24/public/Slide1.png",
+        "description": "Slide 1",
+        "transition": "fade",
+        "imagePath": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-06-ai-media/images/helpdesk_img2.png"
+      },
+      "narrationContent": "This analogy is crucial for a technician. The servers are the 'brainpower' (Comp...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-6.mp3",
+      "type": "ai-image"
+    },
+    {
+      "id": "transition-6-7",
+      "startTime": 114.386377,
+      "endTime": 115.386377,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 6 to segment 7"
+      }
+    },
+    {
+      "id": "segment-7",
+      "startTime": 114.886377,
+      "endTime": 138.605502,
+      "duration": 23.719125,
+      "content": {
+        "slideNumber": 4,
+        "slidePath": "slide_4.png",
+        "description": "Slide 4",
+        "transition": "fade"
+      },
+      "narrationContent": "Centralizing this technology provides two key benefits you will help uphold:...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-7.mp3",
+      "type": "slide"
+    },
+    {
+      "id": "transition-7-8",
+      "startTime": 138.105502,
+      "endTime": 139.105502,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 7 to segment 8"
+      }
+    },
+    {
+      "id": "segment-8",
+      "startTime": 138.605502,
+      "endTime": 185.31244,
+      "duration": 46.706938,
+      "content": {
+        "slideNumber": 5,
+        "slidePath": "slide_5.png",
+        "description": "Slide 5",
+        "transition": "fade"
+      },
+      "narrationContent": "Reliability is paramount, and it’s where technicians play a vital role. Data...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-8.mp3",
+      "type": "slide"
+    },
+    {
+      "id": "transition-8-9",
+      "startTime": 184.81244,
+      "endTime": 185.81244,
+      "duration": 1,
+      "type": "transition",
+      "content": {
+        "transition": "fade",
+        "description": "Fade transition from segment 8 to segment 9"
+      }
+    },
+    {
+      "id": "segment-9",
+      "startTime": 185.31244,
+      "endTime": 209.998128,
+      "duration": 24.685688,
+      "content": {
+        "slideNumber": 6,
+        "slidePath": "slide_6.png",
+        "description": "Slide 6",
+        "transition": "fade"
+      },
+      "narrationContent": "This tier system is all about risk management and understanding these tiers is...",
+      "audioFile": "/Users/sunilpandey/startup/github/InsightAICamp/apps/videopipeline/pipeline-data/sessions/ps_f573d96a24/stage-09-segmented-tts/segment-9.mp3",
+      "type": "slide"
+    }
+  ],
+  "totalDuration": 209.998128,
+  "metadata": {
+    "createdAt": "2025-08-14T00:09:23.603Z",
+    "method": "content-aware-segmented",
+    "segmentCount": 9,
+    "transitionDuration": 1
+  }
+}
