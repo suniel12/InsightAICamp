@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
+import { BRAND_COLORS } from '@/constants/styles';
 
 export const FinalCTASection: React.FC = () => {
   const navigate = useNavigate();
@@ -41,6 +42,13 @@ export const FinalCTASection: React.FC = () => {
           </p>
           <p className="text-sm text-white/60">
             "This program completely transformed my career. The adaptive learning module is a game-changer." - Vindhya N.
+          </p>
+        </div>
+        
+        {/* Copyright */}
+        <div className="mt-16 pt-8 border-t border-white/20">
+          <p className="text-sm text-white/60">
+            © 2025 <span className="font-semibold" style={{ color: 'white' }}>GigaWatt Academy</span>
           </p>
         </div>
       </div>

@@ -24,6 +24,14 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
+      // Work around plugin/core rule mismatch in ESLint v9 + @typescript-eslint v8
+      // See error: Error while loading rule '@typescript-eslint/no-unused-expressions'
+      "@typescript-eslint/no-unused-expressions": "off",
+      // Keep a sane core rule setting that allows common patterns
+      "no-unused-expressions": [
+        "warn",
+        { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true },
+      ],
     },
   }
 );

@@ -5,10 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ApplicationPage from "./pages/ApplicationPage";
-import DemoPage from "./pages/DemoPage";
+import { Suspense, lazy } from "react";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+const DemoPageLazy = lazy(() => import("./pages/DemoPage"));
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,8 +21,42 @@ const App = () => (
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/application" element={<ApplicationPage />} />
-          <Route path="/demo" element={<DemoPage />} />
-          <Route path="/demo/:id" element={<DemoPage />} />
+          <Route
+            path="/demo"
+            element={
+              <Suspense
+                fallback={
+                  <div
+                    className="min-h-screen flex items-center justify-center text-slate-300"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    Loading demo…
+                  </div>
+                }
+              >
+                <DemoPageLazy />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/demo/:id"
+            element={
+              <Suspense
+                fallback={
+                  <div
+                    className="min-h-screen flex items-center justify-center text-slate-300"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    Loading demo…
+                  </div>
+                }
+              >
+                <DemoPageLazy />
+              </Suspense>
+            }
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
