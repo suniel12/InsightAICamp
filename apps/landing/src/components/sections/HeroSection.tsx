@@ -80,7 +80,7 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
                 <Target className="w-6 h-6 text-primary" />
               </div>
               <div className="text-center md:text-left">
-                <div className="font-bold text-lg" id="placement-rate">95%+</div>
+                <div className="font-bold text-lg" id="placement-rate">90%+</div>
                 <div className="text-sm text-muted-foreground">Placement Rate</div>
               </div>
             </div>
