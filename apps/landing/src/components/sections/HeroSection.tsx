@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Target, DollarSign, Rocket } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import heroBackground from '@/assets/hero-background.jpg';
 import { BRAND_COLORS } from '@/constants/styles';
 
@@ -26,51 +26,14 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
       />
       <div className="absolute inset-0 gradient-hero" />
       
-      {/* Header with Academy Name and How it Works */}
-      <header className="absolute top-0 left-0 right-0 z-20 py-8" role="banner">
-        <nav className="container mx-auto px-6 flex justify-between items-center" role="navigation" aria-label="Main navigation">
-          {/* Academy Name and Logo on the left */}
-          <div className="flex items-center gap-3" aria-label="GigaWatt Academy homepage">
-            <img 
-              src="/favicon.png" 
-              alt="GigaWatt Academy Logo" 
-              className="w-8 h-8 object-contain"
-            />
-            <div className="font-semibold text-xl" style={{ color: BRAND_COLORS.PRIMARY }}>
-              GigaWatt Academy
-            </div>
-          </div>
-          
-          {/* Navigation Links */}
-          <div className="flex items-center gap-6">
-            <Link 
-              to="/demo"
-              className="font-semibold text-lg hover:opacity-80 transition-opacity" 
-              style={{ color: BRAND_COLORS.PRIMARY }}
-              aria-label="View interactive demo"
-            >
-              Demo
-            </Link>
-            <button 
-              onClick={onShowHowItWorks}
-              className="font-semibold text-lg hover:opacity-80 transition-opacity cursor-pointer" 
-              style={{ color: BRAND_COLORS.PRIMARY }}
-              aria-label="Learn how GigaWatt Academy training works"
-            >
-              How it Works
-            </button>
-          </div>
-        </nav>
-      </header>
-      
-      <div className="relative z-10 container mx-auto px-6 text-center pt-24">
+      <div className="relative z-10 container mx-auto px-6 text-center pt-10">
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Launch Your Six-Figure Career
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8" role="doc-subtitle">
-            Join 1,000s of professionals like you to power the global AI revolution
+            Join our founding cohort and train for real job openings at partner companies
           </p>
 
           {/* Value Props Grid */}
@@ -80,8 +43,8 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
                 <Target className="w-6 h-6 text-primary" />
               </div>
               <div className="text-center md:text-left">
-                <div className="font-bold text-lg" id="placement-rate">90%+</div>
-                <div className="text-sm text-muted-foreground">Placement Rate</div>
+                <div className="font-bold text-lg" id="placement-rate">Direct</div>
+                <div className="text-sm text-muted-foreground">Employer Partnerships</div>
               </div>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-3 p-4 rounded-lg bg-card/20 backdrop-blur-sm border border-border/30" role="article" aria-labelledby="average-salary">
@@ -90,7 +53,7 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
               </div>
               <div className="text-center md:text-left">
                 <div className="font-bold text-lg" id="average-salary">$100K+</div>
-                <div className="text-sm text-muted-foreground">Average Salary</div>
+                <div className="text-sm text-muted-foreground">Target Salary Range</div>
               </div>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-3 p-4 rounded-lg bg-card/20 backdrop-blur-sm border border-border/30" role="article" aria-labelledby="training-duration">
@@ -98,8 +61,8 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
                 <Rocket className="w-6 h-6 text-secondary" />
               </div>
               <div className="text-center md:text-left">
-                <div className="font-bold text-lg" id="training-duration">8 Weeks+</div>
-                <div className="text-sm text-muted-foreground">Adaptive Learning</div>
+                <div className="font-bold text-lg" id="training-duration">8-12 Weeks</div>
+                <div className="text-sm text-muted-foreground">Adaptive Training</div>
               </div>
             </div>
           </div>
@@ -117,28 +80,28 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
                 aria-describedby="job-guarantee"
                 aria-label="Start your application for GigaWatt Academy's data center training program"
               >
-                Start Your Application
+                Apply for Early Access
               </Button>
             </div>
             <div className="text-center">
               <p className="text-sm text-muted-foreground" id="job-guarantee">
-                ✓ 90-day job guarantee
+                ✓ Train for specific roles at real companies
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Social Proof */}
-          <div className="mt-12 text-center" role="region" aria-labelledby="partner-companies">
-            <p className="text-sm text-muted-foreground mb-4" id="partner-companies">
-              Courses created in collaboration with leading tech companies:
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium opacity-80" role="list" aria-label="Partner companies">
-              <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">AWS</span>
-              <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Google</span>
-              <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Microsoft</span>
-              <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Meta</span>
-              <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Oracle</span>
-            </div>
+        {/* Social Proof */}
+        <div className="mt-12 text-center" role="region" aria-labelledby="partner-companies">
+          <p className="text-sm text-muted-foreground mb-4" id="partner-companies">
+            Building partnerships with leading tech companies:
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6" role="list" aria-label="Partner companies">
+            <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">AWS</span>
+            <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Google</span>
+            <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Microsoft</span>
+            <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Meta</span>
+            <span className="px-3 py-1 rounded-full bg-card/30 border border-border/30" role="listitem">Oracle</span>
           </div>
         </div>
       </div>

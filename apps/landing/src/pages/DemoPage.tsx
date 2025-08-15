@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { BRAND_COLORS } from '@/constants/styles';
 import ComparisonSection from '@/components/demo/ComparisonSection';
+import { NavigationHeader } from '@/components/shared/NavigationHeader';
+import { Footer } from '@/components/shared/Footer';
 import { Dumbbell, MessageSquare, Brain } from 'lucide-react';
 
 const DemoPage: React.FC = () => {
@@ -58,51 +60,7 @@ const DemoPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-3 focus:py-2 focus:rounded-md focus:bg-slate-800 focus:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-sky-500"
-      >
-        Skip to main content
-      </a>
-      {/* Navigation */}
-      <header>
-        <nav aria-label="Primary" className="border-b border-slate-700 bg-slate-900/50 backdrop-blur-xl">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <Link to="/" className="flex items-center space-x-3" aria-label="Go to homepage">
-                  <img
-                    src="/favicon.png"
-                    alt="GigaWatt Academy Logo"
-                    className="h-8 w-8 object-contain"
-                    decoding="async"
-                  />
-                  <span className="text-xl font-bold" style={{ color: BRAND_COLORS.PRIMARY }}>
-                    GigaWatt Academy
-                  </span>
-                </Link>
-              </div>
-              <div className="flex items-center space-x-6">
-                <Link
-                  to="/"
-                  className="text-lg font-bold hover:opacity-80 transition-opacity rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:ring-sky-500"
-                  style={{ color: BRAND_COLORS.PRIMARY }}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/application"
-                  className="px-4 py-2 rounded-lg font-bold transition-colors text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:ring-sky-500"
-                  style={{ backgroundColor: BRAND_COLORS.PRIMARY }}
-                  aria-label="Apply to GigaWatt Academy"
-                >
-                  Apply Now
-                </Link>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <NavigationHeader />
 
       <main id="main-content" role="main">
         {/* Hero Section */}
@@ -234,16 +192,11 @@ const DemoPage: React.FC = () => {
                 </Link>
               </Button>
             </div>
-            
-            {/* Copyright */}
-            <div className="mt-8 pt-8 border-t border-slate-700">
-              <p className="text-center text-sm text-slate-400">
-                © 2025 <span className="font-semibold" style={{ color: BRAND_COLORS.PRIMARY }}>GigaWatt Academy</span>
-              </p>
-            </div>
           </div>
         </section>
       </main>
+      
+      <Footer />
     </div>
   );
 };

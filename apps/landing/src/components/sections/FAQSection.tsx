@@ -10,18 +10,18 @@ export const FAQSection: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get answers to the most common questions about our program
+            Get answers about our upcoming program
           </p>
         </div>
 
         <Accordion type="single" collapsible className="max-w-4xl mx-auto space-y-4">
           
           <AccordionItem value="paths" className="border border-border/30 rounded-lg px-6">
-            <AccordionTrigger className="text-lg font-semibold hover:text-primary">What career paths do you offer?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-semibold hover:text-primary">What career paths will you offer?</AccordionTrigger>
             <AccordionContent className="text-base text-muted-foreground pt-4">
-              We currently train for Data Center Technician, Network Operations 
-              Technician, Site Reliability Engineer, Critical Facilities 
-              Engineer, BMS Controls Technician. We add additional roles every month.
+              We're launching with Data Center Technician, Network Operations Technician, 
+              and Critical Facilities roles. Additional paths including Site Reliability 
+              Engineer and Cloud Infrastructure will be added based on partner company needs.
             </AccordionContent>
           </AccordionItem>
 
@@ -35,30 +35,30 @@ export const FAQSection: React.FC = () => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="application" className="border border-border/30 rounded-lg px-6">
-            <AccordionTrigger className="text-lg font-semibold hover:text-primary">How simple is the application process?</AccordionTrigger>
+          <AccordionItem value="earlyaccess" className="border border-border/30 rounded-lg px-6">
+            <AccordionTrigger className="text-lg font-semibold hover:text-primary">How does early access work?</AccordionTrigger>
             <AccordionContent className="text-base text-muted-foreground pt-4">
-              Extremely simple! Our streamlined application takes just 2-3 minutes: basic contact info, LinkedIn profile, 
-              work authorization, and resume upload. Applications are reviewed within 48 hours with a brief interview if selected.
+              Early access members join our founding cohort with special pricing, priority placement 
+              with partner companies, and input on curriculum development. Applications are reviewed 
+              on a rolling basis with the first 100 members getting exclusive benefits.
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="guarantee" className="border border-border/30 rounded-lg px-6">
-            <AccordionTrigger className="text-lg font-semibold hover:text-primary">How does the job guarantee work?</AccordionTrigger>
+          <AccordionItem value="cohort" className="border border-border/30 rounded-lg px-6">
+            <AccordionTrigger className="text-lg font-semibold hover:text-primary">When does the first cohort start?</AccordionTrigger>
             <AccordionContent className="text-base text-muted-foreground pt-4">
-              Our 90-day job guarantee means if you complete the program successfully and don't land a qualifying 
-              position within 90 days, we waive our ISA fee. Qualifying positions are roles paying $60k+ annually 
-              in data center operations, cloud infrastructure, or AI infrastructure fields. With high demand for 
-              these specialized skills, most graduates receive offers within a month of graduation.
+              Our first cohort launches in September 2025. We're currently securing employer partnerships 
+              and building our adaptive learning platform. Early access members will get first priority 
+              for cohort placement and can help shape the program before launch.
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="speed" className="border border-border/30 rounded-lg px-6">
-            <AccordionTrigger className="text-lg font-semibold hover:text-primary">How quickly can I get hired?</AccordionTrigger>
+          <AccordionItem value="placement" className="border border-border/30 rounded-lg px-6">
+            <AccordionTrigger className="text-lg font-semibold hover:text-primary">How does partner placement work?</AccordionTrigger>
             <AccordionContent className="text-base text-muted-foreground pt-4">
-              Our fastest track (Data Center Technician) gets you job-ready in just 8-12 weeks with starting salaries 
-              of $65k-$95k. More advanced roles like Site Reliability Engineer take 20-28 weeks but offer higher
-              starting salaries. The choice depends on your career goals.
+              Unlike traditional bootcamps, we partner with companies first to understand their exact needs, 
+              then train you specifically for their open roles. This means you're not just learning generic skills - 
+              you're training for real positions at real companies, dramatically increasing placement success.
             </AccordionContent>
           </AccordionItem>
 

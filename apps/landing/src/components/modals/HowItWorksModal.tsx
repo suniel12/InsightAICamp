@@ -17,7 +17,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
         
         <div className="space-y-8">
           <p className="text-lg text-muted-foreground">
-            Our 90-94% placement rate is the result of a systematic program co-developed with our hiring partners. We invest in you at every step.
+            Our high placement rate is the result of a systematic program co-developed with our hiring partners. We invest in you at every step.
           </p>
 
           {/* Phase 1 */}
