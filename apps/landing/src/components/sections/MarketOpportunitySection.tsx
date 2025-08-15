@@ -19,7 +19,7 @@ export const MarketOpportunitySection = memo(() => {
               <div className="text-2xl font-bold text-primary">$</div>
             </div>
             <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
-              $<AnimatedCounter end={2.1} suffix="B" />
+              $<AnimatedCounter end={650} suffix="B" />
             </div>
             <p className="text-muted-foreground font-medium">Global Data Center Market by 2030</p>
           </div>
@@ -28,7 +28,7 @@ export const MarketOpportunitySection = memo(() => {
               <div className="text-2xl font-bold text-accent">!</div>
             </div>
             <div className="text-4xl md:text-5xl font-bold text-accent mb-3">
-              <AnimatedCounter end={73} suffix="%" />
+              <AnimatedCounter end={53} suffix="%" />
             </div>
             <p className="text-muted-foreground font-medium">Of Operators Report a Critical Skills Shortage</p>
           </div>

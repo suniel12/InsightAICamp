@@ -17,9 +17,9 @@ export const FinalCTASection: React.FC = () => {
           Your Future in AI Infrastructure Starts with One Decision
         </h2>
         <p className="text-xl mb-12 max-w-4xl mx-auto text-white/90">
-          Join thousands of ambitious professionals building the backbone of the AI revolution. With our 90% 
-          placement rate and $100K+ average starting salaries, your transformation is not just 
-          possible—it's probable.
+          Be among the first to experience our revolutionary adaptive learning platform. 
+          With direct partnerships with hiring companies, your success isn't just 
+          possible—it's designed into the program.
         </p>
 
         <div className="flex flex-col items-center gap-8 mb-12">
@@ -28,7 +28,7 @@ export const FinalCTASection: React.FC = () => {
             style={{ backgroundColor: 'white', color: '#1F5F5F' }}
             onClick={() => navigate('/application')}
           >
-            Start Your Application
+            Apply for Early Access
           </Button>
           
           <div className="flex flex-col md:flex-row gap-8 text-white/80">
@@ -37,11 +37,9 @@ export const FinalCTASection: React.FC = () => {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm text-white/70 mb-4">
-            ⭐ ⭐ ⭐ ⭐ ⭐ Rated 5/5 by our graduates
-          </p>
+
           <p className="text-sm text-white/60">
-            "This program completely transformed my career. The adaptive learning module is a game-changer." - Vindhya N.
+            "The adaptive learning demo is unlike anything I've seen in technical education." - Vindhya N
           </p>
         </div>
         
