@@ -34,29 +34,16 @@ export const NavigationHeader = ({ className, onShowHowItWorks }: NavigationHead
             
             <div className="hidden md:flex items-center space-x-6">
               <Link
-                to="/individuals"
-                className={cn(
-                  "text-sm font-medium hover:opacity-80 transition-opacity",
-                  isActive('/individuals') ? 'text-primary' : 'text-slate-300'
-                )}
+                to="/jobs"
+                className="font-bold hover:opacity-80 transition-opacity"
+                style={{ color: BRAND_COLORS.PRIMARY }}
               >
-                For Individuals
-              </Link>
-              <Link
-                to="/business"
-                className={cn(
-                  "text-sm font-medium hover:opacity-80 transition-opacity",
-                  isActive('/business') ? 'text-primary' : 'text-slate-300'
-                )}
-              >
-                For Business
+                Jobs
               </Link>
               <Link
                 to="/demo"
-                className={cn(
-                  "text-sm font-medium hover:opacity-80 transition-opacity",
-                  isActive('/demo') ? 'text-primary' : 'text-slate-300'
-                )}
+                className="font-bold hover:opacity-80 transition-opacity"
+                style={{ color: BRAND_COLORS.PRIMARY }}
               >
                 Demo
               </Link>
@@ -64,7 +51,7 @@ export const NavigationHeader = ({ className, onShowHowItWorks }: NavigationHead
           </div>
           
           <div className="flex items-center space-x-4">
-            {onShowHowItWorks && location.pathname === '/individuals' && (
+            {onShowHowItWorks && location.pathname === '/' && (
               <button 
                 onClick={onShowHowItWorks}
                 className="text-sm font-medium hover:opacity-80 transition-opacity text-slate-300" 
