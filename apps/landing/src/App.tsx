@@ -7,8 +7,10 @@ import HomePage from "./pages/HomePage";
 import IndividualsPage from "./pages/IndividualsPage";
 import BusinessPage from "./pages/BusinessPage";
 import ApplicationPage from "./pages/ApplicationPage";
+import JobsPage from "./pages/JobsPage";
 import { Suspense, lazy } from "react";
 import NotFound from "./pages/NotFound";
+import { ScrollToTop } from "./components/shared/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -20,10 +22,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/individuals" element={<IndividualsPage />} />
-          <Route path="/business" element={<BusinessPage />} />
+          <Route path="/" element={<IndividualsPage />} />
+          <Route path="/mission" element={<HomePage />} />
+          <Route path="/enterprise" element={<BusinessPage />} />
+          <Route path="/jobs" element={<JobsPage />} />
           <Route path="/application" element={<ApplicationPage />} />
           <Route
             path="/demo"
