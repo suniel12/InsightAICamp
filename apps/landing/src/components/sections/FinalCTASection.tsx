@@ -28,7 +28,7 @@ export const FinalCTASection: React.FC = () => {
             style={{ backgroundColor: 'white', color: '#1F5F5F' }}
             onClick={() => navigate('/application')}
           >
-            Apply for Early Access
+            Apply Now
           </Button>
           
           <div className="flex flex-col md:flex-row gap-8 text-white/80">

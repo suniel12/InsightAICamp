@@ -80,7 +80,7 @@ export const HeroSection = memo<HeroSectionProps>(({ onShowHowItWorks }) => {
                 aria-describedby="job-guarantee"
                 aria-label="Start your application for GigaWatt Academy's data center training program"
               >
-                Apply for Early Access
+                Apply Now
               </Button>
             </div>
             <div className="text-center">
