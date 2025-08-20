@@ -96,42 +96,42 @@ export const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   // Custom components for markdown rendering
   const markdownComponents = {
     h1: ({ children, ...props }: any) => (
-      <h1 className="text-3xl md:text-4xl font-bold mt-8 mb-4 text-white" {...props}>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-8 mb-4 text-white break-words" {...props}>
         {children}
       </h1>
     ),
     h2: ({ children, ...props }: any) => (
-      <h2 className="text-2xl md:text-3xl font-bold mt-8 mb-4 text-white" {...props}>
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-8 mb-4 text-white break-words" {...props}>
         {children}
       </h2>
     ),
     h3: ({ children, ...props }: any) => (
-      <h3 className="text-xl md:text-2xl font-bold mt-6 mb-3 text-white" {...props}>
+      <h3 className="text-lg sm:text-xl md:text-2xl font-bold mt-6 mb-3 text-white break-words" {...props}>
         {children}
       </h3>
     ),
     h4: ({ children, ...props }: any) => (
-      <h4 className="text-lg md:text-xl font-semibold mt-4 mb-2 text-white" {...props}>
+      <h4 className="text-base sm:text-lg md:text-xl font-semibold mt-4 mb-2 text-white break-words" {...props}>
         {children}
       </h4>
     ),
     p: ({ children, ...props }: any) => (
-      <p className="mb-4 text-slate-300 leading-relaxed" {...props}>
+      <p className="mb-4 text-slate-300 leading-relaxed break-words" {...props}>
         {children}
       </p>
     ),
     ul: ({ children, ...props }: any) => (
-      <ul className="list-disc ml-6 mb-4 space-y-2" {...props}>
+      <ul className="list-disc pl-5 sm:pl-6 pr-2 mb-4 space-y-2" {...props}>
         {children}
       </ul>
     ),
     ol: ({ children, ...props }: any) => (
-      <ol className="list-decimal ml-6 mb-4 space-y-2" {...props}>
+      <ol className="list-decimal pl-5 sm:pl-6 pr-2 mb-4 space-y-2" {...props}>
         {children}
       </ol>
     ),
     li: ({ children, ...props }: any) => (
-      <li className="text-slate-300" {...props}>
+      <li className="text-slate-300 break-words" {...props}>
         {children}
       </li>
     ),
@@ -282,7 +282,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   };
 
   return (
-    <article className="max-w-4xl mx-auto">
+    <article className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
       {/* Navigation */}
       <div className="mb-8 flex items-center justify-between">
         <Button
@@ -344,7 +344,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       </header>
 
       {/* Content */}
-      <div className="prose prose-invert max-w-none">
+      <div className="prose prose-invert prose-sm sm:prose-base max-w-none pl-1">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[
