@@ -1,7 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BRAND_COLORS } from '@/constants/styles';
 
 export const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleCareerAssessmentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      // Navigate to home page first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById('career-quiz');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById('career-quiz');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-slate-900 border-t border-slate-800 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,19 +47,23 @@ export const Footer = () => {
           
           <div>
             <h3 className="text-white font-semibold mb-4">Resources</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Link to="/" className="text-slate-400 hover:text-primary text-sm transition-colors">
-                Career Programs
-              </Link>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <Link to="/jobs" className="text-slate-400 hover:text-primary text-sm transition-colors">
                 Browse Jobs
               </Link>
-              <Link to="/application" className="text-slate-400 hover:text-primary text-sm transition-colors">
-                Apply Now
+              <Link to="/blog" className="text-slate-400 hover:text-primary text-sm transition-colors">
+                Read Blog
               </Link>
               <Link to="/demo" className="text-slate-400 hover:text-primary text-sm transition-colors">
                 View Demo
               </Link>
+              <a 
+                href="#career-quiz" 
+                onClick={handleCareerAssessmentClick}
+                className="text-slate-400 hover:text-primary text-sm transition-colors cursor-pointer"
+              >
+                Career Assessment
+              </a>
             </div>
           </div>
           
@@ -65,9 +92,20 @@ export const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-slate-800">
-          <p className="text-center text-sm text-slate-400">
-            © 2025 <span className="font-semibold" style={{ color: BRAND_COLORS.PRIMARY }}>GigaWatt Academy</span>. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
+            <p className="text-sm text-slate-400 text-center md:text-left">
+              © 2025 <span className="font-semibold" style={{ color: BRAND_COLORS.PRIMARY }}>GigaWatt Academy</span>. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-sm">
+              <Link to="/privacy" className="text-slate-400 hover:text-primary transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-slate-600">•</span>
+              <Link to="/terms" className="text-slate-400 hover:text-primary transition-colors">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

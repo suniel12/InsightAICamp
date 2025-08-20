@@ -197,6 +197,56 @@ All colors MUST be HSL for proper theming.
   }
 }
 
+/* Blog Post Anchor Links */
+.anchor-link {
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-left: -1.5rem;
+  padding-right: 0.5rem;
+}
+
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link {
+  opacity: 1;
+}
+
+.anchor-link:hover {
+  text-decoration: none;
+}
+
+.anchor-icon::before {
+  content: '#';
+  color: hsl(195 100% 50%);
+  font-weight: normal;
+}
+
+/* Markdown Content Improvements */
+.prose-invert pre {
+  background-color: hsl(222 84% 5%);
+  border: 1px solid hsl(217 32% 17%);
+}
+
+.prose-invert code {
+  background-color: hsl(217 32% 17%);
+}
+
+.prose-invert blockquote {
+  border-left-color: hsl(195 100% 50% / 0.5);
+  color: hsl(215 20% 65%);
+}
+
+/* Table of Contents Links */
+.prose-invert a[href^="#"] {
+  text-decoration: none;
+  position: relative;
+}
+
+.prose-invert a[href^="#"]:hover {
+  text-decoration: underline;
+}
+
 /* Keyframes */
 @keyframes counter {
   from { opacity: 0; transform: translateY(20px); }

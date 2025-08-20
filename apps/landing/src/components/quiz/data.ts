@@ -34,14 +34,14 @@ export const QUICK_ASSESSMENT: Record<string, Question> = {
       },
       {
         id: 'tech_adjacent',
-        text: 'Tech-Adjacent Professional',
-        description: 'Work with technology but not core IT (data entry, tech sales, digital marketing)',
+        text: 'Veterans',
+        description: 'Military veterans looking to transition to civilian tech careers',
         nextQuestionId: 'q2'
       },
       {
         id: 'others',
         text: 'Others',
-        description: 'Military/veteran, career changer, or other professional background',
+        description: 'Career changer or other professional background seeking stable tech career',
         nextQuestionId: 'q2'
       }
     ]

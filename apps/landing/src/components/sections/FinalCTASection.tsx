@@ -14,7 +14,7 @@ export const FinalCTASection: React.FC = () => {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-          Your Future in AI Infrastructure Starts with One Decision
+          Your Future in Tech Starts with One Decision
         </h2>
         <p className="text-xl mb-12 max-w-4xl mx-auto text-white/90">
           Be among the first to experience our revolutionary adaptive learning platform. 
@@ -40,13 +40,6 @@ export const FinalCTASection: React.FC = () => {
 
           <p className="text-sm text-white/60">
             "The adaptive learning demo is unlike anything I've seen in technical education." - Vindhya N
-          </p>
-        </div>
-        
-        {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-white/20">
-          <p className="text-sm text-white/60">
-            © 2025 <span className="font-semibold" style={{ color: 'white' }}>GigaWatt Academy</span>
           </p>
         </div>
       </div>

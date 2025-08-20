@@ -27,7 +27,7 @@ export const NavigationHeader = ({ className, onShowHowItWorks }: NavigationHead
                 className="h-8 w-8 object-contain"
                 decoding="async"
               />
-              <span className="text-xl font-bold" style={{ color: BRAND_COLORS.PRIMARY }}>
+              <span className="hidden sm:block text-xl font-bold" style={{ color: BRAND_COLORS.PRIMARY }}>
                 GigaWatt Academy
               </span>
             </Link>
@@ -41,6 +41,13 @@ export const NavigationHeader = ({ className, onShowHowItWorks }: NavigationHead
                 Jobs
               </Link>
               <Link
+                to="/blog"
+                className="font-bold hover:opacity-80 transition-opacity"
+                style={{ color: BRAND_COLORS.PRIMARY }}
+              >
+                Blog
+              </Link>
+              <Link
                 to="/demo"
                 className="font-bold hover:opacity-80 transition-opacity"
                 style={{ color: BRAND_COLORS.PRIMARY }}
@@ -50,18 +57,45 @@ export const NavigationHeader = ({ className, onShowHowItWorks }: NavigationHead
             </div>
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Show Jobs, Blog and Demo on mobile, hide on desktop (they're in the left nav) */}
+            <div className="flex md:hidden items-center space-x-2">
+              <Link
+                to="/jobs"
+                className="font-bold hover:opacity-80 transition-opacity text-sm"
+                style={{ color: BRAND_COLORS.PRIMARY }}
+              >
+                Jobs
+              </Link>
+              <Link
+                to="/blog"
+                className="font-bold hover:opacity-80 transition-opacity text-sm"
+                style={{ color: BRAND_COLORS.PRIMARY }}
+              >
+                Blog
+              </Link>
+              <Link
+                to="/demo"
+                className="font-bold hover:opacity-80 transition-opacity text-sm"
+                style={{ color: BRAND_COLORS.PRIMARY }}
+              >
+                Demo
+              </Link>
+            </div>
+            
+            {/* Hide "How it Works" on mobile */}
             {onShowHowItWorks && location.pathname === '/' && (
               <button 
                 onClick={onShowHowItWorks}
-                className="text-sm font-medium hover:opacity-80 transition-opacity text-slate-300" 
+                className="hidden sm:block text-sm font-medium hover:opacity-80 transition-opacity text-slate-300" 
               >
                 How it Works
               </button>
             )}
+            
             <Button
               asChild
-              className="text-white font-bold"
+              className="text-white font-bold text-sm sm:text-base"
               style={{ backgroundColor: BRAND_COLORS.PRIMARY }}
             >
               <Link to="/application">

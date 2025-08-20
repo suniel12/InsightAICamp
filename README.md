@@ -52,6 +52,8 @@ npm run dev:all
 - Marketing website built with React, Vite, TypeScript
 - 3D demo videos using Remotion and React Three Fiber
 - Course previews and testimonials
+- Job board with 150+ cached data center positions
+- Blog system with MDX support for content management
 
 ### Video Pipeline (`apps/videopipeline`)
 Automated pipeline that converts PowerPoint/PDF to professional video courses:
@@ -82,7 +84,35 @@ npm run pipeline:worker # Start background workers
 
 # Remotion
 npm run remotion:studio # Open Remotion Studio for video editing
+
+# Jobs Data Management (Landing Page)
+npm run export:jobs     # Export SQLite jobs to static JSON
+npm run refresh:jobs    # Fetch new jobs from Adzuna + export to JSON
 ```
+
+## 🔄 Weekly Jobs Data Refresh
+
+The landing page displays cached job data from Adzuna API. To keep the data fresh:
+
+### Refresh Jobs Weekly
+```bash
+cd apps/landing
+npm run refresh:jobs
+```
+
+This command will:
+1. Fetch latest jobs from Adzuna API (requires API credentials)
+2. Update the SQLite database (`data/datacenter_jobs.db`)
+3. Export to static JSON (`src/data/cachedJobs.json`)
+4. No backend server needed for display - just static JSON!
+
+### Manual Export Only
+If you've updated the database manually and just need to export:
+```bash
+npm run export:jobs
+```
+
+The jobs page will show a warning if data is older than 7 days.
 
 ## 🎯 Pipeline Usage
 

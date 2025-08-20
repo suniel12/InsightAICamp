@@ -3,7 +3,7 @@ import { CareerQuiz } from '../quiz/CareerQuiz';
 
 export const QuizSection: React.FC = () => {
   return (
-    <section className="py-20 gradient-section">
+    <section id="career-quiz" className="py-20 gradient-section">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
