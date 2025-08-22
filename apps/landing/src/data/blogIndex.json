@@ -1,5 +1,31 @@
 [
   {
+    "slug": "data-center-certifications-that-actually-matter",
+    "title": "Data Center Certifications That Actually Matter (According to Hiring Managers)",
+    "excerpt": "Evidence-based guide revealing which certifications increase salaries by $10,000-30,000 and why 93% of IT professionals need them in 2025",
+    "author": {
+      "name": "Sunil Pandey, PhD"
+    },
+    "publishedAt": "2025-08-22T10:00:00Z",
+    "updatedAt": "2025-08-22T10:00:00Z",
+    "readingTime": 18,
+    "category": "Career Guide",
+    "tags": [
+      "data center certifications",
+      "CompTIA",
+      "DCCA",
+      "hiring managers",
+      "salary",
+      "career advancement",
+      "AWS",
+      "Microsoft",
+      "Google"
+    ],
+    "featuredImage": "/blog/data-center-certifications-hiring-managers.jpg",
+    "metaDescription": "Discover which data center certifications hiring managers value most in 2025, with salary data showing $10,000-30,000 increases for certified professionals",
+    "filename": "2025-08-22-data-center-certifications-that-actually-matter.mdx"
+  },
+  {
     "slug": "it-help-desk-to-cloud-engineer-pathway",
     "title": "From IT Help Desk to Cloud Engineer: Your 18-Month Career Transformation",
     "excerpt": "Learn the exact steps, certifications, and skills needed to transition from help desk support to a six-figure cloud engineering role.",
