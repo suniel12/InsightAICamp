@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "npm run dev:landing",
     "dev:landing": "npm run dev -w @insightaicamp/landing",
+    "dev:insightpath": "npm run dev -w @insightaicamp/insightpath",
     "dev:pipeline": "npm run dev -w @insightaicamp/videopipeline",
     "dev:all": "concurrently \"npm run dev:landing\" \"npm run dev:pipeline\"",
     "build": "npm run build:packages && npm run build:apps",
@@ -16,6 +17,7 @@
     "build:apps": "npm run build -w @insightaicamp/landing && npm run build -w @insightaicamp/videopipeline",
     "vercel-build": "npm run build:landing",
     "build:landing": "npm run build -w @insightaicamp/landing",
+    "build:insightpath": "npm run build -w @insightaicamp/insightpath",
     "build:pipeline": "npm run build -w @insightaicamp/videopipeline",
     "lint": "npm run lint -w apps/* -w packages/*",
     "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
