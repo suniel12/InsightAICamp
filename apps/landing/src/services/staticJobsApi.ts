@@ -69,7 +69,7 @@ export function searchStaticJobs(filters: JobFilters = {}): JobSearchResponse {
     clearanceLevel = '',
     experienceLevel = '',
     page = 1, 
-    limit = 50 
+    limit = 20 
   } = filters;
 
   // Start with all jobs

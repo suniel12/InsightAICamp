@@ -12,6 +12,7 @@
     "generate:blog-index": "node scripts/generate-blog-index.js",
     "generate:blog-content": "node scripts/generate-blog-content.js",
     "export:jobs": "node scripts/export-jobs-to-json.js",
+    "cleanup:jobs": "node scripts/cleanup-old-jobs.js",
     "refresh:jobs": "npm run sync:daily && npm run export:jobs",
     "lint": "eslint .",
     "preview": "vite preview",

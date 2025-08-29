@@ -63,7 +63,7 @@ const JobsPage = () => {
       companies: selectedCompany !== 'All Companies' ? [selectedCompany] : [],
       experienceLevel: selectedExperience,
       page: currentPage,
-      limit: 50
+      limit: 20
     });
   }, [searchQuery, selectedSpecialization, selectedCompany, selectedExperience, currentPage]);
   
@@ -99,20 +99,10 @@ const JobsPage = () => {
                 <h1 className="text-4xl font-bold text-white mb-2">
                   Data Center Jobs Board
                 </h1>
-                <p className="text-xl text-slate-300">
-                  {statistics.totalJobs} opportunities from {statistics.companiesHiring} companies
-                </p>
               </div>
               
               {/* Data Source Badge */}
               <div className="text-right">
-                <Badge variant="secondary" className="mb-2">
-                  <Database className="w-3 h-3 mr-1" />
-                  Cached Data
-                </Badge>
-                <p className="text-sm text-slate-400">
-                  Last updated: {formatLastSync(metadata.lastSync)}
-                </p>
                 {isStale && (
                   <p className="text-sm text-yellow-500 flex items-center justify-end mt-1">
                     <RefreshCw className="w-3 h-3 mr-1" />
@@ -227,22 +217,9 @@ const JobsPage = () => {
                                 <MapPin className="w-4 h-4 text-slate-400" />
                                 {job.location}
                               </span>
-                              <span className="flex items-center gap-1">
-                                <Clock className="w-4 h-4 text-slate-400" />
-                                {job.postedRelative}
-                              </span>
                             </div>
                           </CardDescription>
                         </div>
-                        {job.matchScore > 0 && (
-                          <Badge 
-                            variant={job.matchScore >= 80 ? "default" : "secondary"}
-                            className="ml-4"
-                            style={job.matchScore >= 80 ? { backgroundColor: BRAND_COLORS.PRIMARY } : {}}
-                          >
-                            {job.matchScore}% Match
-                          </Badge>
-                        )}
                       </div>
                     </CardHeader>
                     <CardContent>
